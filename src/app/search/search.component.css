@@ -1,0 +1,25 @@
+
+  .input-group .form-control {
+      position: relative;
+      z-index: 2;
+      float: left;
+      width: 70%;
+      margin-bottom: 0;
+  }
+.search-button{
+  padding-left:5%;
+  height:100%;
+
+}
+.input-group-text{
+  background-color: #E81E1E;
+color:#fff;
+}
+.title-pen {
+  color: #333;
+  font-family: "Coda", sans-serif;
+  text-align: center;
+}
+.title-pen span {
+  color: #55acee;
+}
