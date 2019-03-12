@@ -17,10 +17,10 @@
     <label class="product-line-price">Total</label>
   </div>
 
-  <div class="product" *ngFor="let item of items">
+  <div class="product" *ngFor="let item of items ; let i = index">
     <div class="product-image ">
       <!--<img src="https://s.cdpn.io/3/dingo-dog-bones.jpg"> -->
-      <button class="wNrY5O"> – </button>&nbsp;<p class="_2csFM9"> {{item.count}}</p> &nbsp;<button class="wNrY5O"> + </button>
+      <button class="wNrY5O" (click)="dec(i)"> – </button>&nbsp;<p class="_2csFM9"> {{item.count}}</p> &nbsp;<button class="wNrY5O" (click)="inc(i)"> + </button>
 
     </div>
     <div class="product-details">

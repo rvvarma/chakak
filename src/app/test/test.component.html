@@ -58,8 +58,10 @@
 
    <li class="list-group-item" *ngFor="let indi of item.value ; let i = index">
             <label class="itemname">
-              <img src="./assets/non-veg.png" height="15px">{{indi.itemname}}
-             <br> <p class="price">Rs100</p> </label>
+              <img src="./assets/veg.png" height="15px" *ngIf="indi.itemvariant=='veg'">
+              <img src="./assets/non-veg.png" height="15px" *ngIf="indi.itemvariant=='nonveg'">&nbsp;{{indi.itemname}}
+
+             <br> <p class="price">Rs {{indi.itemprice}}</p> </label>
 
 
                   <a  class=" pull-right">

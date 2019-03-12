@@ -10,7 +10,7 @@ export class AppComponent {
 address:any;
 constructor(){
 this.address="Locating.."
-this.add()
+//this.add()
 }
   add(a){
 

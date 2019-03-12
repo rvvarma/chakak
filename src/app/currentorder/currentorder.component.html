@@ -1,4 +1,4 @@
-<agm-map [latitude]=latitude [longitude]=longitude style="height:420px" [zoom]="17">
+<agm-map [latitude]=latitude [longitude]=longitude style="height:420px" [zoom]="15">
   <agm-marker [latitude]=latitude [longitude]=longitude  ></agm-marker>
 </agm-map>
  <div class="card">
@@ -16,9 +16,9 @@
      call  <i class="fa fa-phone" aria-hidden="true"></i>
 </button>
      </h5>
-    <p class="card-text"></p>
-    <a class="card-link">Status :  </a> <br>
-    <a class="card-link">Payment  </a> <br>
+    <p class="card-text">Name: {{items.DeliveryBoys.DeliveryBoysName}}</p>
+    <a class="card-link">Status : {{items.status}} </a> <br>
+    <a class="card-link">Payment : {{items.payment  }}  </a> <br>
 
     <a class="card-link">Order Datils:<br>
         Items 1, Items 2
