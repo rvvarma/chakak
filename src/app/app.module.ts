@@ -14,6 +14,8 @@ import { SearchComponent } from './search/search.component';
 import { CurrentorderComponent } from './currentorder/currentorder.component';
 import { AgmCoreModule } from '@agm/core';
 
+import { AgmDirectionModule } from 'agm-direction';
+
 import { HttpModule } from '@angular/http';
 import { CookieModule } from 'ngx-cookie';
 
@@ -40,7 +42,7 @@ const appRoutes: Routes = [
     AccountComponent,
     CartComponent,
     SearchComponent,
-    CurrentorderComponent
+    CurrentorderComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,7 @@ AgmCoreModule.forRoot({
    use clientId
    */
  }),
+ AgmDirectionModule,
     RouterModule.forRoot(
      appRoutes,
      { enableTracing: false } // <-- debugging purposes only
