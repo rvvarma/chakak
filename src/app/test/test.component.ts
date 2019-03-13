@@ -18,7 +18,7 @@ address:any;
 
 //let app = new AppComponent();
 this.hash={};
-/*
+
 this.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=17.3223111,78.5717521&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
 var boy=data.json();
 console.log(boy.results[3].address_components[6].long_name)
@@ -26,7 +26,7 @@ this.app.add(boy.results[3].address_components[0].long_name)
 this.datarefresh(boy.results[3].address_components[6].long_name)
 })
 
-*/
+
 
 
 
