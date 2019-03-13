@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Carter+One');
 @import url('https://fonts.googleapis.com/css?family=Pacifico&subset=cyrillic,latin-ext,vietnamese');
 
+  #map {
+    width: 100%;
+    height: 480px;
+  }
+</style>
 .title-pen {
   color: #333;
   font-family: "Coda", sans-serif;

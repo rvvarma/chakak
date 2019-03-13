@@ -19,17 +19,11 @@ address:any;
 //let app = new AppComponent();
 this.hash={};
 
-this.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=17.3223111,78.5717521&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
-var boy=data.json();
-console.log(boy.results[3].address_components[6].long_name)
-this.app.add(boy.results[3].address_components[0].long_name)
-this.datarefresh(boy.results[3].address_components[6].long_name)
-})
 
 
 
 
-
+this.datarefresh("6")
 
 
 
@@ -38,8 +32,38 @@ this.datarefresh(boy.results[3].address_components[6].long_name)
   }
 
   ngOnInit() {
-    navigator.geolocation.getCurrentPosition(this.callback);
+    if (window.navigator && window.navigator.geolocation) {
+          window.navigator.geolocation.getCurrentPosition(
+              position => {
+              //    this.geolocationPosition = position,
+                      console.log(position)
 
+
+                      this.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+position.coords.latitude+","+position.coords.longitude+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
+                      var boy=data.json();
+                      console.log(boy)
+                      console.log(boy.results[3].address_components[6].long_name)
+                      this.app.add(boy.results[3].address_components[0].long_name)
+                      this.datarefresh(boy.results[3].address_components[6].long_name)
+                      })
+
+
+              },
+              error => {
+                  switch (error.code) {
+                      case 1:
+                          console.log('Permission Denied');
+                          break;
+                      case 2:
+                          console.log('Position Unavailable');
+                          break;
+                      case 3:
+                          console.log('Timeout');
+                          break;
+                  }
+              }
+          );
+      };
   }
 
 
@@ -47,7 +71,7 @@ this.datarefresh(boy.results[3].address_components[6].long_name)
 datarefresh(data){
 
 
-      this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/items?operation=get&pincode="+data).subscribe(data => {
+      this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/items?operation=get&pincode=500070").subscribe(data => {
     var boy=data.json();
   //console.log(boy)
   var groupBy = function(xs, key) {

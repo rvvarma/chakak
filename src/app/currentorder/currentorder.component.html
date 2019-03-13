@@ -1,6 +1,11 @@
-<agm-map [latitude]=latitude [longitude]=longitude style="height:420px" [zoom]="17">
-  <agm-marker [latitude]=latitude [longitude]=longitude  ></agm-marker>
+
+
+
+<agm-map [latitude]="lat" [longitude]="lng" style="height:420px">
+  <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination" [renderOptions]="renderOpts" [markerOptions]="markerOpts"></agm-direction>
 </agm-map>
+
+
  <div class="card">
   <div class="card-body">
     <h5 class="card-title">
@@ -8,8 +13,8 @@
 
       <div class="chip">
 
-        <img src="./assets/driver.png" alt="Person" width="96" height="96">
-
+        <img src="./assets/driver.png" alt="Person" width="106" height="70">
+ {{items.DeliveryBoys.DeliveryBoysName}}
 
       </div>
       <button type="button" class="btn  pull-right btn-success btn-xs button5">
@@ -17,8 +22,9 @@
 </button>
      </h5>
     <p class="card-text"></p>
-    <a class="card-link">Status :  </a> <br>
-    <a class="card-link">Payment  </a> <br>
+    <a class="card-link">Status : <a href="#" class="button">{{items.status}} </a>
+</a> <br>
+    <a class="card-link">Payment : {{items.payment  }}  </a> <br>
 
     <a class="card-link">Order Datils:<br>
         Items 1, Items 2

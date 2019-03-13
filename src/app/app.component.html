@@ -52,7 +52,7 @@
 <!--/.Navbar-->
 <ul class="nav-mobile sty navbar-fixed-top">
   <li>   <i class="fa fa-compass pull-left" aria-hidden="true"></i>
-<label class="pull-left" style=" margin-top:1%; font-size:0.8em; color:white;width: 100px;">{{address}}</label>
+<label class="pull-left" style=" margin-top:1%; font-size:0.8em; color:white;width: 100px;" data-toggle="modal" data-target="#location">{{address}}</label>
 <label class="pull-right" style="color:#fff;margin-right:8%;">
 Slug</label>
 </li>
@@ -120,7 +120,7 @@ Home
 </div>
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content">
-   <a  >
+   <a data-toggle="modal" data-target="#myModal"aria-hidden="true" >
      <i class="fa fa-search bottom-icons" data-toggle="modal" data-target="#myModal"aria-hidden="true"></i>
 <br>Search
  </a>
@@ -135,7 +135,7 @@ Home
  </div>
 </div>
 <div class="mobile-bottom-nav__item">
- <div class="mobile-bottom-nav__item-content">
+ <div class="mobile-bottom-nav__item-content" routerLink="/cart" routerLinkActive="active-link">
    <a routerLink="/cart" routerLinkActive="active-link">
      <i class="fa fa-cart-arrow-down bottom-icons"  aria-hidden="true"></i>
  <br>Cart
@@ -239,6 +239,88 @@ Account
 
 
 
+
+  <!---      -------------------  Modal for Location       --------------------------------------->
+
+
+    <div class="modal fade" id="location" role="dialog">
+      <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Set Your Location</h4>
+
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">New Location</a></li>
+                <li><a data-toggle="tab" href="#menu1">Saved Location</a></li>
+
+              </ul>
+         </div>
+
+
+
+      <div class="tab-content" style="margin-left:5%;margin-right:5%;">
+        <div id="home" class="tab-pane fade in active">
+
+                      <div class="bio">
+
+                      <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px; font-size:1em"></div>
+                          <div class="w3-rest">
+                            <input class="w3-input" placeholder="House NO" type="text">
+                          </div>
+                      </div>
+                      <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"></div>
+                          <div class="w3-rest">
+                            <input class="w3-input"placeholder="Area" type="text">
+                          </div>
+                      </div>  <div class="w3-row w3-section">
+                          <div class="w3-col" style="width:50px"></div>
+                            <div class="w3-rest">
+                              <input class="w3-input" placeholder="Landmark" type="text">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Submit</button>
+  <br>
+  <br>
+                      </div>     </div>
+        <div id="menu1" class="tab-pane fade">
+          <form action="#">
+        <p>
+          <label>
+            <input name="group1" type="radio" checked />
+            <span>Home</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="group1" type="radio" />
+            <span>Work</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input class="with-gap" name="group1" type="radio"  />
+            <span>Others</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="group1" type="radio"  />
+            <span>Others2</span>
+          </label>
+        </p>
+      </form>
+               </div>
+          <br>
+          <br>
+      </div>
+          </div>
+        </div>
+    </div>
 
 
 

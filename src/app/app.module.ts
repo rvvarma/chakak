@@ -14,8 +14,11 @@ import { SearchComponent } from './search/search.component';
 import { CurrentorderComponent } from './currentorder/currentorder.component';
 import { AgmCoreModule } from '@agm/core';
 
+import { AgmDirectionModule } from 'agm-direction';
+
 import { HttpModule } from '@angular/http';
 import { CookieModule } from 'ngx-cookie';
+import { LocationpickerComponent } from './locationpicker/locationpicker.component';
 
 const appRoutes: Routes = [
   { path: 'cheques', component: ChequeslistComponent },
@@ -25,7 +28,8 @@ const appRoutes: Routes = [
   { path: 'account', component: AccountComponent },
 { path: 'cart', component: CartComponent },
 {path:'currentorder',component:CurrentorderComponent},
-{ path: 'Search', component: SearchComponent }
+{ path: 'Search', component: SearchComponent },
+{path:'location',component:LocationpickerComponent},
 
 ];
 //
@@ -40,7 +44,8 @@ const appRoutes: Routes = [
     AccountComponent,
     CartComponent,
     SearchComponent,
-    CurrentorderComponent
+    CurrentorderComponent,
+    LocationpickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +60,7 @@ AgmCoreModule.forRoot({
    use clientId
    */
  }),
+ AgmDirectionModule,
     RouterModule.forRoot(
      appRoutes,
      { enableTracing: false } // <-- debugging purposes only

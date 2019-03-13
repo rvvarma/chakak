@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Myapp</title>
+  <base href="/">
+  <!-- Font Awesome --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.1/css/mdb.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap --><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<script type="application/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
+<script type="application/javascript" src="/node_modules/owl.carousel/dist/owl.carousel.js"></script>
+<link rel="stylesheet" href="styles.bcc5761eb05af42f4c99.css"></head>
+<body>
+  <app-root></app-root>
+<script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.7fb637d055581aa28d51.js"></script><script type="text/javascript" src="scripts.d6e4ff1bb133c15fc852.js"></script><script type="text/javascript" src="main.c142d5c8fa3d7f515700.js"></script></body>
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.1/js/mdb.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.0/js/mdb.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+<script>
+	$(function() {
+			App.init();
+});
+var App = {
+			init: function() {
+						this.datetime(), this.side.nav(), this.search.bar(), this.navigation(), this.hyperlinks(), setInterval("App.datetime();", 1e3)
+			},
+			datetime: function() {
+						var e = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"),
+									t = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"),
+									a = new Date,
+									i = a.getYear();
+						1e3 > i && (i += 1900);
+						var s = a.getDay(),
+									n = a.getMonth(),
+									r = a.getDate();
+						10 > r && (r = "0" + r);
+						var l = a.getHours(),
+									c = a.getMinutes(),
+									h = a.getSeconds(),
+									o = "AM";
+						l >= 12 && (o = "PM"), l > 12 && (l -= 12), 0 == l && (l = 12), 9 >= c && (c = "0" + c), 9 >= h && (h = "0" + h), $(".welcome .datetime .day").text(e[s]), $(".welcome .datetime .date").text(t[n] + " " + r + ", " + i), $(".welcome .datetime .time").text(l + ":" + c + ":" + h + " " + o)
+			},
+			title: function(e) {
+						return $(".header>.title").text(e)
+			},
+			side: {
+						nav: function() {
+									this.toggle(), this.navigation()
+						},
+						toggle: function() {
+									$(".ion-ios-navicon").on("touchstart click", function(e) {
+												e.preventDefault(), $(".sidebar").toggleClass("active"), $(".nav").removeClass("active"), $(".sidebar .sidebar-overlay").removeClass("fadeOut animated").addClass("fadeIn animated")
+									}), $(".sidebar .sidebar-overlay").on("touchstart click", function(e) {
+												e.preventDefault(), $(".ion-ios-navicon").click(), $(this).removeClass("fadeIn").addClass("fadeOut")
+									})
+						},
+						navigation: function() {
+									$(".nav-left a").on("touchstart click", function(e) {
+												e.preventDefault();
+												var t = $(this).attr("href").replace("#", "");
+												$(".sidebar").toggleClass("active"), $(".html").removeClass("visible"), "home" == t || "" == t || null == t ? $(".html.welcome").addClass("visible") : $(".html." + t).addClass("visible"), App.title($(this).text())
+									})
+						}
+			},
+			search: {
+						bar: function() {
+									$(".header .ion-ios-search").on("touchstart click", function() {
+												var e = ($(".header .search input").hasClass("search-visible"), $(".header .search input").val());
+												return "" != e && null != e ? (App.search.html($(".header .search input").val()), !1) : ($(".nav").removeClass("active"), $(".header .search input").focus(), void $(".header .search input").toggleClass("search-visible"))
+									}), $(".search form").on("submit", function(e) {
+												e.preventDefault(), App.search.html($(".header .search input").val())
+									})
+						},
+						html: function(e) {
+									$(".search input").removeClass("search-visible"), $(".html").removeClass("visible"), $(".html.search").addClass("visible"), App.title("Result"), $(".html.search").html($(".html.search").html()), $(".html.search .key").html(e), $(".header .search input").val("")
+						}
+			},
+			navigation: function() {
+						$(".nav .mask").on("touchstart click", function(e) {
+									e.preventDefault(), $(this).parent().toggleClass("active")
+						})
+			},
+			hyperlinks: function() {
+						$(".nav .nav-item").on("click", function(e) {
+									e.preventDefault();
+									var t = $(this).attr("href").replace("#", "");
+									$(".html").removeClass("visible"), $(".html." + t).addClass("visible"), $(".nav").toggleClass("active"), App.title($(this).text())
+						})
+			}
+};
+	</script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- carousel----------------------------------------------------------------------------------------------------->
+
+<script>
+
+</script>
+<!-- cards----------------------------------------------------------------------------------------------------->
+
+<script>
+  jQuery(document).ready(function($){
+	//if you change this breakpoint in the style.css file (or _layout.scss if you use SASS), don't forget to update this value as well
+	var $L = 1200,
+		$menu_navigation = $('#main-nav'),
+		$cart_trigger = $('#cd-cart-trigger'),
+		$hamburger_icon = $('#cd-hamburger-menu'),
+		$lateral_cart = $('#cd-cart'),
+		$shadow_layer = $('#cd-shadow-layer');
+
+	//open lateral menu on mobile
+	$hamburger_icon.on('click', function(event){
+		event.preventDefault();
+		//close cart panel (if it's open)
+		$lateral_cart.removeClass('speed-in');
+		toggle_panel_visibility($menu_navigation, $shadow_layer, $('body'));
+	});
+
+	//open cart
+	$cart_trigger.on('click', function(event){
+		event.preventDefault();
+		//close lateral menu (if it's open)
+		$menu_navigation.removeClass('speed-in');
+		toggle_panel_visibility($lateral_cart, $shadow_layer, $('body'));
+	});
+
+	//close lateral cart or lateral menu
+	$shadow_layer.on('click', function(){
+		$lateral_cart.removeClass('speed-in');
+		$menu_navigation.removeClass('speed-in');
+		$shadow_layer.removeClass('is-visible');
+		$('body').removeClass('overflow-hidden');
+	});
+
+	//move #main-navigation inside header on laptop
+	//insert #main-navigation after header on mobile
+	move_navigation( $menu_navigation, $L);
+	$(window).on('resize', function(){
+		move_navigation( $menu_navigation, $L);
+
+		if( $(window).width() >= $L && $menu_navigation.hasClass('speed-in')) {
+			$menu_navigation.removeClass('speed-in');
+			$shadow_layer.removeClass('is-visible');
+			$('body').removeClass('overflow-hidden');
+		}
+
+	});
+});
+
+function toggle_panel_visibility ($lateral_panel, $background_layer, $body) {
+	if( $lateral_panel.hasClass('speed-in') ) {
+		$lateral_panel.removeClass('speed-in');
+		$background_layer.removeClass('is-visible');
+		$body.removeClass('overflow-hidden');
+	} else {
+		$lateral_panel.addClass('speed-in');
+		$background_layer.addClass('is-visible');
+		$body.addClass('overflow-hidden');
+	}
+}
+
+function move_navigation( $navigation, $MQ) {
+	if ( $(window).width() >= $MQ ) {
+		$navigation.detach();
+		$navigation.appendTo('header');
+	} else {
+		$navigation.detach();
+		$navigation.insertAfter('header');
+	}
+}
+  </script>
+  <script>
+    $(document).ready(function(){
+
+  	$(".sidebar-menu > li.have-children a").on("click", function(i){
+  		  i.preventDefault();
+      if( ! $(this).parent().hasClass("active") ){
+        $(".sidebar-menu li ul").slideUp();
+        $(this).next().slideToggle();
+        $(".sidebar-menu li").removeClass("active");
+        $(this).parent().addClass("active");
+      }
+      else{
+        $(this).next().slideToggle();
+        $(".sidebar-menu li").removeClass("active");
+          }
+      });
+  });
+    </script>
+
+
+
+
+
+
+<!-- cards----------------------------------------------------------------------------------------------------->
+    <script>
+      mobiscroll.settings = {
+        theme: 'ios'
+    }
+
+    mobiscroll.scrollview('.demo-cards', {
+        layout: 'fixed',
+        itemWidth: 134,
+        snap: false
+    });
+      </script>
+
+
+      <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.display === "block") {
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "block";
+          }
+        });
+      }
+      </script>
+      <script>
+
+      </script>
+</html>
