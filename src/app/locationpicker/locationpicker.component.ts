@@ -11,5 +11,9 @@ export class LocationpickerComponent implements OnInit {
 
   ngOnInit() {
   }
+local(data){
+  var   num1= ((document.getElementById("onIdlePositionView") as HTMLInputElement).value);
+  alert(num1)
 
+}
 }

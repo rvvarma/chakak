@@ -252,73 +252,26 @@ Account
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-              <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">New Location</a></li>
-                <li><a data-toggle="tab" href="#menu1">Saved Location</a></li>
+              <a href="/location">
+<h3 style="text-align:left;font-size:1em;font-weight:bolder"> Current Location
+  <input class="pull-right" height="40px" type="image" src="./assets/map.png" routerLink="/location" alt="Submit">
+<br> <sub> use gps to get correct location</sub>
+    </h3>
+</a>
+     <hr>
 
-              </ul>
+<h3 style="text-align:left; font-size:1em;font-weight:bolder"> Saved Location</h3>
+<div class="" style="text-align:left">
+  <button class="button-address">Home:complete address</button>
+
+  <button class="button-address">Office:complete address</button>
+
+</div>
          </div>
 
 
 
-      <div class="tab-content" style="margin-left:5%;margin-right:5%;">
-        <div id="home" class="tab-pane fade in active">
 
-                      <div class="bio">
-
-                      <div class="w3-row w3-section">
-                        <div class="w3-col" style="width:50px; font-size:1em"></div>
-                          <div class="w3-rest">
-                            <input class="w3-input" placeholder="House NO" type="text">
-                          </div>
-                      </div>
-                      <div class="w3-row w3-section">
-                        <div class="w3-col" style="width:50px"></div>
-                          <div class="w3-rest">
-                            <input class="w3-input"placeholder="Area" type="text">
-                          </div>
-                      </div>  <div class="w3-row w3-section">
-                          <div class="w3-col" style="width:50px"></div>
-                            <div class="w3-rest">
-                              <input class="w3-input" placeholder="Landmark" type="text">
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Submit</button>
-  <br>
-  <br>
-                      </div>     </div>
-        <div id="menu1" class="tab-pane fade">
-          <form action="#">
-        <p>
-          <label>
-            <input name="group1" type="radio" checked />
-            <span>Home</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="group1" type="radio" />
-            <span>Work</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input class="with-gap" name="group1" type="radio"  />
-            <span>Others</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="group1" type="radio"  />
-            <span>Others2</span>
-          </label>
-        </p>
-      </form>
-               </div>
-          <br>
-          <br>
-      </div>
-          </div>
         </div>
     </div>
 

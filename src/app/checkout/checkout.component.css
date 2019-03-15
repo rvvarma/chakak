@@ -1,0 +1,158 @@
+
+.reveal-if-active {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  font-size: 16px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  transition: 0.5s;
+}
+.reveal-if-active label {
+  display: block;
+  margin: 0 0 3px 0;
+}
+.reveal-if-active input[type=text] {
+  width: 100%;
+}
+input[type="radio"]:checked ~ .reveal-if-active, input[type="checkbox"]:checked ~ .reveal-if-active {
+  opacity: 1;
+  max-height: 100px;
+  padding: 10px 20px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  overflow: visible;
+}
+
+form {
+  max-width: 500px;
+  margin: 20px auto;
+}
+form > div {
+  margin: 0 0 20px 0;
+}
+form > div label {
+  font-weight: bold;
+}
+form > div > div {
+  padding: 5px;
+}
+form > h4 {
+  color: green;
+  font-size: 24px;
+  margin: 0 0 10px 0;
+  border-bottom: 2px solid green;
+}
+
+body {
+  font-size: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+
+body { margin-top:20px; }
+.panel-title {display: inline;font-weight: bold;}
+.checkbox.pull-right { margin: 0; }
+.pl-ziro { padding-left: 0px; }
+
+.bs-example{
+  margin: 20px;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  transition: all .25s ease;
+}
+.accordian {
+  width: 100%;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  margin: 5% auto;
+  color: #b5b5b5;
+}
+.accordian .title {
+  background-color: #fff;
+  color: #8f8f8f;
+  padding: 1rem;
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-weight: 300;
+  transition: all .25s ease;
+}
+.accordian .title:hover {
+  background-color: rgba(0, 0, 0, 0.005);
+}
+.accordian ul li:last-child .title {
+  border-bottom: 0;
+}
+.accordian ul ul li a {
+  display: block;
+  background-color: #eee;
+  padding: 1rem;
+  color: #777;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.accordian ul ul li a:hover {
+  background-color: #55acee;
+  color: #fff;
+}
+.accordian ul ul {
+  display: none;
+}
+.open {
+  transform: rotate(45deg);
+  transition: all .25s ease;
+}
+.accordian ul ul li:last-child a {
+  border-bottom: 0;
+}
+.fa {
+  transition: all .25s ease;
+  float: left;
+}
+.accordian h3 {
+  cursor: pointer;
+}
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}

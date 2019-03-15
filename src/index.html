@@ -59,12 +59,103 @@
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Jrp9PtHe0WapppUzxbIpMDWMAcV3qE4"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script><!--accrodian - cehckout -->
+
+$(function(){
+  $(".accordian h3").click(function(e){
+    $('accordian h3').find('.fa.fa-plus open').toggleClass('open');
+    $($(e.target).find('.fa.fa-plus').toggleClass('open'));
+  $(".accordian ul ul").slideUp();
+    if ($(this).next().is(":hidden")){
+    $(this).next().slideDown();
+    }
+  });
+
+
+});
+  </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+      $("#chkPassport").click(function () {
+          if ($(this).is(":checked")) {
+              $("#txtPassportNumber").removeAttr("disabled");
+              $("#txtPassportNumber").focus();
+          } else {
+              $("#txtPassportNumber").attr("disabled", "disabled");
+          }
+      });
+  });
+</script>
+<script><!--login and sign up ->
+const switchers = [...document.querySelectorAll('.switcher')]
+
+switchers.forEach(item => {
+	item.addEventListener('click', function() {
+		switchers.forEach(item => item.parentElement.classList.remove('is-active'))
+		this.parentElement.classList.add('is-active')
+	})
+})
+
+</script>
+<script>
+const signUp = document.querySelector('.sign-up');
+const signIn = document.querySelector('.sign-in');
+
+// Switch btns: there are two only because I was in a hurry a didn't want to write all the javascript immediately. In a production environment, a better solution would be implemented.
+const btn1 = document.querySelector('.opposite-btn1');
+const btn2 = document.querySelector('.opposite-btn2');
+
+
+// Switches to 'Create Account'
+btn1.addEventListener('click', () => {
+  signUp.style.display = 'block';
+  signIn.style.display = 'none';
+});
+
+// Switches to 'Sign In'
+btn2.addEventListener('click', () => {
+  signUp.style.display = 'none';
+  signIn.style.display = 'block';
+});
+</script>
+<script>
+function myMap()
+{
+  myCenter=new google.maps.LatLng(17.4360, 78.4020);
+  var mapOptions= {
+    center:myCenter,
+    zoom:12, scrollwheel: false, draggable: false,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+  var marker = new google.maps.Marker({
+    position: myCenter,
+  });
+  marker.setMap(map);
+}
+</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+      $("#chkPassport").click(function () {
+          if ($(this).is(":checked")) {
+              $("#txtPassportNumber").removeAttr("disabled");
+              $("#txtPassportNumber").focus();
+          } else {
+              $("#txtPassportNumber").attr("disabled", "disabled");
+          }
+      });
+  });
+</script>
 <script>
   // Get element references ------------------------------------------------------- locationPicker
   var confirmBtn = document.getElementById('confirmPosition');
   var onClickPositionView = document.getElementById('onClickPositionView');
   var onIdlePositionView = document.getElementById('onIdlePositionView');
   var map = document.getElementById('map');
+
 
   // Initialize LocationPicker plugin
   var lp = new locationPicker(map, {
@@ -86,8 +177,15 @@
   google.maps.event.addListener(lp.map, 'idle', function (event) {
     // Get current location and show it in HTML
     var location = lp.getMarkerPosition();
-    onIdlePositionView.innerHTML = 'The chosen location is ' + location.lat + ',' + location.lng;
+
+    onIdlePositionView.innerHTML =  location.lat + ',' + location.lng;
   });
+
+/*
+  google.maps.event.addListenerOnce(map, 'idle', function () {
+alert("hi")
+});
+*/
 </script>
 <script>
 function openNav() {
@@ -255,7 +353,26 @@ function move_navigation( $navigation, $MQ) {
   </script>
   <script>
     $(document).ready(function(){
+    var map;
 
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 48.764651, lng: 0.628715},
+                zoom: 8
+            });
+        }
+
+        function addMarker(location) {
+            marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+
+        function marker(){
+            City = new google.maps.LatLng(48.764651, 0.628715);
+            addMarker(City);
+        }
   	$(".sidebar-menu > li.have-children a").on("click", function(i){
   		  i.preventDefault();
       if( ! $(this).parent().hasClass("active") ){

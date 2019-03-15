@@ -13,12 +13,14 @@ import { CartComponent } from './cart/cart.component';
 import { SearchComponent } from './search/search.component';
 import { CurrentorderComponent } from './currentorder/currentorder.component';
 import { AgmCoreModule } from '@agm/core';
+import { FormsModule }   from '@angular/forms';
 
 import { AgmDirectionModule } from 'agm-direction';
 
 import { HttpModule } from '@angular/http';
 import { CookieModule } from 'ngx-cookie';
 import { LocationpickerComponent } from './locationpicker/locationpicker.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const appRoutes: Routes = [
   { path: 'cheques', component: ChequeslistComponent },
@@ -29,6 +31,8 @@ const appRoutes: Routes = [
 { path: 'cart', component: CartComponent },
 {path:'currentorder',component:CurrentorderComponent},
 { path: 'Search', component: SearchComponent },
+{ path: 'checkout', component: CheckoutComponent },
+
 {path:'location',component:LocationpickerComponent},
 
 ];
@@ -46,12 +50,14 @@ const appRoutes: Routes = [
     SearchComponent,
     CurrentorderComponent,
     LocationpickerComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
 OwlModule,
 HttpModule,
+FormsModule,
 CookieModule.forRoot(),
 AgmCoreModule.forRoot({
    apiKey: 'AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU'
