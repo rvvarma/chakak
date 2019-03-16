@@ -25,10 +25,10 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <script type="application/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
 <script type="application/javascript" src="/node_modules/owl.carousel/dist/owl.carousel.js"></script>
-<link rel="stylesheet" href="styles.14ac849fe135220080ed.css"></head>
+<link rel="stylesheet" href="styles.225f59576a2522dfd42c.css"></head>
 <body>
   <app-root></app-root>
-<script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.7fb637d055581aa28d51.js"></script><script type="text/javascript" src="scripts.d6e4ff1bb133c15fc852.js"></script><script type="text/javascript" src="main.1a8130820e7c40b5b820.js"></script></body>
+<script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.7fb637d055581aa28d51.js"></script><script type="text/javascript" src="scripts.d6e4ff1bb133c15fc852.js"></script><script type="text/javascript" src="main.3919a40784970048c966.js"></script></body>
 
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -59,6 +59,15 @@
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Jrp9PtHe0WapppUzxbIpMDWMAcV3qE4"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/solid.css" integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/regular.css" integrity="sha384-IG162Tfx2WTn//TRUi9ahZHsz47lNKzYOp0b6Vv8qltVlPkub2yj9TVwzNck6GEF" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/brands.css" integrity="sha384-BKw0P+CQz9xmby+uplDwp82Py8x1xtYPK3ORn/ZSoe6Dk3ETP59WCDnX+fI1XCKK" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
+
+
+
 <script><!--accrodian - cehckout -->
 
 $(function(){
@@ -74,6 +83,132 @@ $(function(){
 
 });
   </script>
+  <script> <!-- status option in curent order-->
+  // type anything here
+const text = 'Slug..!';
+
+// this function turns a string into an array
+const createLetterArray = string => {
+  return string.split('');
+};
+
+// this function creates letter layers wrapped in span tags
+const createLetterLayers = array => {
+  return array.map(letter => {
+    let layer = '';
+    //specify # of layers per letter
+    for (let i = 1; i <= 2; i++) {if (window.CP.shouldStopExecution(0)) break;
+      // if letter is a space
+      if (letter == ' ') {
+        layer += '<span class="space"></span>';
+      } else {
+        layer += '<span class="letter-' + i + '">' + letter + '</span>';
+      }
+    }window.CP.exitedLoop(0);
+    return layer;
+  });
+};
+
+// this function wraps each letter in a parent container
+const createLetterContainers = array => {
+  return array.map(item => {
+    let container = '';
+    container += '<div class="wrapper">' + item + '</div>';
+    return container;
+  });
+};
+
+// use a promise to output text layers into DOM first
+const outputLayers = new Promise(function (resolve, reject) {
+  document.getElementById('text').innerHTML = createLetterContainers(createLetterLayers(createLetterArray(text))).join('');
+  resolve();
+});
+
+// then adjust width and height of each letter
+const spans = Array.prototype.slice.call(document.getElementsByTagName('span'));
+outputLayers.then(() => {
+  return spans.map(span => {
+    setTimeout(() => {
+      span.parentElement.style.width = span.offsetWidth + 'px';
+      span.parentElement.style.height = span.offsetHeight + 'px';
+    }, 250);
+  });
+}).then(() => {
+  // then slide letters into view one at a time
+  let time = 250;
+  return spans.map(span => {
+    time += 75;
+    setTimeout(() => {
+      span.parentElement.style.top = '0px';
+    }, time);
+  });
+});
+  </script>
+  <script> <!-- cooking icon-->
+
+  </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+      $("#chkPassport").click(function () {
+          if ($(this).is(":checked")) {
+              $("#txtPassportNumber").removeAttr("disabled");
+              $("#txtPassportNumber").focus();
+          } else {
+              $("#txtPassportNumber").attr("disabled", "disabled");
+          }
+      });
+  });
+</script>
+<script><!--login and sign up ->
+const switchers = [...document.querySelectorAll('.switcher')]
+
+switchers.forEach(item => {
+	item.addEventListener('click', function() {
+		switchers.forEach(item => item.parentElement.classList.remove('is-active'))
+		this.parentElement.classList.add('is-active')
+	})
+})
+
+</script>
+<script>
+const signUp = document.querySelector('.sign-up');
+const signIn = document.querySelector('.sign-in');
+
+// Switch btns: there are two only because I was in a hurry a didn't want to write all the javascript immediately. In a production environment, a better solution would be implemented.
+const btn1 = document.querySelector('.opposite-btn1');
+const btn2 = document.querySelector('.opposite-btn2');
+
+
+// Switches to 'Create Account'
+btn1.addEventListener('click', () => {
+  signUp.style.display = 'block';
+  signIn.style.display = 'none';
+});
+
+// Switches to 'Sign In'
+btn2.addEventListener('click', () => {
+  signUp.style.display = 'none';
+  signIn.style.display = 'block';
+});
+</script>
+<script>
+function myMap()
+{
+  myCenter=new google.maps.LatLng(17.4360, 78.4020);
+  var mapOptions= {
+    center:myCenter,
+    zoom:12, scrollwheel: false, draggable: false,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+  var marker = new google.maps.Marker({
+    position: myCenter,
+  });
+  marker.setMap(map);
+}
+</script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
   $(function () {

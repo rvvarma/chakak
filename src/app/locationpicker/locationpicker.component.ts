@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationpickerComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+  //  window.location.reload(true);
+
+   }
 
   ngOnInit() {
+  }
+  reload(){
+    location.reload()
   }
 local(data){
   var   num1= ((document.getElementById("onIdlePositionView") as HTMLInputElement).value);

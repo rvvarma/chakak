@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'app';
 address:any;
 constructor(){
-this.address="Locating.."
+this.address="Locating......"
 //this.add()
 }
   add(a){

@@ -1,7 +1,9 @@
+
+@import url("https://fonts.googleapis.com/css?family=Nunito:300");
+
 .total{
 }
 
-@import url("https://fonts.googleapis.com/css?family=Nunito:300");
 * {
   box-sizing: border-box;
   font-family: inherit;

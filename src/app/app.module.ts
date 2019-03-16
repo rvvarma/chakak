@@ -14,26 +14,35 @@ import { SearchComponent } from './search/search.component';
 import { CurrentorderComponent } from './currentorder/currentorder.component';
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule }   from '@angular/forms';
-
+import {MatSnackBarModule } from '@angular/material';
 import { AgmDirectionModule } from 'agm-direction';
 
 import { HttpModule } from '@angular/http';
 import { CookieModule } from 'ngx-cookie';
 import { LocationpickerComponent } from './locationpicker/locationpicker.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { MobileComponent } from './mobile/mobile.component';
 
 const appRoutes: Routes = [
-  { path: 'cheques', component: ChequeslistComponent },
-  { path: 'home', component: HomeComponent },
-    { path: '', component: TestComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'account', component: AccountComponent },
-{ path: 'cart', component: CartComponent },
-{path:'currentorder',component:CurrentorderComponent},
-{ path: 'Search', component: SearchComponent },
-{ path: 'checkout', component: CheckoutComponent },
 
-{path:'location',component:LocationpickerComponent},
+  {
+ path:  'mobile',
+ component:  MobileComponent,
+ children: [
+
+   { path: 'home', component: HomeComponent },
+     { path: '', component: TestComponent },
+   { path: 'dashboard', component: DashboardComponent },
+   { path: 'account', component: AccountComponent },
+ { path: 'cart', component: CartComponent },
+ {path:'currentorder',component:CurrentorderComponent},
+ { path: 'Search', component: SearchComponent },
+ { path: 'checkout', component: CheckoutComponent },
+
+ {path:'location',component:LocationpickerComponent},
+]},
+{ path: '', component: ChequeslistComponent }
+
 
 ];
 //
@@ -51,10 +60,12 @@ const appRoutes: Routes = [
     CurrentorderComponent,
     LocationpickerComponent,
     CheckoutComponent,
+    MobileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatSnackBarModule,
 OwlModule,
 HttpModule,
 FormsModule,
@@ -65,6 +76,7 @@ AgmCoreModule.forRoot({
    premium customer, in which case you can
    use clientId
    */
+   //
  }),
  AgmDirectionModule,
     RouterModule.forRoot(

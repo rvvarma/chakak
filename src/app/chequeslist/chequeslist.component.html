@@ -10,7 +10,7 @@
 <!--Modal: Login / Register Form-->
 
 <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalPoll-2" >Sign up</button> &nbsp;
-<button type="button" class="btn btn-light-green pull-right" data-toggle="modal" data-target="#modalPoll-1" >Login</button>
+<button type="button" class="btn btn-light-green pull-right" data-toggle="modal" data-target="#modalPoll-1" (click)="login()">Login</button>
     <!-- Modal: modalPoll -->
 </h1>
        </header>
@@ -212,7 +212,7 @@
         <form action="">
           <input type="text" name="email" placeholder="Email">
           <input type="password" name="password" placeholder="Password">
-          <button>Sign In</button>
+          <button (click)="login()">Sign In</button>
           <p class="opposite-btn1">Don't have an account?</p>
         </form>
       </section>

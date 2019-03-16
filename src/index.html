@@ -59,6 +59,15 @@
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Jrp9PtHe0WapppUzxbIpMDWMAcV3qE4"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/solid.css" integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/regular.css" integrity="sha384-IG162Tfx2WTn//TRUi9ahZHsz47lNKzYOp0b6Vv8qltVlPkub2yj9TVwzNck6GEF" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/brands.css" integrity="sha384-BKw0P+CQz9xmby+uplDwp82Py8x1xtYPK3ORn/ZSoe6Dk3ETP59WCDnX+fI1XCKK" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
+
+
+
 <script><!--accrodian - cehckout -->
 
 $(function(){
@@ -73,6 +82,70 @@ $(function(){
 
 
 });
+  </script>
+  <script> <!-- status option in curent order-->
+  // type anything here
+const text = 'Slug..!';
+
+// this function turns a string into an array
+const createLetterArray = string => {
+  return string.split('');
+};
+
+// this function creates letter layers wrapped in span tags
+const createLetterLayers = array => {
+  return array.map(letter => {
+    let layer = '';
+    //specify # of layers per letter
+    for (let i = 1; i <= 2; i++) {if (window.CP.shouldStopExecution(0)) break;
+      // if letter is a space
+      if (letter == ' ') {
+        layer += '<span class="space"></span>';
+      } else {
+        layer += '<span class="letter-' + i + '">' + letter + '</span>';
+      }
+    }window.CP.exitedLoop(0);
+    return layer;
+  });
+};
+
+// this function wraps each letter in a parent container
+const createLetterContainers = array => {
+  return array.map(item => {
+    let container = '';
+    container += '<div class="wrapper">' + item + '</div>';
+    return container;
+  });
+};
+
+// use a promise to output text layers into DOM first
+const outputLayers = new Promise(function (resolve, reject) {
+  document.getElementById('text').innerHTML = createLetterContainers(createLetterLayers(createLetterArray(text))).join('');
+  resolve();
+});
+
+// then adjust width and height of each letter
+const spans = Array.prototype.slice.call(document.getElementsByTagName('span'));
+outputLayers.then(() => {
+  return spans.map(span => {
+    setTimeout(() => {
+      span.parentElement.style.width = span.offsetWidth + 'px';
+      span.parentElement.style.height = span.offsetHeight + 'px';
+    }, 250);
+  });
+}).then(() => {
+  // then slide letters into view one at a time
+  let time = 250;
+  return spans.map(span => {
+    time += 75;
+    setTimeout(() => {
+      span.parentElement.style.top = '0px';
+    }, time);
+  });
+});
+  </script>
+  <script> <!-- cooking icon-->
+
   </script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">

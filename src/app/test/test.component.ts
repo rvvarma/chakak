@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
 import { CookieService } from 'ngx-cookie';
-import { AppComponent } from '../app.component';
+import { MobileComponent } from '../mobile/mobile.component';
 
 @Component({
   selector: 'app-test',
@@ -12,7 +12,7 @@ export class TestComponent implements OnInit {
 items:any;
 hash:any;
 address:any;
-  constructor(private http:Http,private cookieService:CookieService,private app:AppComponent) {
+  constructor(private http:Http,private cookieService:CookieService,private app:MobileComponent) {
   //  this.hash=new Object()
 //  this.cookieService.removeAll();
 

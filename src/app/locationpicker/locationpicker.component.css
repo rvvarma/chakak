@@ -2,3 +2,9 @@
 input[type=text]:disabled {
   background: #fff;
 }
+agm-marker {
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    z-index: 9999;
+}
