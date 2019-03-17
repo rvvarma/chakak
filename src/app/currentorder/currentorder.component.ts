@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-currentorder',
@@ -9,7 +10,7 @@ import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseConte
 export class CurrentorderComponent implements OnInit {
 
   items:any;
-
+id:any;
 
   //google maps zoom
   zoom: Number = 14;
@@ -31,32 +32,64 @@ export class CurrentorderComponent implements OnInit {
   };
 
 
-  constructor(private http:Http) {
+  constructor(private http:Http,private route: ActivatedRoute) {
 //    await delay(1000);
-this.dir = {
-  origin: { lat: 17.3246, lng: 78.5662 },
-  destination: { lat: 17.3376, lng: 78.5691 }
-}
 
-this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/getorder-item?orderid=a1b0e36c-4552-4dd1-98ad-10cc6e165a8e").subscribe(data => {
-  this.items={}
-var boy=data.json();
-console.log(boy)
-this.items=boy.data
-})
-setTimeout(() =>
-{
-  //  this.router.navigate(['/']);
-  console.log("kooo")
-  //this.latitude=17.3457
-  //this.longitude=78.5522
 
-},
-3000);
+ this.route.params.subscribe(params => {
+    this.id = params['id']; // (+) converts string 'id' to a number
+
+       this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/getorder-item?operation=get&id="+this.id).subscribe(data => {
+         this.items={}
+       var boy=data.json();
+       console.log(boy)
+       this.items=boy.data
+
+       this.dir = {
+         origin: { lat: this.items.latitude, lng: this.items.longitude },
+         destination: { lat:this.items.DeliveryBoys.Latitude, lng: this.items.DeliveryBoys.Longitude}
+       }
+       })
+
+
+
+
+
+       // In a real app: dispatch action to load the details here.
+    });
+
+
+
+
+
   //  await sleep(4000);
    }
+sayhi(){
 
+  this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/getorder-item?operation=get&id="+this.id).subscribe(data => {
+    this.items={}
+  var boy=data.json();
+  console.log(boy)
+  this.items=boy.data
+
+  this.dir = {
+    origin: { lat: this.items.latitude, lng: this.items.longitude },
+    destination: { lat:this.items.DeliveryBoys.Latitude, lng: this.items.DeliveryBoys.Longitude}
+  }
+  })}
   ngOnInit() {
+    //setInterval(this.sayhi, 10000);
+
+
+  }
+
+   repeat(){
+
+
+
+
+
+
   }
 
 }

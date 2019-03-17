@@ -2180,7 +2180,6 @@ li.active.have-children span::after {
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-gap: 10px;
     align-items: stretch;
   }

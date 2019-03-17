@@ -75,7 +75,6 @@ dec(index: number) {
 //console.log(this.items[item][index])
 //this.hash=JSON.parse(this.cookieService.get("order"));
 
-
 if(this.items[index].count>0){
 this.items[index].count-=1
 this.hash[this.items[index].itemname]=JSON.stringify(this.items[index])
@@ -89,6 +88,10 @@ delete this.hash[this.items[index].itemname];
 
 
     this.items.splice(index, 1);
+  if(this.items.length==0){
+
+this.snackBar.open('Message archived');
+  }
   //  console.log(this.hash.size)
 }
 this.cookieService.put("order",JSON.stringify(this.hash));

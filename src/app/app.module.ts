@@ -22,6 +22,7 @@ import { CookieModule } from 'ngx-cookie';
 import { LocationpickerComponent } from './locationpicker/locationpicker.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MobileComponent } from './mobile/mobile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
 
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
    { path: 'dashboard', component: DashboardComponent },
    { path: 'account', component: AccountComponent },
  { path: 'cart', component: CartComponent },
- {path:'currentorder',component:CurrentorderComponent},
+ {path:'currentorder/:id',component:CurrentorderComponent},
  { path: 'Search', component: SearchComponent },
  { path: 'checkout', component: CheckoutComponent },
 
@@ -69,6 +70,7 @@ const appRoutes: Routes = [
 OwlModule,
 HttpModule,
 FormsModule,
+BrowserAnimationsModule,
 CookieModule.forRoot(),
 AgmCoreModule.forRoot({
    apiKey: 'AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU'

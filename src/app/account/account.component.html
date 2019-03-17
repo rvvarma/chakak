@@ -68,82 +68,28 @@
 
 
    <!-- Card content -->
-   <div class="card-body  black-text rounded-bottom">
+   <div class="card-body  black-text rounded-bottom" *ngFor="let item of orders">
 
      <!-- Social shares button -->
      <a class="activator waves-effect mr-4"></a>
      <!-- Title -->
-     <h4 class="card-title">Hotel</h4>
+     <h4 class="card-title">{{item.address}}</h4>
      <hr class="">
      <!-- Text -->
      <p class="card-text black-text mb-4">Order Details
      <br>
-   1)Veg
- 2) Beverages
-Ammount:500Rs</p>
+  No of Items : {{item.itemid.length}}<br>
+Ammount : {{item.price}}</p>
      <!-- Link -->
-     <a href="#!" class="black-text d-flex justify-content-end">
-                      <h5>  Status:Closed
-                         <a  class="btn btn-success  " style="pull-left" role="button">RE-ORder</a>
-  </h5></a>
+                      <h5>  Status: {{item.status}}
+                         <a  class="btn btn-success  " style="pull-left"  *ngIf="item.status=='close'" role="button">RE-Order</a>
+                         <a  class="btn btn-danger  " style="pull-left"  *ngIf="item.status!='close'" role="button" (click)="track(item.orderid)">Track Order</a>
+
+  </h5>
 
    </div>
 
- </div> <div class="card" style="margin-bottom:5%;">
-
-    <!-- Card image -->
-
-
-    <!-- Card content -->
-    <div class="card-body  black-text rounded-bottom">
-
-      <!-- Social shares button -->
-      <a class="activator waves-effect mr-4"></a>
-      <!-- Title -->
-      <h4 class="card-title ">Hotel</h4>
-      <hr class="">
-      <!-- Text -->
-      <p class="card-text black-text mb-4">Order Details
-      <br>
-    1)Veg
-  2) Beverages
- Ammount:500Rs</p>
-      <!-- Link -->
-      <a href="#!" class="black-text d-flex justify-content-end">
-                       <h5>  Status:Closed
-                          <a  class="btn btn-success  " style="pull-left" role="button">RE-ORder</a>
-   </h5></a>
-
-    </div>
-
-  </div> <div class="card" style="margin-bottom:5%;">
-
-     <!-- Card image -->
-
-
-     <!-- Card content -->
-     <div class="card-body  black-text rounded-bottom">
-
-       <!-- Social shares button -->
-       <a class="activator waves-effect mr-4"></a>
-       <!-- Title -->
-       <h4 class="card-title">Hotel</h4>
-       <hr class="">
-       <!-- Text -->
-       <p class="card-text black-text mb-4">Order Details
-       <br>
-     1)Veg
-   2) Beverages
-  Ammount:500Rs</p>
-       <!-- Link -->
-       <a href="#!" class="black-text d-flex justify-content-end">
-                        <h5>  Status:Closed
-                           <a  class="btn btn-success  " style="pull-left" role="button">RE-ORder</a>
-    </h5></a>
-
-     </div>
-
-   </div>
+ </div>
 
 
 

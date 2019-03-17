@@ -9,6 +9,17 @@ Side note: I know that this style of nesting in SASS doesn't result in the most 
   float: left;
   width: 20%;
 }
+.mat-snack-bar-container {
+   max-width: 800px;
+}
+.mat-simple-snackbar {
+  display: flex;
+  font-size: 28px !important; // 28px  is double, 42px for triple
+  min-height: 70px !important; // 70px for double, 90px for triple
+  align-items: center !important;
+  justify-content: center !important;
+}
+
 .address {
 
     border: 0;

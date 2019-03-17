@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+declare var cordova;
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,10 @@ export class AppComponent {
   title = 'app';
 address:any;
 constructor(){
+//  alert("hii")
 this.address="Locating......"
 //this.add()
+//
 }
   add(a){
 
