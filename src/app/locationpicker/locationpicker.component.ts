@@ -67,7 +67,7 @@ centerChange(data){
 
   this.lat=data.lat;
   this.lng=data.lng;
-  console.log(this.latl)
+  //console.log(this.latl)
 
 
 }
@@ -77,15 +77,21 @@ mapReady(map) {
 
     var that = this;
     this.map.addListener("dragend", function () {
-//console.log(that.latl)
+
+console.log(that.lat)
 //that.latn=that.latl;
 //that.lngn =that.lngl;
+this.bp();
     });
 /*    this.map.addListener("dragstart", function () {
 console.log(that.latl)
 that.lat=that.latl;
 that.lng=that.lngl;
 });*/
+}
+bp(){
+
+  console.log("dragend")
 }
 
       handleAddressChange(address) {

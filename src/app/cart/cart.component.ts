@@ -14,9 +14,11 @@ tax:any;
 shipping:any;
 hash={};
 total:any;
+isavail:any;
   constructor(private cookieService:CookieService,private router:Router) {
     if(this.cookieService.get("order")){
     this.hash=new Object();
+    this.isavail=true
 this.items=JSON.parse(this.cookieService.get("order"))
 this.subtotal=0.0;
 this.tax=3.0;
@@ -32,11 +34,15 @@ p.push(JSON.parse(this.items[key]))
 this.items=p;
 this.total=this.subtotal+this.tax+this.shipping;
 
-console.log(this.items)
+if(this.items.length==0){
+  this.isavail=false
+}
+else
+this.isavail=true
 }
 else{
-
-            this.router.navigate(['/mobile']);
+this.isavail=false
+        //    this.router.navigate(['/mobile']);
 
 }
 
@@ -83,7 +89,7 @@ delete this.hash[this.items[index].itemname];
 
     this.items.splice(index, 1);
   if(this.items.length==0){
-
+this.isavail=false
   }
   //  console.log(this.hash.size)
 }
