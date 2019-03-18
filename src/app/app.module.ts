@@ -14,7 +14,6 @@ import { SearchComponent } from './search/search.component';
 import { CurrentorderComponent } from './currentorder/currentorder.component';
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule }   from '@angular/forms';
-import {MatSnackBarModule } from '@angular/material';
 import { AgmDirectionModule } from 'agm-direction';
 
 import { HttpModule } from '@angular/http';
@@ -23,6 +22,7 @@ import { LocationpickerComponent } from './locationpicker/locationpicker.compone
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
 const appRoutes: Routes = [
 
@@ -37,7 +37,7 @@ const appRoutes: Routes = [
    { path: 'account', component: AccountComponent },
  { path: 'cart', component: CartComponent },
  {path:'currentorder/:id',component:CurrentorderComponent},
- { path: 'Search', component: SearchComponent },
+ { path: 'offers', component: SearchComponent },
  { path: 'checkout', component: CheckoutComponent },
 
  {path:'location',component:LocationpickerComponent},
@@ -66,8 +66,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatSnackBarModule,
 OwlModule,
+GooglePlaceModule,
+
 HttpModule,
 FormsModule,
 BrowserAnimationsModule,

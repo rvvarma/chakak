@@ -1,8 +1,38 @@
 
-<div id="map"></div>
+<form>
+<input ngx-google-places-autocomplete [options]='options' class="form-control" #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" width="100%"/>
+</form>
+<agm-map
+  [latitude]="latn"
+  [longitude]="lngn"
+  [zoom]=17
+  [scrollwheel]="true"
+  [disableDefaultUI]="true"
+  [zoomControl]="false"
+  [streetViewControl]="false"
+  [mapDraggable]="true"
+(centerChange)="centerChange($event)"
+(mapReady)="mapReady($event)"
+>
+
+  <agm-marker
+      [latitude]="lat"
+      [longitude]="lng"
+      [label]="you"
+      [animation]="'DROP'"
+
+      [markerDraggable]="true"
+      >
+
+
+  </agm-marker>
+
+
+
+</agm-map>
 <br>
 <div class="total" style="margin-left:2%;">
 <H1>Addess <span ></span></H1>
-<p id="onIdlePositionView"   >   </p>
+<input type="text" id="lname" name="lname">
 
-<button id="confirmPosition" >Confirm Address</button>
+<button id="confirmPosition" class="address" >Confirm Address</button>

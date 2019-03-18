@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two');
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two');
 
+@import url('https://fonts.googleapis.com/css?family=Pacifico&subset=cyrillic,latin-ext,vietnamese');
   .input-group .form-control {
       position: relative;
       z-index: 2;
@@ -23,3 +26,18 @@ color:#fff;
 .title-pen span {
   color: #55acee;
 }
+
+.address {
+
+    border: 0;
+    margin-top: 20px;
+    padding: 6px 25px;
+    background-color: #6b6;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 25px;
+  }
+
+  .address:hover {
+    background-color: #494;
+  }

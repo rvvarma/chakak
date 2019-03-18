@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
 import { Router } from '@angular/router';
-import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +14,7 @@ tax:any;
 shipping:any;
 hash={};
 total:any;
-  constructor(private snackBar:MatSnackBar,private cookieService:CookieService,private router:Router) {
+  constructor(private cookieService:CookieService,private router:Router) {
     if(this.cookieService.get("order")){
     this.hash=new Object();
 this.items=JSON.parse(this.cookieService.get("order"))
@@ -36,12 +35,7 @@ this.total=this.subtotal+this.tax+this.shipping;
 console.log(this.items)
 }
 else{
-  this.snackBar.open("Invalid Username or Password","Ok",{
-            duration:2000,
-            panelClass:'red-snackbar',
-            horizontalPosition: 'center',
-            verticalPosition: 'top'
-          })
+
             this.router.navigate(['/mobile']);
 
 }
@@ -90,7 +84,6 @@ delete this.hash[this.items[index].itemname];
     this.items.splice(index, 1);
   if(this.items.length==0){
 
-this.snackBar.open('Message archived');
   }
   //  console.log(this.hash.size)
 }
