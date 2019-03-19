@@ -15,6 +15,7 @@ import { CurrentorderComponent } from './currentorder/currentorder.component';
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule }   from '@angular/forms';
 import { AgmDirectionModule } from 'agm-direction';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpModule } from '@angular/http';
 import { CookieModule } from 'ngx-cookie';
@@ -68,7 +69,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
 OwlModule,
 GooglePlaceModule,
-
+ReactiveFormsModule,
 HttpModule,
 FormsModule,
 BrowserAnimationsModule,

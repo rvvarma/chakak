@@ -249,10 +249,10 @@ Account
             <div class="modal-header">
               <h4 class="modal-title">Set Your Location</h4>
 
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <button type="button" class="close" data-dismiss="modal" #close>&times;</button>
             </div>
             <div class="modal-body">
-              <a routerLink="/mobile/location">
+              <a routerLink="/mobile/location" (click)="closemodal()">
 <h3 style="text-align:left;font-size:1em;font-weight:bolder"> Current Location
   <input class="pull-right" height="40px" type="image" src="./assets/map.png" routerLink="/mobile/location" alt="Submit">
 <br> <sub> use gps to get correct location</sub>

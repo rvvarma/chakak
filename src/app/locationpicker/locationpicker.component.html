@@ -29,9 +29,8 @@
 
 
 </agm-map>
-<br>
 <div class="total" style="margin-left:2%;">
-<H1>Address <span ></span></H1>
-<input type="text" id="lname" name="lname" value={{address}}>
+<h6>Select Delivery Location <span ></span></h6>
+<input type="text" id="lname" name="lname" >
 
-<button id="confirmPosition" class="address" style="width:100%" >Confirm Address</button>
+<button id="confirmPosition" class="address" style="width:100%" (click)="confirmaddress()">Confirm Address</button>

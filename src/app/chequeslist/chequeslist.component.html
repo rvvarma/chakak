@@ -9,7 +9,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;
 <!--Modal: Login / Register Form-->
 
-<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalPoll-2" >Sign up</button> &nbsp;
+<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalPoll-2" (click)="signup()">Sign up</button> &nbsp;
 <button type="button" class="btn btn-light-green pull-right" data-toggle="modal" data-target="#modalPoll-1" (click)="login()">Login</button>
     <!-- Modal: modalPoll -->
 </h1>
@@ -197,22 +197,22 @@
       <!--  Sign Up  -->
       <section class="section sign-up">
         <div class="trapezoid"></div>
-        <form action="">
-          <input type="text" name="name" placeholder="Name">
-          <input type="text" name="email" placeholder="Email">
-          <input type="password" name="password" placeholder="Password">
-          <input type="password" name="confirm" placeholder="Confirm Password">
-          <button>Create Account</button>
+        <form (ngSubmit)="signup(signuping)" #signuping="ngForm">
+
+          <input type="text" name="name" placeholder="Name" ngModel>
+          <input type="text" name="email" placeholder="Email" ngModel>
+          <input type="number" name="mobile" placeholder="Enter PhoneNumber" ngModel>
+          <input type="date" name="date" placeholder="Enter DOB" ngModel>
+          <button type="submit" >Create Account</button>
           <p class="opposite-btn2">Already have an account?</p>
         </form>
       </section>
 
       <!--  Sign In  -->
       <section class="section sign-in">
-        <form action="">
-          <input type="text" name="email" placeholder="Email">
-          <input type="password" name="password" placeholder="Password">
-          <button (click)="login()">Sign In</button>
+        <form (ngSubmit)="login(logining)" #logining="ngForm">
+          <input type="text" name="email" placeholder="Email" ngModel>
+          <button type="submit">Get OTP</button>
           <p class="opposite-btn1">Don't have an account?</p>
         </form>
       </section>

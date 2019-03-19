@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild ,ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-mobile',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class MobileComponent implements OnInit {
   title = 'app';
   address:any;
+  @ViewChild('close') close1: ElementRef;
+
   constructor() {
 
     this.address="Locating......"
@@ -19,6 +21,10 @@ add(a){
 
 }
   ngOnInit() {
+  }
+  closemodal(){
+
+    this.close1.nativeElement.click();
   }
 
 }

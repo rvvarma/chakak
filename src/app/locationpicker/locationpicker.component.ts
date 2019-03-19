@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MouseEvent } from '@agm/core';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
+import { MobileComponent } from '../mobile/mobile.component';
+import {Router} from "@angular/router"
 @Component({
   selector: 'app-locationpicker',
   templateUrl: './locationpicker.component.html',
@@ -16,7 +18,7 @@ export class LocationpickerComponent  {
   map:any;
   lngn:number
   address:any;
-  constructor(private http:Http){
+  constructor(private http:Http,private mobile:MobileComponent,private router : Router){
 this.address="No Address"
         if (window.navigator && window.navigator.geolocation) {
           window.navigator.geolocation.getCurrentPosition(
@@ -31,7 +33,7 @@ this.lng=position.coords.longitude;
 this.latn=position.coords.latitude;
 this.lngn=position.coords.longitude;
 
-bp(this.lat,this.lng,this.http)
+this.bp(this.lat,this.lng,this.http)
               },
               error => {
                   switch (error.code) {
@@ -53,11 +55,6 @@ bp(this.lat,this.lng,this.http)
 
 
 
-      setInterval(() => {
-      //  console.log(this.latl)
-    //  this.lat=this.latl
-      //this.lng=this.lngl
-    }, 1000);
 
 
 
@@ -85,7 +82,15 @@ mapReady(map) {
 console.log(that.lat)
 //that.latn=that.latl;
 //that.lngn =that.lngl;
-bp(that.lat,that.lng,that.http);
+
+that.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+that.lat+","+that.lng+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
+var boy=data.json();
+//console.log(boy)
+//console.log(boy.results[0].formatted_address)
+ (<HTMLInputElement>document.getElementById('lname')).value =boy.results[0].formatted_address
+//address="hii"
+//console.log(this.address)
+})
     });
 /*    this.map.addListener("dragstart", function () {
 console.log(that.latl)
@@ -105,10 +110,12 @@ this.lat=boy.results[0].geometry.location.lat
 this.lng=boy.results[0].geometry.location.lng
 this.latn=boy.results[0].geometry.location.lat
 this.lngn=boy.results[0].geometry.location.lng
-bp(this.lat,this.lng,this.http)
+//this.bp(this.lat,this.lng,this.http)
+this.bp(this.lat,this.lng,this.http)
 
+ (<HTMLInputElement>document.getElementById('lname')).value=address
                           })
-                        //  document.getElementById('lname').value=address
+                    //     document.getElementById('lname').value=address
 
 
 
@@ -117,17 +124,34 @@ bp(this.lat,this.lng,this.http)
   markerDragEnd( $event: MouseEvent) {
     console.log('dragEnd', $event);
   }
+confirmaddress(){
+var json={
+"userid":56,
+"operation":"postaddress",
+"address": (<HTMLInputElement>document.getElementById('lname')).value,
+"latitude":this.lat,
+"longitude":this.lng
 
-//
+
+}
+  this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card",json).subscribe(data => {
+  console.log(data.json());
+
+  this.router.navigate(['/mobile'],{ queryParams: { lat: this.lat, lng: this.lng } })
+})
+
+}
+
 
 // just an interface for type safety.
-function bp(lat,lng,hhp){
+ bp(lat,lng,hhp){
 //console.log("hi")
 hhp.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
 var boy=data.json();
-console.log(boy)
-console.log(boy.results[0].formatted_address)
-document.getElementById('lname').value=boy.results[0].formatted_address
+//console.log(boy)
+//console.log(boy.results[0].formatted_address)
+ (<HTMLInputElement>document.getElementById('lname')).value =boy.results[0].formatted_address
+//address="hii"
 //console.log(this.address)
 })
 }

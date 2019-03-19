@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
 import { CookieService } from 'ngx-cookie';
 import { MobileComponent } from '../mobile/mobile.component';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-test',
@@ -12,7 +13,7 @@ export class TestComponent implements OnInit {
 items:any;
 hash:any;
 address:any;
-  constructor(private http:Http,private cookieService:CookieService,private app:MobileComponent) {
+  constructor(private http:Http,private cookieService:CookieService,private app:MobileComponent,private route: ActivatedRoute) {
   //  this.hash=new Object()
 //  this.cookieService.removeAll();
 
@@ -23,7 +24,7 @@ this.hash={};
 
 
 
-this.datarefresh("6")
+//this.datarefresh("6")
 
 
 
@@ -37,9 +38,15 @@ this.datarefresh("6")
               position => {
               //    this.geolocationPosition = position,
                       console.log(position)
-
-
-                      this.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+position.coords.latitude+","+position.coords.longitude+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
+                      let lat = this.route.snapshot.queryParams["lat"];
+                      let lng = this.route.snapshot.queryParams["lng"];
+                      console.log(lat)
+                      console.log(lng)
+if(lat==null&&lng==null){
+lat=position.coords.latitude
+  lng=position.coords.longitude
+}
+                      this.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
                       var boy=data.json();
                       console.log(boy)
                       console.log(boy.results[3].address_components[6].long_name)
