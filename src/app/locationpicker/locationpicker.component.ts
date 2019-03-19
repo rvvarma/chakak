@@ -15,8 +15,9 @@ export class LocationpickerComponent  {
   latn:number
   map:any;
   lngn:number
+  address:any;
   constructor(private http:Http){
-
+this.address="No Address"
         if (window.navigator && window.navigator.geolocation) {
           window.navigator.geolocation.getCurrentPosition(
               position => {
@@ -29,6 +30,8 @@ this.lat=position.coords.latitude;
 this.lng=position.coords.longitude;
 this.latn=position.coords.latitude;
 this.lngn=position.coords.longitude;
+
+bp(this.lat,this.lng,this.http)
               },
               error => {
                   switch (error.code) {
@@ -76,12 +79,13 @@ mapReady(map) {
     this.map = map;
 
     var that = this;
+
     this.map.addListener("dragend", function () {
 
 console.log(that.lat)
 //that.latn=that.latl;
 //that.lngn =that.lngl;
-this.bp();
+bp(that.lat,that.lng,that.http);
     });
 /*    this.map.addListener("dragstart", function () {
 console.log(that.latl)
@@ -89,22 +93,23 @@ that.lat=that.latl;
 that.lng=that.lngl;
 });*/
 }
-bp(){
 
-  console.log("dragend")
-}
 
       handleAddressChange(address) {
         // Do some stuff
-console.log(address)
        this.http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+address.formatted_address+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
                             var boy=data.json();
+
 console.log(boy.results[0].geometry.location)
 this.lat=boy.results[0].geometry.location.lat
 this.lng=boy.results[0].geometry.location.lng
 this.latn=boy.results[0].geometry.location.lat
 this.lngn=boy.results[0].geometry.location.lng
+bp(this.lat,this.lng,this.http)
+
                           })
+                        //  document.getElementById('lname').value=address
+
 
 
   }
@@ -113,8 +118,17 @@ this.lngn=boy.results[0].geometry.location.lng
     console.log('dragEnd', $event);
   }
 
-
+//
 
 // just an interface for type safety.
-
+function bp(lat,lng,hhp){
+//console.log("hi")
+hhp.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
+var boy=data.json();
+console.log(boy)
+console.log(boy.results[0].formatted_address)
+document.getElementById('lname').value=boy.results[0].formatted_address
+//console.log(this.address)
+})
+}
 }
