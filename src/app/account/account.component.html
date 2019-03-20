@@ -62,13 +62,13 @@
 
  <h3 class="title-pen"> Your Orders</h3>
 
- <div class="card" style="margin-bottom:5%;">
+ <div class="card" style="margin-bottom:5%;" *ngFor="let item of orders">
 
    <!-- Card image -->
 
 
    <!-- Card content -->
-   <div class="card-body  black-text rounded-bottom" *ngFor="let item of orders">
+   <div class="card-body  black-text rounded-bottom" >
 
      <!-- Social shares button -->
      <a class="activator waves-effect mr-4"></a>

@@ -46,7 +46,7 @@ var json={
   "email": data.value.emUSER_ID_FOR_SRPail,
   "dob": data.value.date,
   "mobile": "+91"+data.value.mobile,
-  "name":data.value.name
+  "name":data.value.nameangular
 }
 console.log(json)
 
