@@ -204,16 +204,25 @@
           <input type="number" name="mobile" placeholder="Enter PhoneNumber" ngModel>
           <input type="date" name="date" placeholder="Enter DOB" ngModel>
           <button type="submit" >Create Account</button>
-          <p class="opposite-btn2">Already have an account?</p>
+          <p class="opposite-btn2">Already have an account.?</p>
         </form>
       </section>
 
       <!--  Sign In  -->
-      <section class="section sign-in">
+      <section *ngIf="show" class="section sign-in">
         <form (ngSubmit)="login(logining)" #logining="ngForm">
           <input type="text" name="email" placeholder="Email" ngModel>
           <button type="submit">Get OTP</button>
+
           <p class="opposite-btn1">Don't have an account?</p>
+        </form>
+      </section>
+      <section *ngIf="!show" class="section sign-in">
+        <form (ngSubmit)="gettoken(token)" #token="ngForm">
+          <input type="text" name="otp" placeholder="Enter OTP" ngModel>
+          <button type="submit">Login</button>
+
+          <p class="opposite-btn2" (click)="changetologin()" >Want to Change Number.?</p>
         </form>
       </section>
   </div>
