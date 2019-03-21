@@ -24,7 +24,6 @@ this.hash={};
 
 
 
-//this.datarefresh("6")
 
 
 
@@ -33,6 +32,8 @@ this.hash={};
   }
 
   ngOnInit() {
+
+    console.log("intiated man")
     if (window.navigator && window.navigator.geolocation) {
           window.navigator.geolocation.getCurrentPosition(
               position => {
@@ -51,7 +52,7 @@ lat=position.coords.latitude
                       console.log(boy)
                       console.log(boy.results[3].address_components[6].long_name)
                       this.app.add(boy.results[3].address_components[0].long_name)
-                      this.datarefresh(boy.results[3].address_components[6].long_name)
+                      this.datarefresh(boy.results[3].address_components[6].long_name,this)
                       })
 
 
@@ -73,12 +74,27 @@ lat=position.coords.latitude
       };
   }
 
+swing(lat,lng,that,saro){
 
 
-datarefresh(data){
+  console.log("emundi"+lat)
 
 
-      this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/items?operation=get&pincode=500070").subscribe(data => {
+
+                      that.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
+                      var boy=data.json();
+                      console.log(boy)
+                      console.log(boy.results[3].address_components[6].long_name)
+                      that.add(boy.results[3].address_components[0].long_name)
+                      this.datarefresh(boy.results[3].address_components[6].long_name,that)
+                    })
+
+}
+
+datarefresh(data,mobdata){
+
+var _this=mobdata
+      _this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/items?operation=get&pincode=500070").subscribe(data => {
     var boy=data.json();
   //console.log(boy)
   var groupBy = function(xs, key) {
@@ -90,12 +106,12 @@ datarefresh(data){
   var groubedByTeam=groupBy(boy.data, 'itemcategory')
   console.log(groubedByTeam)
   var data1=groubedByTeam
-  this.items=data1
+  _this.items=data1
   //this.hash=this.cookieService.get("order")
-  if(this.cookieService.get("order"))
+  if(_this.cookieService.get("order"))
   {
-    this.hash=JSON.parse(this.cookieService.get("order"))
-    var data2=JSON.parse(this.cookieService.get("order"))
+    _this.hash=JSON.parse(_this.cookieService.get("order"))
+    var data2=JSON.parse(_this.cookieService.get("order"))
 
   console.log(data2)
   var m=new Object();
@@ -103,12 +119,12 @@ datarefresh(data){
 
   //console.log(m["Banana MilkShake"])
   //
-    Object.getOwnPropertyNames(this.items).forEach(key => {
-    for(var t=0;t<this.items[key].length;t++){
-  if(m[this.items[key][t].itemname]){
-    var p=JSON.parse(m[this.items[key][t].itemname])
+    Object.getOwnPropertyNames(_this.items).forEach(key => {
+    for(var t=0;t<_this.items[key].length;t++){
+  if(m[_this.items[key][t].itemname]){
+    var p=JSON.parse(m[_this.items[key][t].itemname])
     console.log(p.count)
-  this.items[key][t].count=p.count
+  _this.items[key][t].count=p.count
 
 
   }

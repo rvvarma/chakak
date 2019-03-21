@@ -13,9 +13,10 @@ export class ChequeslistComponent implements OnInit {
   constructor(private router:Router,private http:Http,private cookieService:CookieService) { }
   show: boolean = true;
 logindata:any;
+error:any;
   ngOnInit() {
 
-if(this.cookieService.get("refresh")
+if(this.cookieService.get("refresh"))
 this.router.navigate(['/mobile'])
 
 
@@ -33,9 +34,17 @@ console.log(json)
 
   this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/signin",json).subscribe(data => {
   var boy=data.json();
-console.log(boy)
-this.show=false
-this.logindata=boy
+if(boy.Status=="Failed"){
+this.error=boy.data.message;
+console.log(this.error)
+
+}
+else{
+  this.show=false
+  this.logindata=boy
+this.error=""
+
+}
 })
 }
 signup(data){
@@ -73,9 +82,17 @@ var json={
   this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/challenge-mfa",json).subscribe(data => {
   var boy=data.json();
 console.log(boy)
+if(boy.Status=="Success"){
+
 this.cookieService.put("access",boy.data.AuthenticationResult.AccessToken)
 this.cookieService.put("refresh",boy.data.AuthenticationResult.RefreshToken)
+this.router.navigate(['/mobile'])
+}
+else{
 
+this.error=boy.errorMessage
+
+}
 })
 
 

@@ -9,8 +9,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;
 <!--Modal: Login / Register Form-->
 
-<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalPoll-2" (click)="signup()">Sign up</button> &nbsp;
-<button type="button" class="btn btn-light-green pull-right" data-toggle="modal" data-target="#modalPoll-1" (click)="login()">Login</button>
+<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalPoll-2" >Sign up</button> &nbsp;
+<button type="button" class="btn btn-light-green pull-right" data-toggle="modal" data-target="#modalPoll-1" >Login</button>
     <!-- Modal: modalPoll -->
 </h1>
        </header>
@@ -211,6 +211,8 @@
       <!--  Sign In  -->
       <section *ngIf="show" class="section sign-in">
         <form (ngSubmit)="login(logining)" #logining="ngForm">
+          <p style="color:red">{{error}}</p>
+
           <input type="text" name="email" placeholder="Email" ngModel>
           <button type="submit">Get OTP</button>
 
@@ -219,6 +221,7 @@
       </section>
       <section *ngIf="!show" class="section sign-in">
         <form (ngSubmit)="gettoken(token)" #token="ngForm">
+          <p style="color:red">{{error}}</p>
           <input type="text" name="otp" placeholder="Enter OTP" ngModel>
           <button type="submit">Login</button>
 

@@ -262,9 +262,8 @@ Account
 
 <h3 style="text-align:left; font-size:1em;font-weight:bolder"> Saved Location</h3>
 <div class="" style="text-align:left">
-  <button class="button-address">Home:complete address</button>
+  <button class="button-address" *ngFor="let item of savedaddresses" (click)=saved(item)><font size="3">{{item.address}}</font></button>
 
-  <button class="button-address">Office:complete address</button>
 
 </div>
          </div>

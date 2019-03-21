@@ -3,6 +3,7 @@ import { MouseEvent } from '@agm/core';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
 import { MobileComponent } from '../mobile/mobile.component';
 import {Router} from "@angular/router"
+
 @Component({
   selector: 'app-locationpicker',
   templateUrl: './locationpicker.component.html',
@@ -102,6 +103,7 @@ that.lng=that.lngl;
 
       handleAddressChange(address) {
         // Do some stuff
+
        this.http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+address.formatted_address+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
                             var boy=data.json();
 
@@ -109,11 +111,22 @@ console.log(boy.results[0].geometry.location)
 this.lat=boy.results[0].geometry.location.lat
 this.lng=boy.results[0].geometry.location.lng
 this.latn=boy.results[0].geometry.location.lat
-this.lngn=boy.results[0].geometry.location.lng
+this.lngn=this.lng
 //this.bp(this.lat,this.lng,this.http)
-this.bp(this.lat,this.lng,this.http)
+//this.bp(this.lat,this.lng,this.http)
+if(address){
 
- (<HTMLInputElement>document.getElementById('lname')).value=address
+  this.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+this.lat+","+this.lng+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
+  var boy=data.json();
+  //console.log(boy)
+  //console.log(boy.results[0].formatted_address)
+   (<HTMLInputElement>document.getElementById('lname')).value =boy.results[0].formatted_address
+  //address="hii"
+  //console.log(this.address)
+  })
+}
+//(<HTMLInputElement>document.getElementById('lname')).value=address.formatted_address
+
                           })
                     //     document.getElementById('lname').value=address
 

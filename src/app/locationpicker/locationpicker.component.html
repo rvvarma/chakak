@@ -1,6 +1,6 @@
 
 <form>
-<input ngx-google-places-autocomplete [options]='options' class="form-control" #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" width="100%"/>
+<input ngx-google-places-autocomplete class="form-control" #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" width="100%"/>
 </form>
 <agm-map
   [latitude]="latn"
@@ -18,7 +18,6 @@
   <agm-marker
       [latitude]="lat"
       [longitude]="lng"
-      [label]="you"
       [animation]="'DROP'"
 
       >
