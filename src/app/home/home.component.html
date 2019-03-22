@@ -1,16 +1,24 @@
-<h2>Frequently Asked Questions</h2>
+<div cass="cartempty" *ngIf="!isavail">
+  <h1 style="text-align:center;font-weight:400;
+margin-top:20%">
 
-<details open>
-  <summary>Does this product have what I need?</summary>
-  <p>Totally. Totally does.</p>
-</details>
+<img src="./assets/wifi.gif"  alt="Loading"height="250px">
+<br><br>
+Slug needs Internet<br> <sub style="font-size:0.5em"> Please check Your Internet Connection </sub></h1>
+<div style="margin-left:20%; margin-top:10%;font-family: 'Lobster Two', cursive;">
 
-<details>
-  <summary>Can I use it all the time?</summary>
-  <p>Of course you can, we won't stop you.</p>
-</details>
+</div>
+</div>
+<br><br><br><br><br>
 
-<details>
-  <summary>Are there any restrictions?</summary>
-  <p>Only your imagination my friend. Go forth!</p>
-</details>
+<div cass="cartempty" *ngIf="!isavail">
+  <h1 style="text-align:center;font-weight:400;
+margin-top:20%">
+
+<img src="./assets/loc.gif"  alt="Loading"height="250px">
+<br><br>
+Sorry..!<br> <sub style="font-size:0.5em"> We Dont Serve in Your Location </sub></h1>
+<div style="margin-left:20%; margin-top:10%;font-family: 'Lobster Two', cursive;">
+
+</div>
+</div>
