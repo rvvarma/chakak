@@ -1,9 +1,10 @@
 <div class="total">
   <div cass="cartempty" *ngIf="!isavail">
+    <span>
     <h1 style="text-align:center;font-weight:400;
-margin-top:20%">
+margin-top:10%">
 
-<img src="./assets/cart.png"height="250px">
+<img src="./assets/cart.png" style=" left:50%;"height="250px">
 <br><br>
 Your Cart is Empty!
 </h1>
@@ -11,6 +12,7 @@ Your Cart is Empty!
 <button class="address" routerLink="/mobile">Continue Shoping </button>
 
   </div>
+  </span>
   </div>
 
 <div class="container" *ngIf="isavail">

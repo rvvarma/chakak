@@ -1,4 +1,7 @@
-
+.panel-body{
+  padding: 0;
+  padding-left: 2%;
+}
 .reveal-if-active {
   opacity: 0;
   max-height: 0;
