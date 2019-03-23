@@ -13,9 +13,12 @@ export class TestComponent implements OnInit {
 items:any;
 hash:any;
 address:any;
+storing:any;
+
   constructor(private http:Http,private cookieService:CookieService,private app:MobileComponent,private route: ActivatedRoute) {
   //  this.hash=new Object()
 //  this.cookieService.removeAll();
+this.storing= window.localStorage;
 
 //let app = new AppComponent();
 this.hash={};
@@ -108,10 +111,10 @@ var _this=mobdata
   var data1=groubedByTeam
   _this.items=data1
   //this.hash=this.cookieService.get("order")
-  if(_this.cookieService.get("order"))
+  if(_this.storing.getItem("order"))
   {
-    _this.hash=JSON.parse(_this.cookieService.get("order"))
-    var data2=JSON.parse(_this.cookieService.get("order"))
+    _this.hash=JSON.parse(_this.storing.getItem("order"))
+    var data2=JSON.parse(_this.storing.getItem)
 
   console.log(data2)
   var m=new Object();
@@ -155,7 +158,7 @@ var _this=mobdata
   //console.log(this.items[item][index]   )
   this.hash[this.items[item][index].itemname]=JSON.stringify(this.items[item][index])
   console.log(this.hash)
-  this.cookieService.put("order",JSON.stringify(this.hash));
+  this.storing.setItem("order",JSON.stringify(this.hash));
 
 }
 dec(index: number,item:any) {
@@ -171,7 +174,7 @@ this.hash[this.items[item][index].itemname]=JSON.stringify(this.items[item][inde
 if(this.items[item][index].count==0)
 delete this.hash[this.items[item][index].itemname];
 
-this.cookieService.put("order",JSON.stringify(this.hash));
+this.storing.setItem("order",JSON.stringify(this.hash));
 
 
 }

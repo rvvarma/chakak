@@ -13,13 +13,16 @@ subtotal:any;
 tax:any;
 shipping:any;
 hash={};
+storing:any;
 total:any;
 isavail:any;
   constructor(private cookieService:CookieService,private router:Router) {
-    if(this.cookieService.get("order")){
+    this.storing= window.localStorage;
+
+    if(this.storing.setItem("order")){
     this.hash=new Object();
     this.isavail=true
-this.items=JSON.parse(this.cookieService.get("order"))
+this.items=JSON.parse(this.storing.getItem("order"))
 this.subtotal=0.0;
 this.tax=3.0;
 this.shipping=35;
@@ -67,7 +70,7 @@ this.total=this.total+this.subtotal
   //console.log(this.items[item][index]   )
   this.hash[this.items[index].itemname]=JSON.stringify(this.items[index])
   console.log(this.hash)
-  this.cookieService.put("order",JSON.stringify(this.hash));
+  this.storing.setItem("order",JSON.stringify(this.hash));
 
 }
 dec(index: number) {
@@ -93,7 +96,7 @@ this.isavail=false
   }
   //  console.log(this.hash.size)
 }
-this.cookieService.put("order",JSON.stringify(this.hash));
+this.storing.setItem("order",JSON.stringify(this.hash));
 
 
 }

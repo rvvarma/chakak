@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
 import { CookieService } from 'ngx-cookie';
+declare var cordova;
 
 @Component({
   selector: 'app-chequeslist',
@@ -9,15 +10,86 @@ import { CookieService } from 'ngx-cookie';
   styleUrls: ['./chequeslist.component.css']
 })
 export class ChequeslistComponent implements OnInit {
+storing:any;
+  constructor(private router:Router,private http:Http,private cookieService:CookieService) {
 
-  constructor(private router:Router,private http:Http,private cookieService:CookieService) { }
+    this.storing= window.localStorage;
+ }
   show: boolean = true;
 logindata:any;
 error:any;
   ngOnInit() {
+  /*  storage.setItem("key", "value") // Pass a key name and its value to add or update that key.
 
-if(this.cookieService.get("refresh"))
+    var value = storage.getItem("key"); // Pass a key name to get its value.
+    alert(value)
+    storage.setItem("key", "value") // Pass a key name and its value to add or update that key.
+    storage.removeItem("key")
+
+*/
+
+
+
+/*
+var permissions = cordova.plugins.permissions;
+
+  var list = [
+    permissions.ACCESS_FINE_LOCATION
+  ];
+
+  permissions.hasPermission(list, success, error);
+
+  function error() {
+alert("Slug needs Your Locatio Permission")  }
+
+  function success( status ) {
+    if( !status.hasPermission ) {
+
+      permissions.requestPermissions(
+        list,
+        function(status) {
+          if( !status.hasPermission ) error();
+        },
+        error);
+    }
+  }
+
+*/
+
+/*
+var permissions = cordova.plugins.permissions;
+
+   var list = [
+     permissions.CAMERA,
+     permissions.ACCESS_FINE_LOCATION
+   ];
+
+   permissions.hasPermission(list, success, error);
+
+   function error() {
+     console.warn('Camera or Accounts permission is not turned on');
+   }
+
+   function success( status ) {
+     if( !status.hasPermission ) {
+
+       permissions.requestPermissions(
+         list,
+         function(status) {
+           if( !status.hasPermission ) error();
+         },
+         error);
+     }
+   }
+*/
+
+
+if(this.storing.getItem("refresh")){
 this.router.navigate(['/mobile'])
+console.log("yesss kkk")
+}
+else
+console.log("nooooo kkk")
 
 
 
@@ -86,6 +158,9 @@ if(boy.Status=="Success"){
 
 this.cookieService.put("access",boy.data.AuthenticationResult.AccessToken)
 this.cookieService.put("refresh",boy.data.AuthenticationResult.RefreshToken)
+this.storing.setItem("refresh",boy.data.AuthenticationResult.RefreshToken)
+this.storing.setItem("access",boy.data.AuthenticationResult.AccessToken)
+
 this.router.navigate(['/mobile'])
 }
 else{

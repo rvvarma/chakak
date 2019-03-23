@@ -3,7 +3,9 @@ import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseConte
 import { CookieService } from 'ngx-cookie';
 import { Router } from '@angular/router';
 import { TestComponent } from '../test/test.component';
-
+declare var cordova;
+//declare var firebase;
+declare var window;
 @Component({
   selector: 'app-mobile',
   templateUrl: './mobile.component.html',
@@ -19,6 +21,16 @@ export class MobileComponent implements OnInit {
 
   constructor(private cookieService:CookieService,private http:Http,private router:Router) {
 //
+/*
+firebase.getToken(function(token) {
+    // save this server-side and use it to push notifications to this device
+    alert(token);
+}, function(error) {
+    alert(error);
+});*/
+
+
+
     this.address="Locating......"
 }
 add(a){
@@ -31,6 +43,8 @@ add(a){
 //this.swing()
     //this.router.navigate(['/mobile'])
 
+
+  
     var json={
       "operation": "refresh_token",
       "refresh_token": this.cookieService.get("refresh")

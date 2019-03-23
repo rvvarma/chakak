@@ -9,16 +9,21 @@ import { CookieService } from 'ngx-cookie';
 })
 export class CheckoutComponent implements OnInit {
   items:any;
+  storing:any;
 
-  constructor(private http:Http,private cookieService:CookieService) { }
+  constructor(private http:Http,private cookieService:CookieService) {
+
+    this.storing= window.localStorage;
+
+   }
 
   ngOnInit() {
 
   }
 newcaedwithitems(){
   var p=[];
-  if(this.cookieService.get("order")){
-    this.items=JSON.parse(this.cookieService.get("order"))
+  if(this.storing.getItem("order")){
+    this.items=JSON.parse(this.storing.getItem("order"))
 
     Object.getOwnPropertyNames(this.items).forEach(key => {
       console.log(JSON.parse(this.items[key]).itemname)
