@@ -112,33 +112,23 @@ Slug</label>
 <div class="mobile-bottom-nav__item mobile-bottom-nav__item-active ">
  <div class="mobile-bottom-nav__item-content">
    <a  routerLink="/mobile/" routerLinkActive="active-link" >
-     <i class="fa fa-home bottom-icons" aria-hidden="true"></i>
-<br>
+<img src="https://img.icons8.com/material/36/000000/home.png"><br>
 Home
      </a>
  </div>
 </div>
-<div class="mobile-bottom-nav__item">
- <div class="mobile-bottom-nav__item-content">
-   <a data-toggle="modal" data-target="#myModal"aria-hidden="true" >
-     <i class="fa fa-search bottom-icons" data-toggle="modal" data-target="#myModal"aria-hidden="true"></i>
-<br>Search
- </a>
- </div>
-</div>
+
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content">
    <a routerLink="/mobile/offers" routerLinkActive="active-link">
-     <i class="fa fa-percent bottom-icons" aria-hidden="true"></i>
-<br>Offers
+<img src="https://img.icons8.com/color/36/000000/discount.png"><br>Offers
  </a>
  </div>
 </div>
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content" routerLink="/mobile/cart" routerLinkActive="active-link">
    <a routerLink="/mobile/cart" routerLinkActive="active-link">
-     <i class="fa fa-cart-arrow-down bottom-icons"  aria-hidden="true"></i>
- <br>Cart
+<img src="https://img.icons8.com/cotton/36/000000/move-by-trolley--v1.png"> <br>Cart
 </a>
 
  </div>
@@ -147,10 +137,17 @@ Home
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content">
    <a  routerLink="/mobile/account" routerLinkActive="active-link">
-     <i class="fa fa-user-circle bottom-icons" aria-hidden="true"></i>
+     <img src="https://img.icons8.com/cotton/36/000000/name.png">
 </a>
 Account
 
+ </div>
+</div>
+<div class="mobile-bottom-nav__item">
+ <div class="mobile-bottom-nav__item-content" routerLink="/mobile/support">
+   <a  routerLink="/mobile/support" routerLinkActive="active-link"  >
+<img src="https://img.icons8.com/cotton/36/000000/customer-support.png"><br>Support
+ </a>
  </div>
 </div>
 </nav>
@@ -254,7 +251,8 @@ Account
             <div class="modal-body">
               <a routerLink="/mobile/location" (click)="closemodal()">
 <h3 style="text-align:left;font-size:1em;font-weight:bolder"> Current Location
-  <input class="pull-right" height="40px" type="image" src="./assets/map.png" routerLink="/mobile/location" alt="Submit">
+
+  <input class="pull-right" height="40px" type="image" src="https://img.icons8.com/cotton/36/000000/worldwide-location.png" routerLink="/mobile/location" alt="Submit">
 <br> <sub> use gps to get correct location</sub>
     </h3>
 </a>

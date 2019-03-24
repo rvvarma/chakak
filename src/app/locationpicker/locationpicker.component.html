@@ -29,37 +29,17 @@
 
 </agm-map>
 <div class="total" style="margin-left:2%;">
-<h6>Select Delivery Location <span ></span></h6>
+<h3>Save Delivery Location <span ></span>
+
+
+</h3>
 <input type="text" id="lname" name="lname" >
+<select id="selectbox" data-selected="">
+  <option value="" selected="selected" disabled="disabled">Home</option>
+  <option value="1">Office</option>
+  <option value="2">Other</option>
 
+</select>
 <button id="confirmPosition" class="address" style="width:90%;margin-right:2%;margin-left:2%;" (click)="confirmaddress()">Confirm Address</button>
-<br>
-<br>
-<div class="rb-box">
-
-  <!-- Radio Button Module -->
-  <p>1. On a scale of 1 to 5 how cubic are you?</p>
-  <div id="rb-1" class="rb">
-    <div class="rb-tab rb-tab-active" data-value="1">
-      <div class="rb-spot">
-        <span class="rb-txt">Home </span>
-      </div>
-    </div>  <div class="rb-tab" style="margin-left:8%;" data-value="2">
-      <div class="rb-spot">
-        <span class="rb-txt">Work</span>
-      </div>
-    </div><div class="rb-tab" style="margin-left:8%;" data-value="3">
-      <div class="rb-spot">
-        <span class="rb-txt">Other</span>
-      </div>
-    </div>
-    </div>
-  </div>
-
-
-  <!-- Radio Button Module -->
-
-
-  <!-- Button -->
 
 </div>
