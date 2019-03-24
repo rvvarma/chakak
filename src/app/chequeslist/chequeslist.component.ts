@@ -56,32 +56,8 @@ alert("Slug needs Your Locatio Permission")  }
 
 */
 
-/*
-var permissions = cordova.plugins.permissions;
 
-   var list = [
-     permissions.CAMERA,
-     permissions.ACCESS_FINE_LOCATION
-   ];
 
-   permissions.hasPermission(list, success, error);
-
-   function error() {
-     console.warn('Camera or Accounts permission is not turned on');
-   }
-
-   function success( status ) {
-     if( !status.hasPermission ) {
-
-       permissions.requestPermissions(
-         list,
-         function(status) {
-           if( !status.hasPermission ) error();
-         },
-         error);
-     }
-   }
-*/
 
 
 if(this.storing.getItem("refresh")){
@@ -96,6 +72,34 @@ console.log("nooooo kkk")
   }
 login(data){
   console.log(data)
+
+
+
+  var permissions = cordova.plugins.permissions;
+
+     var list = [
+       permissions.CAMERA,
+       permissions.ACCESS_FINE_LOCATION
+     ];
+
+     permissions.hasPermission(list, success, error);
+
+     function error() {
+       console.warn('Camera or Accounts permission is not turned on');
+     }
+
+     function success( status ) {
+       if( !status.hasPermission ) {
+
+         permissions.requestPermissions(
+           list,
+           function(status) {
+             if( !status.hasPermission ) error();
+           },
+           error);
+       }
+     }
+
 //this.router.navigate(['/mobile'])
 var json={
   "operation": "signin",

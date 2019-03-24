@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { TestComponent } from '../test/test.component';
 declare var cordova;
 //declare var firebase;
-declare var window;
+//declare var window;
 @Component({
   selector: 'app-mobile',
   templateUrl: './mobile.component.html',
@@ -16,10 +16,17 @@ export class MobileComponent implements OnInit {
   address:any;
   savedaddresses:any;
   private test : TestComponent;
+  storing:any;
+
   @ViewChild('close') close1: ElementRef;
 
 
   constructor(private cookieService:CookieService,private http:Http,private router:Router) {
+    this.storing= window.localStorage;
+
+
+
+
 //
 /*
 firebase.getToken(function(token) {
@@ -44,10 +51,10 @@ add(a){
     //this.router.navigate(['/mobile'])
 
 
-  
+
     var json={
       "operation": "refresh_token",
-      "refresh_token": this.cookieService.get("refresh")
+      "refresh_token": this.storing.getItem("refresh")
 
     }
     console.log(json)
@@ -69,6 +76,7 @@ add(a){
 })*/
   }
 
+
   saved(data){
     //this.router.navigate(['/mobile/location'],{ queryParams: { lat: data.latitude, lng: data.longitude } })
   let saro = new TestComponent(data.latitude,data.longitude,this,data);
@@ -79,7 +87,19 @@ this.closemodal()
 
   }
   closemodal(){
+    cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.",//message
+                        "Use GPS, with wifi or 3G.",//description
+                        function(buttonIndex){//callback
+if(buttonIndex==2){
+  this.router.navigate(['/mobile/location'])
+}
+if(buttonIndex==0){
 
+  alert("Need Location Access")
+}
+
+              }
+                          );
     this.close1.nativeElement.click();
   }
 
