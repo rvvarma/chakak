@@ -51,8 +51,8 @@
 <!--</nav>
 <!--/.Navbar-->
 <ul class="nav-mobile sty navbar-fixed-top">
-  <li>   <i class="fa fa-compass pull-left" aria-hidden="true"></i>
-<label class="pull-left" style=" margin-top:1%; font-size:0.8em; color:white;width: 100px;" data-toggle="modal" data-target="#location">{{address}}</label>
+  <li>   <i class="fa fa-compass pull-left" aria-hidden="true"></i>&nbsp;&nbsp;
+<label class="pull-left"  maxLength="10"style=" margin-left:1%;margin-top:1%; font-size:0.8em; color:white;" data-toggle="modal" data-target="#location">{{address}}</label>
 <label class="pull-right" style="color:#fff;margin-right:8%;">
 Slug</label>
 </li>
@@ -249,7 +249,7 @@ Account
               <button type="button" class="close" data-dismiss="modal" #close>&times;</button>
             </div>
             <div class="modal-body">
-              <a routerLink="/mobile/location" (click)="closemodal()">
+              <a  (click)="closemodal()">
 <h3 style="text-align:left;font-size:1em;font-weight:bolder"> Current Location
 
   <input class="pull-right" height="40px" type="image" src="https://img.icons8.com/cotton/36/000000/worldwide-location.png" routerLink="/mobile/location" alt="Submit">

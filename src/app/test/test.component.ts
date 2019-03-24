@@ -74,7 +74,7 @@ lat=position.coords.latitude
                   }
               }
           );
-      };
+      }
   }
 
 swing(lat,lng,that,saro){
@@ -114,7 +114,7 @@ var _this=mobdata
   if(_this.storing.getItem("order"))
   {
     _this.hash=JSON.parse(_this.storing.getItem("order"))
-    var data2=JSON.parse(_this.storing.getItem)
+    var data2=JSON.parse(_this.storing.getItem("order"))
 
   console.log(data2)
   var m=new Object();

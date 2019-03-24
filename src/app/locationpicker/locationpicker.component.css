@@ -4,7 +4,6 @@
 
 select {
   margin-left:5%;
-  width:50%;
   margin-bottom: 1em;
   padding: .25em;
   border: 0;
@@ -22,46 +21,17 @@ select:focus, select:active {
 width:100%;
 font-size:1em;
 }
-
-
-.row {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  margin: 0 -16px;
-}
-
-.col-25 {
-  -ms-flex: 30%; /* IE10 */
-  flex: 30%;
-}
-
-.col-50 {
-  -ms-flex: 50%; /* IE10 */
-  flex: 50%;
-}
-
-.col-75 {
-  -ms-flex: 70%; /* IE10 */
-  flex: 70%;
-}
-
-.col-25,
-.col-50,
-.col-75 {
-  padding: 0 16px;
-}
-
 input[type=text]:disabled {
   background: #fff;
 }
 input[type=text] {
   padding: 12px 20px;
   margin: 8px 0;
-  width:85%;
+  width:100%;
+
   box-sizing: border-box;
-  margin-left: 5%;
+
+
   border: none;
   border-bottom: 2px solid black ;
 }

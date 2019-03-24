@@ -19,7 +19,7 @@ isavail:any;
   constructor(private cookieService:CookieService,private router:Router) {
     this.storing= window.localStorage;
 
-    if(this.storing.setItem("order")){
+    if(this.storing.getItem("order")){
     this.hash=new Object();
     this.isavail=true
 this.items=JSON.parse(this.storing.getItem("order"))
