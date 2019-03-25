@@ -18,7 +18,6 @@ import { AgmDirectionModule } from 'agm-direction';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpModule } from '@angular/http';
-import { CookieModule } from 'ngx-cookie';
 import { LocationpickerComponent } from './locationpicker/locationpicker.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MobileComponent } from './mobile/mobile.component';
@@ -73,7 +72,6 @@ ReactiveFormsModule,
 HttpModule,
 FormsModule,
 BrowserAnimationsModule,
-CookieModule.forRoot(),
 AgmCoreModule.forRoot({
    apiKey: 'AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU'
    /* apiKey is required, unless you are a

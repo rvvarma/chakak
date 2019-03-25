@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
-import { CookieService } from 'ngx-cookie';
 import { MobileComponent } from '../mobile/mobile.component';
 import { ActivatedRoute } from "@angular/router";
+import { CheckoutComponent } from '../checkout/checkout.component';
 
 @Component({
   selector: 'app-test',
@@ -15,7 +15,7 @@ hash:any;
 address:any;
 storing:any;
 
-  constructor(private http:Http,private cookieService:CookieService,private app:MobileComponent,private route: ActivatedRoute) {
+  constructor(private http:Http,private app:MobileComponent,private route: ActivatedRoute) {
   //  this.hash=new Object()
 //  this.cookieService.removeAll();
 this.storing= window.localStorage;

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,7 +15,7 @@ hash={};
 storing:any;
 total:any;
 isavail:any;
-  constructor(private cookieService:CookieService,private router:Router) {
+  constructor(private router:Router) {
     this.storing= window.localStorage;
 
     if(this.storing.getItem("order")){

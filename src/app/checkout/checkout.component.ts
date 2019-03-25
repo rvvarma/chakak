@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
-import { CookieService } from 'ngx-cookie';
 
 @Component({
   selector: 'app-checkout',
@@ -11,7 +10,7 @@ export class CheckoutComponent implements OnInit {
   items:any;
   storing:any;
 
-  constructor(private http:Http,private cookieService:CookieService) {
+  constructor(private http:Http) {
 
     this.storing= window.localStorage;
 

@@ -1,6 +1,5 @@
 import { Component, OnInit,ViewChild ,ElementRef,Inject} from '@angular/core';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
-import { CookieService } from 'ngx-cookie';
 import { Router } from '@angular/router';
 import { TestComponent } from '../test/test.component';
 declare var cordova;
@@ -21,7 +20,7 @@ export class MobileComponent implements OnInit {
   @ViewChild('close') close1: ElementRef;
 
 
-  constructor(private cookieService:CookieService,private http:Http,private router:Router) {
+  constructor(private http:Http,private router:Router) {
     this.storing= window.localStorage;
 
 
@@ -79,7 +78,7 @@ add(a){
 
   saved(data){
     //this.router.navigate(['/mobile/location'],{ queryParams: { lat: data.latitude, lng: data.longitude } })
-  let saro = new TestComponent(data.latitude,data.longitude,this,data);
+  let saro = new TestComponent(data,this,data);
 saro.swing(data.latitude,data.longitude,this,saro);
   //  this.router.navigate(['/mobile/'],{ queryParams: { lat: data.latitude, lng: data.longitude } })
 //  this.

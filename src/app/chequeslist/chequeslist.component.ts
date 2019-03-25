@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
-import { CookieService } from 'ngx-cookie';
 declare var cordova;
 
 @Component({
@@ -11,7 +10,7 @@ declare var cordova;
 })
 export class ChequeslistComponent implements OnInit {
 storing:any;
-  constructor(private router:Router,private http:Http,private cookieService:CookieService) {
+  constructor(private router:Router,private http:Http) {
 
     this.storing= window.localStorage;
  }
@@ -160,8 +159,6 @@ var json={
 console.log(boy)
 if(boy.Status=="Success"){
 
-this.cookieService.put("access",boy.data.AuthenticationResult.AccessToken)
-this.cookieService.put("refresh",boy.data.AuthenticationResult.RefreshToken)
 this.storing.setItem("refresh",boy.data.AuthenticationResult.RefreshToken)
 this.storing.setItem("access",boy.data.AuthenticationResult.AccessToken)
 
