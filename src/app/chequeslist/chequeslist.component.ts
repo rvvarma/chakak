@@ -73,7 +73,7 @@ login(data){
   console.log(data)
 
 
-
+/*
   var permissions = cordova.plugins.permissions;
 
      var list = [
@@ -97,7 +97,7 @@ login(data){
            },
            error);
        }
-     }
+     }*/
 
 //this.router.navigate(['/mobile'])
 var json={
@@ -171,7 +171,10 @@ this.error=boy.errorMessage
 }
 })
 
-
+var phoneMask = new IMask(
+  document.getElementById('phone-mask'), {
+    mask: '0000000000'
+  });
 
 }
 }

@@ -88,7 +88,7 @@ that.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+that.l
 var boy=data.json();
 //console.log(boy)
 //console.log(boy.results[0].formatted_address)
- (<HTMLInputElement>document.getElementById('lname')).value =boy.results[0].formatted_address
+ (<HTMLInputElement>document.getElementById('lname')).innerHTML =boy.results[0].formatted_address
 //address="hii"
 //console.log(this.address)
 })
@@ -120,7 +120,7 @@ if(address){
   var boy=data.json();
   //console.log(boy)
   //console.log(boy.results[0].formatted_address)
-   (<HTMLInputElement>document.getElementById('lname')).value =boy.results[0].formatted_address
+   (<HTMLInputElement>document.getElementById('lname')).innerHTML =boy.results[0].formatted_address
   //address="hii"
   //console.log(this.address)
   })
@@ -141,7 +141,7 @@ confirmaddress(){
 var json={
 "userid":56,
 "operation":"postaddress",
-"address": (<HTMLInputElement>document.getElementById('lname')).value,
+"address": (<HTMLInputElement>document.getElementById('lname')).innerHTML,
 "latitude":this.lat,
 "longitude":this.lng
 
@@ -163,7 +163,7 @@ hhp.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+
 var boy=data.json();
 //console.log(boy)
 //console.log(boy.results[0].formatted_address)
- (<HTMLInputElement>document.getElementById('lname')).value =boy.results[0].formatted_address
+ (<HTMLInputElement>document.getElementById('lname')).innerHTML =boy.results[0].formatted_address
 //address="hii"
 //console.log(this.address)
 })

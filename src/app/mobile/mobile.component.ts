@@ -87,7 +87,7 @@ this.closemodal()
   }
   closemodal(){
     //cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.",//message
-                        "Use GPS, with wifi or 3G.",//description
+                      /*  "Use GPS, with wifi or 3G.",//description
                         function(buttonIndex){//callback
 if(buttonIndex==2){
   this.router.navigate(['/mobile/location'])
@@ -98,7 +98,7 @@ if(buttonIndex==0){
 }
 
               }
-                          );
+            );*/
     this.close1.nativeElement.click();
   }
 

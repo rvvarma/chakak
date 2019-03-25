@@ -202,13 +202,13 @@ label {
 
 .checkout {
   float: right;
-  border: 0;
+  border: 5px;
   margin-top: 20px;
   padding: 6px 25px;
   background-color: #6b6;
   color: #fff;
   font-size: 25px;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .checkout:hover {

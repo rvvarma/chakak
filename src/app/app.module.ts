@@ -24,6 +24,7 @@ import { MobileComponent } from './mobile/mobile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { SupportComponent } from './support/support.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 const appRoutes: Routes = [
 
@@ -75,6 +76,7 @@ ReactiveFormsModule,
 HttpModule,
 FormsModule,
 BrowserAnimationsModule,
+Ng2SearchPipeModule,
 AgmCoreModule.forRoot({
    apiKey: 'AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU'
    /* apiKey is required, unless you are a

@@ -199,12 +199,8 @@
         <div class="trapezoid"></div>
         <form (ngSubmit)="signup(signuping)" #signuping="ngForm">
 
-          <input type="text" name="name" placeholder="Name" ngModel>
-          <input type="text" name="email" placeholder="Email" ngModel>
-          <input type="number" name="mobile" placeholder="Enter PhoneNumber" ngModel>
-          <input type="date" name="date" placeholder="Enter DOB" ngModel>
-          <button type="submit" >Create Account</button>
-          <p class="opposite-btn2">Already have an account.?</p>
+          <input type="tel" name="email"  pattern="[0-9]" placeholder="Email" ngModel>
+
         </form>
       </section>
 

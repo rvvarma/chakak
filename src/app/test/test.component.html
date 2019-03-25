@@ -46,6 +46,8 @@
     </a>
   </div>
 </div>
+
+<!-- Modal -->
 <h1  class="title-pen"style="font-size:1.5em;font-weight:bold" > Grab Your Food
 
 
@@ -86,10 +88,72 @@
 
 
 </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+    <!--  <div class="modal-header">
+        <h1 class="modal-title"></h1>
+
+      </div> -->
+      <div class="modal-body" >
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        <div class="total">
+        <div class="search-button">
+        <div class="input-group mb-3 " style="margin-top:10%;">
+          <input type="text" class="form-control" placeholder="Search for Dishes" [(ngModel)]="name" (input)="filterItem(name)"     aria-describedby="basic-addon2">
+          <div class="input-group-append">
+
+
+          </div>
+        </div>
+        </div>
+<div *ngFor="let item of items | keyvalue">
+          <div class="product" *ngFor="let indi of item.value ; let i = index " >
+            <div class="product-image ">
+              <!--<img src="https://s.cdpn.io/3/dingo-dog-bones.jpg"> -->
+              <button class="wNrY5O"> – </button>&nbsp;<p class="_2csFM9"> {{indi.count}}</p> &nbsp;<button class="wNrY5O"> + </button>
+
+            </div>
+            <div class="product-details">
+              <div class="product-title">{{indi.itemname}}</div>
+              <p class="product-description"></p>
+            </div>
+            <!--<div class="product-price"></div> -->
+            <div class="product-quantity ">
+              <div class="product-line-price pull-left">{{indi.itemprice}}</div>
+
+
+            </div>
+          <!--  <div class="product-removal">
+              <button class="remove-product">
+                Remove
+              </button>
+            </div> -->
+          </div>
+
+
+        </div>
+      </div>
+      <!--<div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
 <script>
 
   $(document).ready(function(){
     // TABS
     $('ul.tabs').tabs();
   });
+
+
+
+
 </script>

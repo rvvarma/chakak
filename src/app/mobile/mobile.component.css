@@ -4,6 +4,16 @@ body, html {
   height: 100vh;
   background: #ccc;
 }
+.modal {
+  position: fixed;
+  top:10%;
+bottom:20%;
+}
+.modal-header {
+    bottom: 100px;
+    top: 100px;
+    overflow-y: auto;
+}
 .bottom-icons{
 font-size:22px;
 }

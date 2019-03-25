@@ -248,7 +248,7 @@ Account
 
               <button type="button" class="close" data-dismiss="modal" #close>&times;</button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="height:50%;">
               <a  (click)="closemodal()">
 <h3 style="text-align:left;font-size:1em;font-weight:bolder"> Current Location
 
@@ -260,7 +260,10 @@ Account
 
 <h3 style="text-align:left; font-size:1em;font-weight:bolder"> Saved Location</h3>
 <div class="" style="text-align:left">
-  <button class="button-address" *ngFor="let item of savedaddresses" (click)=saved(item)><font size="3"><label style="font-size:0.7em;">{{item.address}}</label></font></button>
+  <button class="button-address" *ngFor="let item of savedaddresses" (click)=saved(item)>
+    <font size="3"><label style="font-size:0.7em;">{{item.address}}</label>
+    </font>
+  </button>
 
 
 </div>
