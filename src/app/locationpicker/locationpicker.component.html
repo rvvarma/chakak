@@ -41,7 +41,7 @@
           <p id="lname" >  </p>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-25">
           <label for="lname" style="margin-top:26%">Address</label>
     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -49,7 +49,7 @@
           <input type="text" id="lname" name="lastname" optional>
 
         </div>
-      </div>
+      </div>-->
       <div class="row">
         <div class="col-25">
           <label for="subject"style="margin-top:26%">LandMark</label>
@@ -64,26 +64,47 @@
           <label for="country">Save as</label>
         </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <div class="col-75">
-          <select id="selectbox" data-selected="">
-            <option value="" selected="selected" disabled="disabled"> <img src="https://img.icons8.com/cotton/20/000000/home.png">Home</option>
-            <option value="1"><i class="fa fa-home" aria-hidden="true"></i>
-Office</option>
-            <option value="2">Other</option>
 
-          </select>
+
+          <input type="radio" name="rb" id="rb1" />
+          <label id="radio" for="rb1">Home</label>
+          <input type="radio" name="rb" id="rb2" />
+          <label id="radio"for="rb2">Office</label>
+          <input type="radio" name="rb" id="rb3" />
+          <label id="radio"for="rb3">Other</label>
+
+
         </div>
       </div>
+    <!--  <form class="form">
 
+
+    <div class="inputGroup">
+      <input id="radio1" name="radio" type="radio"/>
+      <label for="radio1">Home</label>
+    </div>
+    <div class="inputGroup">
+      <input id="radio2" name="radio" type="radio"/>
+      <label for="radio2">Other</label>
+    </div>
+    <div class="inputGroup">
+      <input id="radio3" name="radio" type="radio"/>
+      <label for="radio3">Other
+  <input type="text" id="lname" name="lastname" required></label>
+    </div>
+
+  </form>-->
       <div class="row">
         <button id="confirmPosition" class="address" style="width:90%;margin-right:2%;margin-left:2%;" (click)="confirmaddress()">Confirm Address</button>
       </div>
     </form>
-  </div>
 
+  </div>
+<!--
 <label>Pin Loaction: </label><input type="text" id="lname" name="lname" >
 <label> Address: </label><input type="text" id="lname" name="lname" >
 <label>Land Mark: </label><input type="text" id="lname" name="lname" ><br>
 Save as
 <button id="confirmPosition" class="address" style="width:90%;margin-right:2%;margin-left:2%;" (click)="confirmaddress()">Confirm Address</button>
-
+-->
 </div>

@@ -171,10 +171,6 @@ this.error=boy.errorMessage
 }
 })
 
-var phoneMask = new IMask(
-  document.getElementById('phone-mask'), {
-    mask: '0000000000'
-  });
 
 }
 }
