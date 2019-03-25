@@ -1,7 +1,8 @@
+<h3 style="text-align:center">Set Delivery Location
 
-<form>
-<input ngx-google-places-autocomplete class="form-control" #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" width="100%"/>
-</form>
+
+
+</h3>
 <agm-map
   [latitude]="latn"
   [longitude]="lngn"
@@ -29,37 +30,60 @@
 
 </agm-map>
 <div class="total" style="margin-left:2%;">
-<h6>Select Delivery Location <span ></span></h6>
-<input type="text" id="lname" name="lname" >
 
-<button id="confirmPosition" class="address" style="width:90%;margin-right:2%;margin-left:2%;" (click)="confirmaddress()">Confirm Address</button>
-<br>
-<br>
-<div class="rb-box">
+  <div class="container">
+    <form action="/action_page.php">
+      <div class="row">
+        <div class="col-25">
+          <label for="fname" style="margin-top:20%">Pin Location</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="lname" name="lastname">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="lname" style="margin-top:26%">Address</label>
+    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="col-75">
+          <input type="text" id="lname" name="lastname" optional>
 
-  <!-- Radio Button Module -->
-  <p>1. On a scale of 1 to 5 how cubic are you?</p>
-  <div id="rb-1" class="rb">
-    <div class="rb-tab rb-tab-active" data-value="1">
-      <div class="rb-spot">
-        <span class="rb-txt">Home </span>
+        </div>
       </div>
-    </div>  <div class="rb-tab" style="margin-left:8%;" data-value="2">
-      <div class="rb-spot">
-        <span class="rb-txt">Work</span>
+      <div class="row">
+        <div class="col-25">
+          <label for="subject"style="margin-top:26%">LandMark</label>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="col-75">
+          <input type="text" id="lname" name="lastname" required>
+        </div>
       </div>
-    </div><div class="rb-tab" style="margin-left:8%;" data-value="3">
-      <div class="rb-spot">
-        <span class="rb-txt">Other</span>
+      <br>
+      <div class="row">
+        <div class="col-25">
+          <label for="country">Save as</label>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="col-75">
+          <select id="selectbox" data-selected="">
+            <option value="" selected="selected" disabled="disabled"> <img src="https://img.icons8.com/cotton/20/000000/home.png">Home</option>
+            <option value="1"><i class="fa fa-home" aria-hidden="true"></i>
+Office</option>
+            <option value="2">Other</option>
+
+          </select>
+        </div>
       </div>
-    </div>
-    </div>
+
+      <div class="row">
+        <button id="confirmPosition" class="address" style="width:90%;margin-right:2%;margin-left:2%;" (click)="confirmaddress()">Confirm Address</button>
+      </div>
+    </form>
   </div>
 
-
-  <!-- Radio Button Module -->
-
-
-  <!-- Button -->
+<label>Pin Loaction: </label><input type="text" id="lname" name="lname" >
+<label> Address: </label><input type="text" id="lname" name="lname" >
+<label>Land Mark: </label><input type="text" id="lname" name="lname" ><br>
+Save as
+<button id="confirmPosition" class="address" style="width:90%;margin-right:2%;margin-left:2%;" (click)="confirmaddress()">Confirm Address</button>
 
 </div>

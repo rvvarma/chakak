@@ -23,6 +23,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { MobileComponent } from './mobile/mobile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { SupportComponent } from './support/support.component';
 
 const appRoutes: Routes = [
 
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
  {path:'currentorder/:id',component:CurrentorderComponent},
  { path: 'offers', component: SearchComponent },
  { path: 'checkout', component: CheckoutComponent },
+ { path: 'support', component: SupportComponent },
 
  {path:'location',component:LocationpickerComponent},
 ]},
@@ -62,6 +64,7 @@ const appRoutes: Routes = [
     LocationpickerComponent,
     CheckoutComponent,
     MobileComponent,
+    SupportComponent,
   ],
   imports: [
     BrowserModule,
