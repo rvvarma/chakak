@@ -16,6 +16,7 @@ export class MobileComponent implements OnInit {
   savedaddresses:any;
   private test : TestComponent;
   storing:any;
+  itemcounts:any;
 
   @ViewChild('close') close1: ElementRef;
 
@@ -43,6 +44,12 @@ add(a){
 //
   this.address=a
   console.log(a)
+
+}
+itemcount(count){
+
+this.itemcounts=count
+console.log(count)
 
 }
   ngOnInit() {

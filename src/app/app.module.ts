@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { SupportComponent } from './support/support.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 const appRoutes: Routes = [
 
@@ -69,6 +70,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    NgxSkeletonLoaderModule,
+
     AppRoutingModule,
 OwlModule,
 GooglePlaceModule,

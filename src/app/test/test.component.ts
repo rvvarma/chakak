@@ -119,7 +119,7 @@ var _this=mobdata
   console.log(data2)
   var m=new Object();
   m=data2;
-
+var tpp=0;
   //console.log(m["Banana MilkShake"])
   //
     Object.getOwnPropertyNames(_this.items).forEach(key => {
@@ -128,12 +128,13 @@ var _this=mobdata
     var p=JSON.parse(m[_this.items[key][t].itemname])
     console.log(p.count)
   _this.items[key][t].count=p.count
-
+tpp++;
 
   }
     }
     });
 
+    _this.app.itemcount(tpp)
 
 
 
@@ -157,8 +158,9 @@ var _this=mobdata
   this.items[item][index].count+=1
   //console.log(this.items[item][index]   )
   this.hash[this.items[item][index].itemname]=JSON.stringify(this.items[item][index])
-  console.log(this.hash)
   this.storing.setItem("order",JSON.stringify(this.hash));
+this.app.itemcount(Object.keys(this.hash).length)
+)
 
 }
 dec(index: number,item:any) {
@@ -176,6 +178,7 @@ delete this.hash[this.items[item][index].itemname];
 
 this.storing.setItem("order",JSON.stringify(this.hash));
 
+this.app.itemcount(Object.keys(this.hash).length)
 
 }
 //console.log(this.hash)

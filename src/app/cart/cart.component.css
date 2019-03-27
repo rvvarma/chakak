@@ -204,6 +204,7 @@ label {
   float: right;
   border: 5px;
   margin-top: 20px;
+  width:100%;
   padding: 6px 25px;
   background-color: #6b6;
   color: #fff;
@@ -292,7 +293,6 @@ label {
 .wNrY5O{
   width: 28px;
     height: 28px;
-    background: linear-gradient(#fff,#f9f9f9);
     display: inline-block;
     border: 1px solid #c2c2c2;
     cursor: pointer;
@@ -305,13 +305,11 @@ label {
 
 
 ._2csFM9{
-  width: 25 px;
-     height: 28px;
-     background: linear-gradient(#fff,#f9f9f9);
-     display: inline-block;
-     cursor: pointer;
-     font-size: 16px;
-     padding-top: 1px;
-     line-height: 1;
-
-}
+  width: 25px;
+  height: 28px;
+  background: linear-gradient(#fff,#fff);
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  padding-top: 1px;
+  line-height: 1;}

@@ -34,7 +34,12 @@ Your Cart is Empty!
 
   <div class="product" *ngFor="let item of items ; let i = index">
     <div class="product-image ">
-      <button class="wNrY5O" (click)="dec(i)"> – </button>&nbsp;<p class="_2csFM9"> {{item.count}}</p> &nbsp;<button class="wNrY5O" (click)="inc(i)"> + </button>
+
+           <i class="fa fa-minus-circle" aria-hidden="true" (click)="dec(i)" ></i>
+&nbsp;<p class="_2csFM9"> {{item.count}}</p> &nbsp;
+
+        <i class="fa fa-plus-circle " aria-hidden="true" (click)="inc(i)"></i>
+
 
     </div>
     <div class="product-details">
@@ -73,9 +78,9 @@ Your Cart is Empty!
     </div>
   </div>
 
-  <label>Pin Loaction: </label><input type="text" id="lname" name="lname" >
-<!--<label> complete addressss</label> <button class="btn danger">Change</button>
--->
+<!--  <label>Pin Loaction: </label><input type="text" id="lname" name="lname" > -->
+<label> complete addressss {{address}} </label> <button class="btn danger" data-toggle="modal" data-target="#location">  Change</button>
+
       <button class="checkout" routerLink="/mobile/checkout">Checkout</button>
 
 </div>

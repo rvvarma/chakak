@@ -4,6 +4,13 @@ body, html {
   height: 100vh;
   background: #ccc;
 }
+fa-stack {
+    display: inline-block;
+    line-height: 2em;
+    position: relative;
+    vertical-align: middle;
+    width: 2.5em;
+}
 .fa-stack[data-count]:after {
   position: absolute;
   right: 0%;
@@ -14,11 +21,11 @@ body, html {
   border-radius: 999px;
   line-height: .75em;
   color: white;
-  color: #DF0000;
+  color: #fff;
   text-align: center;
   min-width: 2em;
   font-weight: bold;
-  background: white;
+  background: #E81E1E;
   border-style: solid;
 }
 
