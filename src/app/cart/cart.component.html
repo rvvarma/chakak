@@ -76,12 +76,18 @@ Your Cart is Empty!
       <label style="color:green;">Grand Total</label>
       <div class="totals-value" id="cart-total">{{this.total}}</div>
     </div>
+
+    <div class="totals-item totals-item-total">
+      <label> complete addressss {{address}} </label> <button class="btn danger" data-toggle="modal" data-target="#location">  Change</button>
+
+    </div>
+    <div class="totals-item totals-item-total">
+      <button class="checkout2" routerLink="/mobile/checkout">COD</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="checkout1" routerLink="/mobile/checkout">Pay </button>
+    </div>
   </div>
 
 <!--  <label>Pin Loaction: </label><input type="text" id="lname" name="lname" > -->
-<label> complete addressss {{address}} </label> <button class="btn danger" data-toggle="modal" data-target="#location">  Change</button>
-
-      <button class="checkout" routerLink="/mobile/checkout">Checkout</button>
 
 </div>
 </div>

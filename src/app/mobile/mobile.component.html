@@ -132,10 +132,12 @@ Home
 
 
 
-     <img src="./assets/cartlogo1.png"><span *ngIf="itemcounts!=0"class="badge badge-light">{{itemcounts}}</span> 
+     <img src="./assets/cartlogo1.png"><span class="badge badge-light">
+</span>
 
 
 
+<span *ngIf="itemcounts!=0"  class="badge-square">{{itemcounts}}</span>
 
 
 <br>
@@ -144,6 +146,7 @@ Home
 
  </div>
 </div>
+
 
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content">

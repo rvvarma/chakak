@@ -13,6 +13,7 @@ h1{
   font-size: 1.8em;
 
 }
+
 input[type=text] {
   padding: 12px 20px;
   margin: 8px 0;
@@ -200,12 +201,24 @@ label {
   font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
 }
 
-.checkout {
-  float: right;
+.checkout2 {
   border: 5px;
-  margin-top: 20px;
-  width:100%;
-  padding: 6px 25px;
+  width:40%;
+  float:right;
+  margin-top: 5%;
+
+
+  background-color: #6b6;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 10px;
+}
+.checkout1 {
+  border: 5px;
+  float:left;
+  margin-top: 5%;
+  width:40%;
+
   background-color: #6b6;
   color: #fff;
   font-size: 25px;

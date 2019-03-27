@@ -1,36 +1,25 @@
-body, html {
-  margin: 2%;
-  font-family: arial;
-  height: 100vh;
-  background: #ccc;
+.icon {
+  font-size: 24pt;
+  cursor: pointer;
+  height: 100px;
 }
-fa-stack {
-    display: inline-block;
-    line-height: 2em;
-    position: relative;
-    vertical-align: middle;
-    width: 2.5em;
-}
-.fa-stack[data-count]:after {
-  position: absolute;
-  right: 0%;
-  top: 0%;
-  content: attr(data-count);
-  font-size: 40%;
-  padding: .6em;
-  border-radius: 999px;
-  line-height: .75em;
-  color: white;
-  color: #fff;
-  text-align: center;
-  min-width: 2em;
-  font-weight: bold;
+.badge-square {
+  box-sizing: border-box;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  top: -9px;
+  transform: translateX(-70%);
   background: #E81E1E;
-  border-style: solid;
-}
-
-.fa-circle {
-  color: #DF0000;
+  font-size: 9pt;
+  border-radius: 100px;
+  color: #FFFFFF;
+  font-size: 11px;
+  padding: 4px 2px;
+  min-width: 15px;
+  line-height: 10px;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .red-cart {
