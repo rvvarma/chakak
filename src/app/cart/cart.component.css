@@ -13,6 +13,7 @@ h1{
   font-size: 1.8em;
 
 }
+
 input[type=text] {
   padding: 12px 20px;
   margin: 8px 0;
@@ -200,11 +201,24 @@ label {
   font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
 }
 
-.checkout {
-  float: right;
+.checkout2 {
   border: 5px;
-  margin-top: 20px;
-  padding: 6px 25px;
+  width:40%;
+  float:right;
+  margin-top: 5%;
+
+
+  background-color: #6b6;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 10px;
+}
+.checkout1 {
+  border: 5px;
+  float:left;
+  margin-top: 5%;
+  width:40%;
+
   background-color: #6b6;
   color: #fff;
   font-size: 25px;
@@ -292,7 +306,6 @@ label {
 .wNrY5O{
   width: 28px;
     height: 28px;
-    background: linear-gradient(#fff,#f9f9f9);
     display: inline-block;
     border: 1px solid #c2c2c2;
     cursor: pointer;
@@ -305,13 +318,11 @@ label {
 
 
 ._2csFM9{
-  width: 25 px;
-     height: 28px;
-     background: linear-gradient(#fff,#f9f9f9);
-     display: inline-block;
-     cursor: pointer;
-     font-size: 16px;
-     padding-top: 1px;
-     line-height: 1;
-
-}
+  width: 25px;
+  height: 28px;
+  background: linear-gradient(#fff,#fff);
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  padding-top: 1px;
+  line-height: 1;}

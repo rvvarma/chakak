@@ -36,7 +36,7 @@ this.hash={};
 
   ngOnInit() {
 
-    console.log("intiated man")
+//    console.log("intiated man")
     if (window.navigator && window.navigator.geolocation) {
           window.navigator.geolocation.getCurrentPosition(
               position => {

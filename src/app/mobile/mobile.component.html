@@ -54,7 +54,7 @@
   <li>   <i class="fa fa-compass pull-left" aria-hidden="true"></i>&nbsp;&nbsp;
 <label class="pull-left"  maxLength="10"style=" margin-left:1%;margin-top:1%; font-size:0.8em; color:white;" data-toggle="modal" data-target="#location">{{address}}</label>
 <label class="pull-right" style="color:#fff;margin-right:8%;">
-Slug</label>
+</label>
 </li>
   <li class="menu-container">
     <input id="menu-toggle" type="checkbox">
@@ -121,16 +121,25 @@ Home
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content">
    <a routerLink="/mobile/offers" routerLinkActive="active-link">
-<img src="https://img.icons8.com/color/36/000000/discount.png"><br>Offers
+<img src="./assets/offerslogo.png"><br>Offers
  </a>
  </div>
 </div>
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content" routerLink="/mobile/cart" routerLinkActive="active-link">
    <a routerLink="/mobile/cart" routerLinkActive="active-link">
-<span class="fa-stack fa-lg has-badge" data-count="6">
-  <img src="https://img.icons8.com/cotton/36/000000/move-by-trolley--v1.png">
+
+
+
+
+     <img src="./assets/cartlogo1.png"><span class="badge badge-light">
 </span>
+
+
+
+<span *ngIf="itemcounts!=0"  class="badge-square">{{itemcounts}}</span>
+
+
 <br>
  Cart
 </a>
@@ -138,19 +147,21 @@ Home
  </div>
 </div>
 
+
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content">
    <a  routerLink="/mobile/account" routerLinkActive="active-link">
-     <img src="https://img.icons8.com/cotton/36/000000/name.png">
+     <img src="./assets/accountlogo.png"><br>
+     Account
 </a>
-Account
+
 
  </div>
 </div>
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content" routerLink="/mobile/support">
    <a  routerLink="/mobile/support" routerLinkActive="active-link"  >
-<img src="https://img.icons8.com/cotton/36/000000/customer-support.png"><br>Support
+<img src="./assets/support.png"><br>Support
  </a>
  </div>
 </div>
