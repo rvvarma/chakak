@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
+import { MobileComponent } from '../mobile/mobile.component';
 
 @Component({
   selector: 'app-cart',
@@ -16,19 +17,20 @@ hash={};
 storing:any;
 total:any;
 isavail:any;
-  constructor(private router:Router,private http:Http) {
+  constructor(private router:Router,private http:Http,private app:MobileComponent) {
     this.storing= window.localStorage;
 
     if(this.storing.getItem("order")){
     this.hash=new Object();
     this.isavail=true
+
 this.items=JSON.parse(this.storing.getItem("order"))
 this.subtotal=0.0;
 this.tax=3.0;
 this.shipping=35;
 var p=[];
 Object.getOwnPropertyNames(this.items).forEach(key => {
-  console.log(this.items[key].itemprice)
+  this.hash[this.items[key].itemname]=this.items[key]
   this.subtotal+=JSON.parse(this.items[key]).itemprice*JSON.parse(this.items[key]).count;
 p.push(JSON.parse(this.items[key]))
 
@@ -71,6 +73,7 @@ this.total=this.total+this.subtotal
   this.hash[this.items[index].itemname]=JSON.stringify(this.items[index])
   console.log(this.hash)
   this.storing.setItem("order",JSON.stringify(this.hash));
+  this.app.itemcount(this.items.lenth)
 
 }
 dec(index: number) {
@@ -91,12 +94,14 @@ delete this.hash[this.items[index].itemname];
 
 
     this.items.splice(index, 1);
-  if(this.items.length==0){
+  if(this.items.length==0){this.app.itemcount(Object.keys(this.hash).length)
+
 this.isavail=false
   }
   //  console.log(this.hash.size)
 }
 this.storing.setItem("order",JSON.stringify(this.hash));
+this.app.itemcount(this.items.lenth)
 
 
 }

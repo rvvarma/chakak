@@ -82,7 +82,7 @@ login(data){
       console.log(error);
   });
 
-/*
+
   var permissions = cordova.plugins.permissions;
 
      var list = [
@@ -106,7 +106,7 @@ login(data){
            },
            error);
        }
-     }*/
+     }
 
 //this.router.navigate(['/mobile'])
 var json={
