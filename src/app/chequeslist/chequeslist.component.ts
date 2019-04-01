@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
 declare var cordova;
-
+declare var FirebasePlugin;
 @Component({
   selector: 'app-chequeslist',
   templateUrl: './chequeslist.component.html',
@@ -10,6 +10,7 @@ declare var cordova;
 })
 export class ChequeslistComponent implements OnInit {
 storing:any;
+firetaking:any;
   constructor(private router:Router,private http:Http) {
 
     this.storing= window.localStorage;
@@ -71,7 +72,15 @@ console.log("nooooo kkk")
   }
 login(data){
   console.log(data)
+  var that=this
+  FirebasePlugin.getToken(function(token) {
+      // save this server-side and use it to push notifications to this device
+     console.log("firetaking "+token);
+    that.firetaking=token
 
+  }, function(error) {
+      console.log(error);
+  });
 
 /*
   var permissions = cordova.plugins.permissions;
@@ -149,10 +158,11 @@ var json={
   "operation": "challenge_mfa",
   "username": this.logindata.ChallengeParameters.USER_ID_FOR_SRP,
   "mfa_code": data.value.otp,
-  "session":this.logindata.Session
+  "session":this.logindata.Session,
+  "firebase":this.firetaking
 
 }
-//console.log(json)
+console.log("firetaking"+JSON.stringify(json))
 
   this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/challenge-mfa",json).subscribe(data => {
   var boy=data.json();

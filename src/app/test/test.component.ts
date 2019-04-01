@@ -63,18 +63,20 @@ lat=position.coords.latitude
               error => {
                   switch (error.code) {
                       case 1:
-                          console.log('Permission Denied');
+                          console.log(' pichak Permission Denied');
                           break;
                       case 2:
-                          console.log('Position Unavailable');
+                          console.log('pichak Position Unavailable');
                           break;
                       case 3:
-                          console.log('Timeout');
+                          console.log('pichak Timeout');
                           break;
                   }
               }
           );
       }
+      else
+      console.log("pichak")
   }
 
 swing(lat,lng,that,saro){

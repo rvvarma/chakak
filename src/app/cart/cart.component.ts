@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +16,7 @@ hash={};
 storing:any;
 total:any;
 isavail:any;
-  constructor(private router:Router) {
+  constructor(private router:Router,private http:Http) {
     this.storing= window.localStorage;
 
     if(this.storing.getItem("order")){
@@ -101,6 +102,39 @@ this.storing.setItem("order",JSON.stringify(this.hash));
 }
 //console.log(this.hash)
 
+
+}
+newcaedwithitems(){
+  var p=[];
+  if(this.storing.getItem("order")){
+    this.items=JSON.parse(this.storing.getItem("order"))
+
+    Object.getOwnPropertyNames(this.items).forEach(key => {
+      console.log(JSON.parse(this.items[key]).itemname)
+    p.push({id:JSON.parse(this.items[key]).itemid,qty:JSON.parse(this.items[key]).count})
+
+
+    });
+
+
+}
+
+var json={
+latitude:17.3256,
+longitude:78.2564,
+address:"Ngos colony",
+items:p,
+userid:2,
+username:"Raghava"
+
+
+}
+console.log(json)
+this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/orders",json).subscribe(data => {
+var boy=data.json();
+console.log(boy)
+
+})
 
 }
 

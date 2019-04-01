@@ -3,7 +3,7 @@ import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseConte
 import { Router } from '@angular/router';
 import { TestComponent } from '../test/test.component';
 declare var cordova;
-//declare var firebase;
+declare var firebase;
 //declare var window;
 @Component({
   selector: 'app-mobile',
@@ -30,9 +30,9 @@ export class MobileComponent implements OnInit {
 /*
 firebase.getToken(function(token) {
     // save this server-side and use it to push notifications to this device
-    alert(token);
+    console.log("firetaking "+token);
 }, function(error) {
-    alert(error);
+    console.log(error);
 });*/
 
 
