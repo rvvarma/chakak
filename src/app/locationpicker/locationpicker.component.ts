@@ -3,6 +3,7 @@ import { MouseEvent } from '@agm/core';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
 import { MobileComponent } from '../mobile/mobile.component';
 import {Router} from "@angular/router"
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-locationpicker',
@@ -19,7 +20,7 @@ export class LocationpickerComponent  {
   map:any;
   lngn:number
   address:any;
-  constructor(private http:Http,private mobile:MobileComponent,private router : Router){
+  constructor(private http:Http,private mobile:MobileComponent,private router : Router,private route: ActivatedRoute){
 this.address="No Address"
         if (window.navigator && window.navigator.geolocation) {
           window.navigator.geolocation.getCurrentPosition(
@@ -149,7 +150,12 @@ var json={
 }
   this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card",json).subscribe(data => {
   console.log(data.json());
+if(this.route.snapshot.queryParams["mapping"]=="cart"){
+  this.router.navigate(['/mobile/cart'],{ queryParams: { address:(<HTMLInputElement>document.getElementById('lname')).innerHTML ,lat: this.lat, lng: this.lng} })
 
+
+}
+else
   this.router.navigate(['/mobile'],{ queryParams: { lat: this.lat, lng: this.lng } })
 })
 

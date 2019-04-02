@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
 import { MobileComponent } from '../mobile/mobile.component';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-cart',
@@ -9,6 +10,8 @@ import { MobileComponent } from '../mobile/mobile.component';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  @ViewChild('close') close1: ElementRef;
+currentaddress:any;
 items:any;
 subtotal:any;
 tax:any;
@@ -17,9 +20,18 @@ hash={};
 storing:any;
 total:any;
 isavail:any;
-  constructor(private router:Router,private http:Http,private app:MobileComponent) {
+savedaddresses:any;
+latitude:any;
+longitude:any;
+  constructor(private router:Router,private http:Http,private app:MobileComponent,private route: ActivatedRoute) {
     this.storing= window.localStorage;
+    this.currentaddress="No Address Selected.."
+if(this.route.snapshot.queryParams["address"]){
+    this.currentaddress=this.route.snapshot.queryParams["address"]
+    this.latitude=this.route.snapshot.queryParams["lat"]
+    this.longitude=this.route.snapshot.queryParams["lng"]
 
+}
     if(this.storing.getItem("order")){
     this.hash=new Object();
     this.isavail=true
@@ -54,9 +66,51 @@ this.isavail=false
   }
 
   ngOnInit() {
+    this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card?operation=getaddress&&userid=56").subscribe(data => {
+    var boy=data.json();
+    this.savedaddresses=boy.data
+  })
   }
 
+cod(){
 
+
+  var p=[];
+  if(this.storing.getItem("order")){
+    var ptitems=JSON.parse(this.storing.getItem("order"))
+
+    Object.getOwnPropertyNames(ptitems).forEach(key => {
+      console.log(JSON.parse(ptitems[key]).itemname)
+    p.push({id:JSON.parse(ptitems[key]).itemid,qty:JSON.parse(ptitems[key]).count})
+
+
+    });
+
+
+}
+
+var json={
+latitude:this.latitude,
+longitude:this.longitude,
+address:this.currentaddress,
+item:p,
+userid:2,
+username:"Raghava",
+paymenttype:"cod"
+
+
+}
+console.log(json)
+this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/orders",json).subscribe(data => {
+var boy=data.json();
+console.log(boy)
+this.router.navigate(['/mobile/currentorder', boy.data.orderid])
+this.storing.removeItem("order")
+})
+
+
+
+}
   inc(index: number) {
   //  this.quickOrder[index].qty += 1;
   //console.log(index + " "+item)
@@ -109,6 +163,29 @@ this.app.itemcount(this.items.lenth)
 
 
 }
+closemodal(){
+  //cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.",//message
+                    /*  "Use GPS, with wifi or 3G.",//description
+                      function(buttonIndex){//callback
+if(buttonIndex==2){
+this.router.navigate(['/mobile/location'])
+}
+if(buttonIndex==0){
+
+alert("Need Location Access")
+}
+
+            }
+          );*/
+  this.close1.nativeElement.click();
+}
+saved(item){
+  this.close1.nativeElement.click();
+
+this.currentaddress=item.address
+this.latitude=item.latitude
+this.longitude=item.longitude
+}
 newcaedwithitems(){
   var p=[];
   if(this.storing.getItem("order")){
@@ -130,15 +207,16 @@ longitude:78.2564,
 address:"Ngos colony",
 items:p,
 userid:2,
+paymenttype:"COD",
 username:"Raghava"
 
 
 }
 console.log(json)
+//
 this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/orders",json).subscribe(data => {
 var boy=data.json();
 console.log(boy)
-
 })
 
 }

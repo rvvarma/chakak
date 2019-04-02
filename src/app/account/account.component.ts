@@ -13,7 +13,7 @@ orders:any;
 
 
 
-    this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/getorder-item?operation=getall&id=2").subscribe(data => {
+    this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/getorder-item?operation=getall&id=56").subscribe(data => {
     var boy=data.json();
     this.orders=boy.data;
     console.log(this.orders)

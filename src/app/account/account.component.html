@@ -80,7 +80,7 @@
   No of Items : {{item.itemid.length}}<br>
 Amount : {{item.price}}</p>
      <!-- Link -->
-                      <h5>  Status: {{item.status}}
+                      <h5>  
                          <a  class="btn btn-success  " style="pull-left"  *ngIf="item.status=='close'" role="button">RE-Order</a>
                          <a  class="btn btn-danger  " style="pull-left"  *ngIf="item.status!='close'" role="button" (click)="track(item.orderid)">Track Order</a>
 
