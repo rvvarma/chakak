@@ -150,6 +150,8 @@ var json={
 }
   this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card",json).subscribe(data => {
   console.log(data.json());
+
+
 if(this.route.snapshot.queryParams["mapping"]=="cart"){
   this.router.navigate(['/mobile/cart'],{ queryParams: { address:(<HTMLInputElement>document.getElementById('lname')).innerHTML ,lat: this.lat, lng: this.lng} })
 

@@ -50,14 +50,14 @@
 
         </div>
       </div>-->
-      <div class="row">
+     <!-- <div class="row">
         <div class="col-25">
-          <label for="subject"style="margin-top:26%">LandMark</label>
+          <label for="subject"style="margin-top:26%">Additonal address</label>
         </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <div class="col-75">
           <input type="text" id="lname" name="lastname" required>
         </div>
-      </div>
+      </div>-->
       <br>
       <div class="row">
         <div class="col-25">
@@ -66,11 +66,11 @@
         <div class="col-75">
 
 
-          <input type="radio" name="rb" id="rb1" />
+          <input type="radio" name="rb" id="rb1" (click)="type(Home)"/>
           <label id="radio" for="rb1">Home</label>
-          <input type="radio" name="rb" id="rb2" />
+          <input type="radio" name="rb" id="rb2" (click)="type(Work)" />
           <label id="radio"for="rb2">Office</label>
-          <input type="radio" name="rb" id="rb3" />
+          <input type="radio" name="rb" id="rb3" (click)="type(Other)" />
           <label id="radio"for="rb3">Other</label>
 
 
