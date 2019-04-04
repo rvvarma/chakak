@@ -88,6 +88,8 @@ cod(){
 
 
 }
+var d = new Date();
+           var n = d.toLocaleString([], { hour12: true});
 
 var json={
 latitude:this.latitude,
@@ -95,6 +97,7 @@ longitude:this.longitude,
 address:this.currentaddress,
 item:p,
 userid:2,
+time:n,
 username:"Raghava",
 paymenttype:"cod"
 
@@ -106,6 +109,8 @@ var boy=data.json();
 console.log(boy)
 this.router.navigate(['/mobile/currentorder', boy.data.orderid])
 this.storing.removeItem("order")
+this.app.itemcount(0)
+
 })
 
 
@@ -127,7 +132,7 @@ this.total=this.total+this.subtotal
   this.hash[this.items[index].itemname]=JSON.stringify(this.items[index])
   console.log(this.hash)
   this.storing.setItem("order",JSON.stringify(this.hash));
-  this.app.itemcount(this.items.lenth)
+  this.app.itemcount(this.items.length)
 
 }
 dec(index: number) {
@@ -155,7 +160,7 @@ this.isavail=false
   //  console.log(this.hash.size)
 }
 this.storing.setItem("order",JSON.stringify(this.hash));
-this.app.itemcount(this.items.lenth)
+this.app.itemcount(this.items.length)
 
 
 }

@@ -7,7 +7,7 @@
 </agm-map>
 
 
- <div class="card">
+ <div class="card" style="width:100%">
   <div class="card-body">
     <h5 class="card-title">
 
@@ -18,17 +18,16 @@
  {{items.DeliveryBoys.DeliveryBoysName}}
 
       </div>
-      <button type="button" class="btn  pull-right btn-success btn-xs button5">
-     call  <i class="fa fa-phone" aria-hidden="true"></i>
-</button>
+      <a type="button" class="btn  pull-right btn-success btn-xs button5" href="tel:+91 {{items.DeliveryBoys.DBMobileNo}}">
+     call {{items.DeliveryBoys.DBMobileNo}}  <i class="fa fa-phone" aria-hidden="true"></i>
+</a>
      </h5>
     <p class="card-text"></p>
-    <a class="card-link">Status : <a href="#" class="button">{{items.status}} </a>
-</a> <br>
-<div style="width:100%;">
-<svg width="320"  viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <br>
+<div style="width:100%">
+<svg width="320"   viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <pattern id='diagonalHatch' class='diagonal-hatching-translate' patternUnits='userSpaceOnUse' width='20' height='20'>
+    <pattern id='diagonalHatch' class='diagonal-hatching-translate' patternUnits='userSpaceOnUse' width='30' height='20'>
       <path d='M -5 5 l 10 -10 M 0 20 l 20 -20 M 15 25 l 10 -10' stroke='#e0e3ea' stroke-width='3' />
     </pattern>
   </defs>

@@ -4,6 +4,7 @@ import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseConte
 import { MobileComponent } from '../mobile/mobile.component';
 import {Router} from "@angular/router"
 import { ActivatedRoute } from "@angular/router";
+declare var cordova;
 
 @Component({
   selector: 'app-locationpicker',
@@ -20,8 +21,17 @@ export class LocationpickerComponent  {
   map:any;
   lngn:number
   address:any;
+  addtype:any;
   constructor(private http:Http,private mobile:MobileComponent,private router : Router,private route: ActivatedRoute){
 this.address="No Address"
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            if(cordova.dialogGPS()){
+          //    alert("yes")
+            }
+
+        }
         if (window.navigator && window.navigator.geolocation) {
           window.navigator.geolocation.getCurrentPosition(
               position => {
@@ -144,10 +154,12 @@ var json={
 "operation":"postaddress",
 "address": (<HTMLInputElement>document.getElementById('lname')).innerHTML,
 "latitude":this.lat,
-"longitude":this.lng
+"longitude":this.lng,
+"type":this.addtype
 
 
 }
+console.log(json)
   this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card",json).subscribe(data => {
   console.log(data.json());
 
@@ -165,6 +177,11 @@ else
 
 
 // just an interface for type safety.
+type(data){
+console.log(data)
+this.addtype=data
+
+}
  bp(lat,lng,hhp){
 //console.log("hi")
 hhp.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {

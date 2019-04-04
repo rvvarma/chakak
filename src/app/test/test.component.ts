@@ -46,7 +46,7 @@ document.addEventListener("resume", onResume, false);
     document.addEventListener("deviceready", onDeviceReady, false);
         function onDeviceReady() {
             if(cordova.dialogGPS()){
-              alert("yes")
+          //    alert("yes")
             }
 
         }

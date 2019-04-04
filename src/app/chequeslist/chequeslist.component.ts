@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild ,ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
 declare var cordova;
@@ -10,6 +10,8 @@ declare var FirebasePlugin;
 })
 export class ChequeslistComponent implements OnInit {
 storing:any;
+@ViewChild('moveto') close1: ElementRef;
+
 firetaking:any;
   constructor(private router:Router,private http:Http) {
 
@@ -133,19 +135,30 @@ this.error=""
 }
 signup(data){
 
+  this.error="";
 
 var json={
   "operation": "signup",
-  "email": data.value.emUSER_ID_FOR_SRPail,
+  "email": data.value.email,
   "dob": data.value.date,
   "mobile": "+91"+data.value.mobile,
-  "name":data.value.nameangular
+  "name":data.value.name
 }
 console.log(json)
 
   this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/signup",json).subscribe(data => {
   var boy=data.json();
 console.log(boy)
+if(boy.Status=="Failed"){
+this.error=boy.data.message;
+console.log(this.error)
+
+}
+else{
+this.close1.nativeElement.click();
+console.log("success")
+}
+
 })
 }
 changetologin(){
