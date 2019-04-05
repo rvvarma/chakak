@@ -156,7 +156,6 @@ console.log(this.error)
 }
 else{
 this.close1.nativeElement.click();
-console.log("success")
 }
 
 })
