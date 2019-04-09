@@ -75,7 +75,7 @@ console.log("nooooo kkk")
 login(data){
   console.log(data)
   var that=this
-/*  FirebasePlugin.getToken(function(token) {
+  FirebasePlugin.getToken(function(token) {
       // save this server-side and use it to push notifications to this device
      console.log("firetaking "+token);
     that.firetaking=token
@@ -108,7 +108,7 @@ login(data){
            },
            error);
        }
-     }*/
+
 
 //this.router.navigate(['/mobile'])
 var json={
@@ -116,7 +116,7 @@ var json={
   "email": data.value.email
 
 }
-
+}
   this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/signin",json).subscribe(data => {
   var boy=data.json();
   console.log(boy)
@@ -133,6 +133,7 @@ this.error=""
 }
 })
 }
+
 signup(data){
 
   this.error="";
