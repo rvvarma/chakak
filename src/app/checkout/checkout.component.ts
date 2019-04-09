@@ -9,11 +9,11 @@ import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseConte
 export class CheckoutComponent implements OnInit {
   items:any;
   storing:any;
-
+userid:any;
   constructor(private http:Http) {
 
     this.storing= window.localStorage;
-
+this.userid=this.storing.getItem("userid")
    }
 
   ngOnInit() {
@@ -39,7 +39,7 @@ latitude:17.3256,
 longitude:78.2564,
 address:"Ngos colony",
 items:p,
-userid:2,
+userid:this.userid,
 username:"Raghava"
 
 

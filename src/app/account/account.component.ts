@@ -9,11 +9,24 @@ import { Router } from '@angular/router';
 })
 export class AccountComponent implements OnInit {
 orders:any;
+name:any;
+email:any;
+phone:any;
+userid:any;
+
+storing:any;
+
   constructor(private http:Http,private router: Router) {
 
+    this.storing= window.localStorage;
+this.name=this.storing.getItem("name")
+this.email=this.storing.getItem("email")
 
+this.phone=this.storing.getItem("mobile")
 
-    this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/getorder-item?operation=getall&id=56").subscribe(data => {
+this.userid=this.storing.getItem("userid")
+
+    this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/getorder-item?operation=getall&id="+this.userid).subscribe(data => {
     var boy=data.json();
     this.orders=boy.data;
     console.log(this.orders)
@@ -26,7 +39,11 @@ this.orders[t].itemid=(JSON.parse(this.orders[t].itemid))
     })
   }
 
+logout(){
 
+  this.storing.clear();
+  this.router.navigate(['/'])
+}
     ngOnInit() {
     }
 

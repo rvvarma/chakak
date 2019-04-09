@@ -17,13 +17,14 @@ export class MobileComponent implements OnInit {
   private test : TestComponent;
   storing:any;
   itemcounts:any;
+  userid:any;
 
   @ViewChild('close') close1: ElementRef;
 
 
   constructor(private http:Http,private router:Router) {
     this.storing= window.localStorage;
-
+this.userid=this.storing.getItem("userid")
 
 
 
@@ -64,7 +65,7 @@ console.log(count)
 
     }
     console.log(json)
-    this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card?operation=getaddress&&userid=56").subscribe(data => {
+    this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card?operation=getaddress&&userid="+this.userid).subscribe(data => {
     var boy=data.json();
     this.savedaddresses=boy.data
   })

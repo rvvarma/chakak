@@ -7,11 +7,11 @@
     <div class="card card-profile">
       <div class="firstinfo"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/mrvanz/128.jpg"/>
         <div class="profileinfo">
-          <h1>Name</h1>
+          <h1>{{name}}</h1>
           <h3></h3>
-          <p class="bio">MobileNo :    00000000000
-          Email:12356553@gmail.com</p>
-          <a  class="btn btn-success  " style="pull-right" role="button">Log-out</a>
+          <p class="bio">MobileNo : {{phone}}
+          Email:{{email}}</p>
+          <a  class="btn btn-success  " style="pull-right" role="button" (click)="logout()">Log-out</a>
 
         </div>
       </div>
@@ -80,7 +80,7 @@
   No of Items : {{item.itemid.length}}<br>
 Amount : {{item.price}}</p>
      <!-- Link -->
-                      <h5>  
+                      <h5>
                          <a  class="btn btn-success  " style="pull-left"  *ngIf="item.status=='close'" role="button">RE-Order</a>
                          <a  class="btn btn-danger  " style="pull-left"  *ngIf="item.status!='close'" role="button" (click)="track(item.orderid)">Track Order</a>
 

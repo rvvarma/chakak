@@ -22,9 +22,12 @@ export class LocationpickerComponent  {
   lngn:number
   address:any;
   addtype:any;
+  storing:any;
+userid:any;
   constructor(private http:Http,private mobile:MobileComponent,private router : Router,private route: ActivatedRoute){
 this.address="No Address"
-
+this.storing= window.localStorage;
+this.userid=this.storing.getItem("userid")
     document.addEventListener("deviceready", onDeviceReady, false);
         function onDeviceReady() {
             if(cordova.dialogGPS()){
@@ -150,7 +153,7 @@ if(address){
   }
 confirmaddress(){
 var json={
-"userid":56,
+"userid":this.userid,
 "operation":"postaddress",
 "address": (<HTMLInputElement>document.getElementById('lname')).innerHTML,
 "latitude":this.lat,
@@ -170,7 +173,7 @@ if(this.route.snapshot.queryParams["mapping"]=="cart"){
 
 }
 else
-  this.router.navigate(['/mobile'],{ queryParams: { lat: this.lat, lng: this.lng } })
+  this.router.navigate(['/'],{ queryParams: { lat: this.lat, lng: this.lng } })
 })
 
 }

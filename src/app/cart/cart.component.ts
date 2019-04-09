@@ -23,8 +23,10 @@ isavail:any;
 savedaddresses:any;
 latitude:any;
 longitude:any;
+userid:any;
   constructor(private router:Router,private http:Http,private app:MobileComponent,private route: ActivatedRoute) {
     this.storing= window.localStorage;
+this.userid=this.storing.getItem("userid")
     this.currentaddress="No Address Selected.."
 if(this.route.snapshot.queryParams["address"]){
     this.currentaddress=this.route.snapshot.queryParams["address"]
@@ -33,6 +35,7 @@ if(this.route.snapshot.queryParams["address"]){
 
 }
     if(this.storing.getItem("order")){
+      console.log("cookies data"+ this.storing.getItem("order"))
     this.hash=new Object();
     this.isavail=true
 
@@ -42,7 +45,7 @@ this.tax=3.0;
 this.shipping=35;
 var p=[];
 Object.getOwnPropertyNames(this.items).forEach(key => {
-  this.hash[this.items[key].itemname]=this.items[key]
+  this.hash[key]=this.items[key]
   this.subtotal+=JSON.parse(this.items[key]).itemprice*JSON.parse(this.items[key]).count;
 p.push(JSON.parse(this.items[key]))
 
@@ -63,10 +66,12 @@ this.isavail=false
 
 }
 
+console.log("constructor "+JSON.stringify(this.hash))
+
   }
 
   ngOnInit() {
-    this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card?operation=getaddress&&userid=56").subscribe(data => {
+    this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card?operation=getaddress&&userid="+this.userid).subscribe(data => {
     var boy=data.json();
     this.savedaddresses=boy.data
   })
@@ -96,7 +101,7 @@ latitude:this.latitude,
 longitude:this.longitude,
 address:this.currentaddress,
 item:p,
-userid:2,
+userid:this.userid,
 time:n,
 username:"Raghava",
 paymenttype:"cod"
@@ -140,6 +145,8 @@ dec(index: number) {
 //console.log(this.items[item][index])
 //this.hash=JSON.parse(this.cookieService.get("order"));
 
+
+
 if(this.items[index].count>0){
 this.items[index].count-=1
 this.hash[this.items[index].itemname]=JSON.stringify(this.items[index])
@@ -147,6 +154,9 @@ this.hash[this.items[index].itemname]=JSON.stringify(this.items[index])
 this.total-=this.subtotal;
 this.subtotal-=this.items[index].itemprice
 this.total=this.total+this.subtotal
+
+//console.log(this.items[index].count +" d")
+
 if(this.items[index].count==0){
 delete this.hash[this.items[index].itemname];
 
@@ -166,7 +176,7 @@ this.app.itemcount(this.items.length)
 }
 //console.log(this.hash)
 
-
+console.log(this.hash)
 }
 closemodal(){
   //cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.",//message
@@ -211,7 +221,7 @@ latitude:17.3256,
 longitude:78.2564,
 address:"Ngos colony",
 items:p,
-userid:2,
+userid:this.userid,
 paymenttype:"COD",
 username:"Raghava"
 

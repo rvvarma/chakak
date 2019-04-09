@@ -75,7 +75,7 @@ console.log("nooooo kkk")
 login(data){
   console.log(data)
   var that=this
-  FirebasePlugin.getToken(function(token) {
+/*  FirebasePlugin.getToken(function(token) {
       // save this server-side and use it to push notifications to this device
      console.log("firetaking "+token);
     that.firetaking=token
@@ -108,7 +108,7 @@ login(data){
            },
            error);
        }
-     }
+     }*/
 
 //this.router.navigate(['/mobile'])
 var json={
@@ -116,10 +116,10 @@ var json={
   "email": data.value.email
 
 }
-console.log(json)
 
   this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/signin",json).subscribe(data => {
   var boy=data.json();
+  console.log(boy)
 if(boy.Status=="Failed"){
 this.error=boy.data.message;
 console.log(this.error)
@@ -174,7 +174,6 @@ var json={
   "firebase":this.firetaking
 
 }
-console.log("firetaking"+JSON.stringify(json))
 
   this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/challenge-mfa",json).subscribe(data => {
   var boy=data.json();
@@ -183,6 +182,10 @@ if(boy.Status=="Success"){
 
 this.storing.setItem("refresh",boy.data.AuthenticationResult.RefreshToken)
 this.storing.setItem("access",boy.data.AuthenticationResult.AccessToken)
+this.storing.setItem("email",boy.userdata.UserAttributes[6].Value)
+this.storing.setItem("name",boy.userdata.UserAttributes[3].Value)
+this.storing.setItem("mobile",boy.userdata.UserAttributes[5].Value)
+this.storing.setItem("userid",boy.userdata.UserAttributes[0].Value)
 
 this.router.navigate(['/mobile'])
 }
