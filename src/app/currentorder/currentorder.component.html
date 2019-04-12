@@ -18,44 +18,62 @@
  {{items.DeliveryBoys.DeliveryBoysName}}
 
       </div>
-      <a type="button" class="btn  pull-right btn-success btn-xs button5" href="tel:+91 {{items.DeliveryBoys.DBMobileNo}}">
-     call {{items.DeliveryBoys.DBMobileNo}}  <i class="fa fa-phone" aria-hidden="true"></i>
-</a>
+<a  class="button button1 pull-right "  role="button" href="tel:+91 {{items.DeliveryBoys.DBMobileNo}}">
+
+  {{items.DeliveryBoys.DBMobileNo}} <i class="fa fa-phone" aria-hidden="true"></i></a>
+
      </h5>
-    <p class="card-text"></p>
    <br>
-<div style="width:100%">
-<svg width="320"   viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-    <pattern id='diagonalHatch' class='diagonal-hatching-translate' patternUnits='userSpaceOnUse' width='30' height='20'>
-      <path d='M -5 5 l 10 -10 M 0 20 l 20 -20 M 15 25 l 10 -10' stroke='#e0e3ea' stroke-width='3' />
-    </pattern>
-  </defs>
-  <path d="M0,0 h 20" fill="none" id="newMotionPath"/>
-  <g class="process-bar-background"><path d="M 12 0 A 12 12 0 0 0 12 24 H 318 A 12 12 0 0 0 318 0" fill="#e0e3ea"></path></g>
-  <g class="publishing-group">
-    <rect x="256.8" y="0" width="61.2" height="24" fill="#e0e3ea"></rect>
-    <text x="293.40000000000003" y="12" alignment-baseline="middle" class="icon-fa-sliders" fill="#b6becb" text-anchor="middle"></text>
-    <path d="M 318 24 A 12 12 0 0 0 318 0" fill="#e0e3ea"></path>
-    <text x="293.40000000000003" y="40" fill="#b6becb" font-size="11" font-weight="bold" text-anchor="middle">Delivered</text>
-  </g>
-  <g class="processing-group">
-    <path d="M 73.2 0 v 24 h 183.6 l 10.392304845413264 -12 l -10.392304845413264 -12" fill="#24597b" stroke="#fff" stroke-width="1"></path>
-    <path d="M 53.2 0 v 24 h 203.6 v -24" fill="url(#diagonalHatch)">
-      <animateMotion dur="1s" repeatCount="indefinite">
-        <mpath href="#newMotionPath"/>
-      </animateMotion>
-    </path>
+    <!--<p class="blink-two"> cooking</p>
 
-    <text x="165" y="40" fill="#24597b" text-anchor="middle" font-size="11" font-weight="bold">on the way</text>
-  </g>
-  <g class="preparing-group">
-    <path d="M 12 0 A 12 12 0 0 0 12 24 h 61.2 l 10.392304845413264 -12 l -10.392304845413264 -12" fill="#18a349" stroke="#fff" stroke-width="1">
-    </path>
-    <text x="36.6" y="12" alignment-baseline="middle" class="icon-fa-wrench" fill="#fff" text-anchor="middle">
-      </text><text x="36.6" y="40" fill="#18a349" font-size="11" font-weight="bold" text-anchor="middle">Cooking</text></g>
-</svg>
+              <!-- Loading 4 don't work on firefox because of the border-radius and the "dashed" style. -->
 
-  </div>
+
+
+</div>
+
+  <div class='progress'>
+  <div class='progress_inner'>
+    <div class='progress_inner__step'>
+      <label for='step-1'>Start order</label>
+    </div>
+    <div class='progress_inner__step'>
+      <label for='step-2'>Prepare </label>
+    </div>
+    <div class='progress_inner__step'>
+      <label for='step-3'>Packing</label>
+    </div>
+    <div class='progress_inner__step'>
+      <label for='step-4'>On the Way</label>
+    </div>
+    <div class='progress_inner__step'>
+      <label for='step-5'>Delivered</label>
+    </div>
+    <input checked='checked' id='step-1' name='step' type='radio'>
+    <input id='step-2' name='step' type='radio'>
+    <input id='step-3' name='step' type='radio'>
+    <input id='step-4' name='step' type='radio'>
+    <input id='step-5' name='step' type='radio'>
+    <div class='progress_inner__bar'></div>
+    <div class='progress_inner__bar--set'></div>
+    <div class='progress_inner__tabs'>
+
+    </div>
+    <div class='progress_inner__status'>
+      <div class='box_base'></div>
+      <div class='box_lid'></div>
+      <div class='box_ribbon'></div>
+      <div class='box_bow'>
+        <div class='box_bow__left'></div>
+        <div class='box_bow__right'></div>
+      </div>
+      <div class='box_item'></div>
+      <div class='box_tag'></div>
+      <div class='box_string'></div>
+    </div>
   </div>
 </div>
+
+
+
+    <script  src="js/index.js"></script>

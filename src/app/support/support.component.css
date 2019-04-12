@@ -31,7 +31,6 @@
 }
 
 #contact {
-width: 500px;
 margin:2em auto;
 position: relative;
 }
@@ -39,7 +38,6 @@ position: relative;
 content: "";
 display: block;
 height: 30px;
-width: 90%;
 left: 5%;
 bottom: 0;
 position: absolute;
@@ -239,7 +237,7 @@ margin-bottom: 0px;
 
 @media (max-width: 500px){
 #contact {
-width: 100%;
+width: 90%;
 }
   .input_wrapper label {
 line-height: 3.5em;

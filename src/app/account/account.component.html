@@ -2,7 +2,6 @@
 
 <h1 Style="text-align:center">Account</h1>
 
-
   <div class="content">
     <div class="card card-profile">
       <div class="firstinfo"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/mrvanz/128.jpg"/>
@@ -11,7 +10,7 @@
           <h3></h3>
           <p class="bio">MobileNo : {{phone}}
           Email:{{email}}</p>
-          <a  class="btn btn-success  " style="pull-right" role="button" (click)="logout()">Log-out</a>
+          <a  class="button button1  " style="margin-left:15%;" role="button" (click)="logout()">Log-out</a>
 
         </div>
       </div>
@@ -72,17 +71,17 @@
 
      <!-- Social shares button -->
      <!-- Title -->
-     <h4 class="card-title">{{item.address}}</h4>
+     <h4 class="card-title" style="width:100%"  maxlength="10">Order Details</h4>
      <hr class="">
      <!-- Text -->
-     <p class="card-text black-text mb-4">Order Details
-     <br>
+     <p class="card-text black-text mb-4">
   No of Items : {{item.itemid.length}}<br>
-Amount : {{item.price}}</p>
+Amount : {{item.price}}<br>
+Address: <span  maxlength="50"  style="display:block;text-overflow: ellipsis;width:300px;overflow: hidden; white-space: nowrap;">{{item.address}}</span> </p>
      <!-- Link -->
                       <h5>
-                         <a  class="btn btn-success  " style="pull-left"  *ngIf="item.status=='close'" role="button">RE-Order</a>
-                         <a  class="btn btn-danger  " style="pull-left"  *ngIf="item.status!='close'" role="button" (click)="track(item.orderid)">Track Order</a>
+                         <a  class=" button button1   " style="pull-left"  *ngIf="item.status=='close'" role="button">RE-Order</a>
+                         <a  class=" button button1  " style="pull-left"  *ngIf="item.status!='close'" role="button" (click)="track(item.orderid)">Track Order</a>
 
   </h5>
 
