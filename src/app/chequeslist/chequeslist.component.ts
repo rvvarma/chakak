@@ -111,11 +111,12 @@ login(data){
 
 
 //this.router.navigate(['/mobile'])
+
+}
 var json={
   "operation": "signin",
   "email": data.value.email
 
-}
 }
   this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/signin",json).subscribe(data => {
   var boy=data.json();
