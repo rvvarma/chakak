@@ -26,6 +26,8 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { SupportComponent } from './support/support.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { SkeletonComponent } from './skeleton/skeleton.component';
+import { NgxContentLoadingModule } from 'ngx-content-loading';
 
 const appRoutes: Routes = [
 
@@ -35,7 +37,9 @@ const appRoutes: Routes = [
  children: [
 
    { path: 'home', component: HomeComponent },
-     { path: '', component: TestComponent },
+     { path: '', component: SkeletonComponent },
+     { path: 'test', component: TestComponent },
+
    { path: 'dashboard', component: DashboardComponent },
    { path: 'account', component: AccountComponent },
  { path: 'cart', component: CartComponent },
@@ -67,11 +71,12 @@ const appRoutes: Routes = [
     CheckoutComponent,
     MobileComponent,
     SupportComponent,
+    SkeletonComponent,
   ],
   imports: [
     BrowserModule,
     NgxSkeletonLoaderModule,
-
+NgxContentLoadingModule,
     AppRoutingModule,
 OwlModule,
 GooglePlaceModule,

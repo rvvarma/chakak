@@ -1,32 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ChangeDetectorRef,ElementRef,ViewChild} from '@angular/core';
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
 import { MobileComponent } from '../mobile/mobile.component';
 import { ActivatedRoute } from "@angular/router";
 import { CheckoutComponent } from '../checkout/checkout.component';
+import {Router} from "@angular/router"
+
 declare var cordova;
 
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
+
 })
 export class TestComponent implements OnInit {
 items:any;
 hash:any;
 address:any;
 storing:any;
+savedaddresses:any;
+userid:any;
+@ViewChild('close') close1: ElementRef;
 
-  constructor(private http:Http,private app:MobileComponent,private route: ActivatedRoute) {
+  constructor(private http:Http,private app:MobileComponent,private route: ActivatedRoute,private router: Router) {
   //  this.hash=new Object()
 //  this.cookieService.removeAll();
 this.storing= window.localStorage;
+this.userid=this.storing.getItem("userid")
 
 //let app = new AppComponent();
 this.hash={};
 
-this.app.itemcount(0)
+//this.app.itemcount(0)
 
-
+this.items=[]
 
 
 //this.datarefresh("unnaned",this)
@@ -42,49 +49,11 @@ document.addEventListener("resume", onResume, false);
 
 */
   ngOnInit() {
+this.items=JSON.parse(this.storing.getItem("itemdata"))
+this.savedaddresses=JSON.parse(this.storing.getItem("adding"))
+console.log(this.savedaddresses)
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-        function onDeviceReady() {
-            if(cordova.dialogGPS()){
-          //    alert("yes")
-            }
-
-        }
-   var onResume=function() {
-cordova.dialogGPS()    //cordova.dialogGPS();
-    }
-    document.addEventListener("resume", onResume, false);
-
-//
-var that=this
-      console.log("navigator.geolocation works well");
-      var onSuccess = function(position) {
-
-                let lat = that.route.snapshot.queryParams["lat"];
-                let lng = that.route.snapshot.queryParams["lng"];
-                console.log(lat)
-                console.log(lng)
-if(lat==null&&lng==null){
-lat=position.coords.latitude
-lng=position.coords.longitude
-}
-                that.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
-                var boy=data.json();
-                console.log(boy)
-                console.log(boy.results[3].address_components[6].long_name)
-                that.app.add(boy.results[3].address_components[0].long_name)
-                that.datarefresh(boy.results[3].address_components[6].long_name,that)
-                })
-
-      };
-
-      // onError Callback receives a PositionError object
-      //
-      function onError(error) {
-          alert('code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n');
-      }
-      navigator.geolocation.getCurrentPosition(onSuccess, onError);
+//console.log(this.app.getitems())
 
   }
 
@@ -93,74 +62,26 @@ lng=position.coords.longitude
 swing(lat,lng,that,saro){
 
 
-  console.log("emundi"+lat)
+  console.log("emundi"+this.items)this.close1.nativeElement.click();
 
 
 
-                      that.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
-                      var boy=data.json();
-                      console.log(boy)
-                      console.log(boy.results[3].address_components[6].long_name)
-                      that.add(boy.results[3].address_components[0].long_name)
-                      this.datarefresh(boy.results[3].address_components[6].long_name,that)
-                    })
+
+
+}
+saved(data){
+this.items=data
+
+console.log(this.items)
 
 }
 
-datarefresh(data,mobdata){
-
-var than=mobdata
-      than.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/items?operation=get&pincode=500070").subscribe(data => {
-    var boy=data.json();
-  //console.log(boy)
-  var groupBy = function(xs, key) {
-    return xs.reduce(function(rv, x) {
-      (rv[x[key]] = rv[x[key]] || []).push(x);
-      return rv;
-    }, {});
-  };
-  var groubedByTeam=groupBy(boy.data, 'itemcategory')
-  console.log(groubedByTeam)
-  var data1=groubedByTeam
-  than.items=data1
-  //this.hash=this.cookieService.get("order")
-  if(than.storing.getItem("order"))
-  {
-    than.hash=JSON.parse(than.storing.getItem("order"))
-    var data2=JSON.parse(than.storing.getItem("order"))
-
-  console.log(data2)
-  var m=new Object();
-  m=data2;
-
-  //console.log(m["Banana MilkShake"])
-  //
-    Object.getOwnPropertyNames(than.items).forEach(key => {
-    for(var t=0;t<than.items[key].length;t++){
-  if(m[than.items[key][t].itemname]){
-    var p=JSON.parse(m[than.items[key][t].itemname])
-    console.log(p.count)
-  than.items[key][t].count=p.count
-
-
-  }
-    }
-    });
-
-    than.app.itemcount(Object.keys(this.hash).length)
-
-
-
-
-
-  }
-  //console.log(this.hash)
-
-
-    });
+savedata(data){
+  console.log(data.latitude)
+  this.router.navigate(['/mobile/'],{ queryParams: { lat: data.latitude, lng: data.longitude} })
+  this.close1.nativeElement.click();
 
 }
-
 
 
   inc(index: number,item:any) {
