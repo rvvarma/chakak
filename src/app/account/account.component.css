@@ -5,10 +5,64 @@
 body, .badgescard, .firstinfo {
   display: flex;
 }
+a:not([href]):not([tabindex]) {
+  color: #72BA65;
+  text-decoration: none;
+}
+.button {
+  border: none;
+  color: #72BA65;
+
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.8em;
+  margin: 1px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white;
+  color: #72BA65;
+  border-radius: 10px;
+  border: 2px solid #72BA65;
+}
+
+.button1:hover {
+  background-color: #72BA65;
+  color: white;
+}
 
 
+.print{
 
+   background-color: white;
+   border-color: #72BA65;
+   color:#72BA65;
+   transition: 0.3s;
+ }
+ .print:hover{
+   background-color: #72BA65;
+   color:white;
+ }
 
+.checkout {
+  border: 3px;
+  float:left;
+  margin-top: 5%;
+  width:100%;
+
+  background-color: #6b6;
+  color: #fff;
+  font-size: 1em;
+  border-radius: 10px;
+}
+.checkout:hover {
+  background-color: #494;
+}
 
 *, *:before, *:after {
   box-sizing: border-box;

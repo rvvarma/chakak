@@ -59,16 +59,6 @@ console.log(this.savedaddresses)
 
 
 
-swing(lat,lng,that,saro){
-
-
-  console.log("emundi"+this.items)this.close1.nativeElement.click();
-
-
-
-
-
-}
 saved(data){
 this.items=data
 
