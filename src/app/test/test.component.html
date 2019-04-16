@@ -48,7 +48,7 @@
 </div>
 
 <!-- Modal -->
-<h1  class="title-pen"style="font-size:1.5em;font-weight:bold" > Grab Your Food
+<h1  class="title-pen"style="font-size:0.8em;font-weight:bold" > Grab Your Food
 
 
 <div class="pull-right" style="margin-right:5.5%;" >
@@ -92,60 +92,49 @@
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-    <!--  <div class="modal-header">
-        <h1 class="modal-title"></h1>
-
-      </div> -->
-      <div class="modal-body" >
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-        <div class="total">
-        <div class="search-button">
-        <div class="input-group mb-3 " style="margin-top:10%;">
-          <input type="text" class="form-control" placeholder="Search for Dishes"      aria-describedby="basic-addon2">
-          <div class="input-group-append">
 
 
-          </div>
-        </div>
-        </div>
-<div *ngFor="let item of items | keyvalue">
-          <div class="product" *ngFor="let indi of item.value ; let i = index " >
-            <div class="product-image ">
-              <!--<img src="https://s.cdpn.io/3/dingo-dog-bones.jpg"> -->
-              <button class="wNrY5O"> – </button>&nbsp;<p class="_2csFM9"> {{indi.count}}</p> &nbsp;<button class="wNrY5O"> + </button>
 
+
+
+
+    <div class="modal fade" id="location" role="dialog">
+      <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Set Your Location</h4>
+
+              <button type="button" class="close" data-dismiss="modal" #close>&times;</button>
             </div>
-            <div class="product-details">
-              <div class="product-title">{{indi.itemname}}</div>
-              <p class="product-description"></p>
-            </div>
-            <!--<div class="product-price"></div> -->
-            <div class="product-quantity ">
-              <div class="product-line-price pull-left">{{indi.itemprice}}</div>
+            <div class="modal-body" style="height:50%;">
+              <a    routerLink="/mobile/location"  >
+    <h3 style="text-align:left;font-size:1em;font-weight:bolder"> Current Location
+
+    <input class="pull-right" height="40px" type="image" src="https://img.icons8.com/cotton/36/000000/worldwide-location.png" alt="Submit">
+    <br> <sub> use gps to get correct location</sub>
+    </h3>
+    </a>
+     <hr>
+
+    <h3 style="text-align:left; font-size:1em;font-weight:bolder"> Saved Location</h3>
+    <div class="" style="text-align:left">
+    <button class="button-address" *ngFor="let item of savedaddresses" (click)=savedata(item)>
+    <font size="3"><label style="font-size:0.7em;">{{item.address}}</label>
+    </font>
+    </button>
 
 
-            </div>
-          <!--  <div class="product-removal">
-              <button class="remove-product">
-                Remove
-              </button>
-            </div> -->
-          </div>
-
-
-        </div>
-      </div>
-      <!--<div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div> -->
     </div>
-  </div>
-</div>
+         </div>
+
+
+
+
+        </div>
+    </div>
+
+    </div>
+
 
 <script>
 

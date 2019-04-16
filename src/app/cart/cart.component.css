@@ -13,6 +13,7 @@ h1{
   font-size: 1.8em;
 
 }
+
 .button-address{
   background-color: Transparent;
   background-repeat:no-repeat;
@@ -224,7 +225,7 @@ label {
 
   background-color: #6b6;
   color: #fff;
-  font-size: 25px;
+  font-size: 1em;
   border-radius: 10px;
 }
 .checkout1 {
@@ -235,10 +236,20 @@ label {
 
   background-color: #6b6;
   color: #fff;
-  font-size: 25px;
+  font-size: 1em;
   border-radius: 10px;
 }
+.checkout {
+  border: 3px;
+  float:left;
+  margin-top: 5%;
+  width:100%;
 
+  background-color: #6b6;
+  color: #fff;
+  font-size: 1em;
+  border-radius: 10px;
+}
 .checkout:hover {
   background-color: #494;
 }
@@ -312,6 +323,7 @@ label {
 
   .totals .totals-item label {
     width: 60%;
+    font-size: 0.5em;
   }
   .totals .totals-item .totals-value {
     width: 40%;

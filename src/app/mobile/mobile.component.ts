@@ -1,20 +1,26 @@
 import { Component, OnInit,ViewChild ,ElementRef,Inject} from '@angular/core';
+import { forwardRef } from '@angular/core';
+
 import { Request,RequestMethod,Http,Response,Headers,ResponseType, ResponseContentType } from '@angular/http';
 import { Router } from '@angular/router';
 import { TestComponent } from '../test/test.component';
 declare var cordova;
 declare var firebase;
 //declare var window;
+import { ActivatedRoute } from "@angular/router";
+
 @Component({
   selector: 'app-mobile',
   templateUrl: './mobile.component.html',
   styleUrls: ['./mobile.component.css']
+
+
 })
 export class MobileComponent implements OnInit {
   title = 'app';
   address:any;
   savedaddresses:any;
-  private test : TestComponent;
+  private test : TestComponent;mobdata
   storing:any;
   itemcounts:any;
   userid:any;
@@ -22,12 +28,18 @@ export class MobileComponent implements OnInit {
   @ViewChild('close') close1: ElementRef;
 
 
-  constructor(private http:Http,private router:Router) {
+  constructor(private http:Http,private router:Router,private route: ActivatedRoute) {
     this.storing= window.localStorage;
 this.userid=this.storing.getItem("userid")
+this.storing.setItem("itemdata","")
 
+this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card?operation=getaddress&&userid="+this.userid).subscribe(data => {
+var boy=data.json();
+this.savedaddresses=boy.data
+console.log(boy.data)
+console.log(this.savedaddresses)
 
-
+})
 //
 /*
 firebase.getToken(function(token) {
@@ -41,6 +53,9 @@ firebase.getToken(function(token) {
 
     this.address="Locating......"
 }
+ngAfterViewInit() {
+
+  }
 add(a){
 //
   this.address=a
@@ -58,41 +73,43 @@ console.log(count)
     //this.router.navigate(['/mobile'])
 
 
-
     var json={
       "operation": "refresh_token",
       "refresh_token": this.storing.getItem("refresh")
 
     }
     console.log(json)
-    this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card?operation=getaddress&&userid="+this.userid).subscribe(data => {
-    var boy=data.json();
-    this.savedaddresses=boy.data
-  })
-    /*  this.http.post("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/refreshtoken",json).subscribe(data => {
-      var boy=data.json();
-    if(boy.Status="Success"){
-      this.cookieService.put("access",boy.data.AuthenticationResult.AccessToken)
 
 
+
+
+//testing to fix location problem
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            if(cordova.dialogGPS()){
+          //    alert("yes")
+            }
+
+        }
+   var onResume=function() {
+cordova.dialogGPS()    //cordova.dialogGPS();
     }
-    else{
-    this.router.navigate(['/'])
-  }
+    document.addEventListener("resume", onResume, false);
 
-})*/
-  }
+//
+var that=this
+      console.log("navigator.geolocation works well");
 
 
-  saved(data){
-    //this.router.navigate(['/mobile/location'],{ queryParams: { lat: data.latitude, lng: data.longitude } })
-  let saro = new TestComponent(data,this,data);
-saro.swing(data.latitude,data.longitude,this,saro);
-  //  this.router.navigate(['/mobile/'],{ queryParams: { lat: data.latitude, lng: data.longitude } })
-//  this.
-this.closemodal()
+
+
+
+
 
   }
+
+
   closemodal(){
     //cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.",//message
                       /*  "Use GPS, with wifi or 3G.",//description
@@ -109,5 +126,17 @@ if(buttonIndex==0){
             );*/
     this.close1.nativeElement.click();
   }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

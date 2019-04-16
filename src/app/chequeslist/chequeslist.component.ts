@@ -75,7 +75,11 @@ console.log("nooooo kkk")
 login(data){
   console.log(data)
   var that=this
+<<<<<<< HEAD
   FirebasePlugin.getToken(function(token) {
+=======
+ FirebasePlugin.getToken(function(token) {
+>>>>>>> f5b881f5dfa2c4bdccbfc8d47a24dc4386a1ce66
       // save this server-side and use it to push notifications to this device
      console.log("firetaking "+token);
     that.firetaking=token
@@ -108,7 +112,11 @@ login(data){
            },
            error);
        }
+<<<<<<< HEAD
 
+=======
+     }
+>>>>>>> f5b881f5dfa2c4bdccbfc8d47a24dc4386a1ce66
 
 //this.router.navigate(['/mobile'])
 
