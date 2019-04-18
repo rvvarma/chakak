@@ -1,4 +1,65 @@
+/* CHANGE COLOR HERE */
+ol.etapier li.done {
+  border-color: yellowgreen ;
+}
+/* CHANGE COLOR HERE */
+ol.etapier li.done:before {
+    background-color: yellowgreen;
+    border-color: yellowgreen;
+}
 
+
+ol.etapier {
+    display: table;
+    list-style-type: none;
+    margin: 0 auto 20px auto;
+    padding: 0;
+    table-layout: fixed;
+    width: 100%;
+}
+ol.etapier li {
+    display: table-cell;
+    text-align: center;
+	padding-bottom: 10px;
+    white-space: nowrap;
+    position: relative;
+    font-size: 0.9em;
+}
+
+ol.etapier li a {
+	color: inherit;
+}
+
+ol.etapier li {
+    color: silver;
+    border-bottom: 4px solid silver;
+}
+ol.etapier li.done {
+    color: black;
+}
+
+ol.etapier li:before {
+    position: absolute;
+    bottom: -11px;
+    left: 50%;
+    margin-left: -7.5px;
+
+    color: white;
+    height: 15px;
+    width: 15px;
+    line-height: 15px;
+    border: 2px solid silver;
+    border-radius: 15px;
+
+}
+ol.etapier li.done:before {
+    content: "\2713";
+    color: white;
+}
+ol.etapier li.todo:before {
+    content: " " ;
+    background-color: white;
+}
 .card {
     position: relative;
     display: flex;
@@ -9,6 +70,10 @@
     background-clip: border-box;
     border: 1px solid #FFF;
     border-radius: .25rem;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1;
 }
 label {
     display: inline-block;
@@ -47,6 +112,7 @@ padding: 10px 24px;
 .button1 {
   background-color: white;
   color: #72BA65;
+  width:40%;
   border-radius: 10px;
   border: 2px solid #72BA65;
 }
@@ -59,6 +125,13 @@ padding: 10px 24px;
 
 
 
+.img {
+    float: left;
+    width:100px;
+    height:100px;
+
+}
+
 
 
 .chip {
@@ -66,11 +139,11 @@ padding: 10px 24px;
   padding: 0 25px;
   height: 50px;
   font-size: 18px;
-  line-height: 50px;
+
   border-radius: 25px;
 }
 
-.chip img {
+.chip #user {
   float: left;
   margin: 0 10px 0 -25px;
   height: 50px;
@@ -78,7 +151,13 @@ padding: 10px 24px;
   border-radius: 50%;
 }
 
-
+#gif {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 51px;
+  width: 51px;
+  border-radius: 50%;
+}
 @-webkit-keyframes blick {
 	60% {
 		left: 100%

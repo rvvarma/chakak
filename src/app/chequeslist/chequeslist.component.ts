@@ -75,52 +75,44 @@ console.log("nooooo kkk")
 login(data){
   console.log(data)
   var that=this
-<<<<<<< HEAD
-  FirebasePlugin.getToken(function(token) {
-=======
- FirebasePlugin.getToken(function(token) {
->>>>>>> f5b881f5dfa2c4bdccbfc8d47a24dc4386a1ce66
-      // save this server-side and use it to push notifications to this device
-     console.log("firetaking "+token);
-    that.firetaking=token
 
-  }, function(error) {
-      console.log(error);
-  });
+// FirebasePlugin.getToken(function(token) {    // save this server-side and use it to push notifications to this device
+  //   console.log("firetaking "+token);
+    //that.firetaking=token
+
+  // }, function(error) {
+    //  console.log(error);
+  //});
 
 
-  var permissions = cordova.plugins.permissions;
+  //var permissions = cordova.plugins.permissions;
 
-     var list = [
-       permissions.CAMERA,
-       permissions.ACCESS_FINE_LOCATION
-     ];
+    // var list = [
+      // permissions.CAMERA,
+       //permissions.ACCESS_FINE_LOCATION
+     //];
 
-     permissions.hasPermission(list, success, error);
+    // permissions.hasPermission(list, success, error);
 
-     function error() {
-       console.warn('Camera or Accounts permission is not turned on');
-     }
+     //function error() {
+      // console.warn('Camera or Accounts permission is not turned on');
+    // }
 
-     function success( status ) {
-       if( !status.hasPermission ) {
+  //   function success( status ) {
+    //   if( !status.hasPermission ) {
 
-         permissions.requestPermissions(
-           list,
-           function(status) {
-             if( !status.hasPermission ) error();
-           },
-           error);
-       }
-<<<<<<< HEAD
+      //   permissions.requestPermissions(
+        //   list,
+          // function(status) {
+            // if( !status.hasPermission ) error();
+          // },
+          // error);
+       //} //
 
-=======
-     }
->>>>>>> f5b881f5dfa2c4bdccbfc8d47a24dc4386a1ce66
 
 //this.router.navigate(['/mobile'])
 
-}
+//}
 var json={
   "operation": "signin",
   "email": data.value.email

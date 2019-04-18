@@ -151,6 +151,8 @@ padding: 20px;
   color: #5A5A5A;
   line-height: 1.2;
   font-style: initial;
+  font-size: x-small;
+
 }
 
 @keyframes animatop {

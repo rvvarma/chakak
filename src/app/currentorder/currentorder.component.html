@@ -6,15 +6,38 @@
   <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination" [renderOptions]="renderOpts" [markerOptions]="markerOpts"></agm-direction>
 </agm-map>
 
+<h5 style="margin-left:10%;">
 
- <div class="card" style="width:100%">
+
+  <div class="">
+    <sup style="font-size:0.5em;color:#5699d2;"> Live Status
+     </sup>
+    <img src="./assets/2.gif" alt="Person" id="gif"><p>
+
+Food is on the way</p>
+
+  </div>
+
+
+ </h5>
+<hr>
+<div class="chip">
+  <img src="./assets/driver.png" alt="Person" width="106" height="70" id="user">
+  {{items.DeliveryBoys.DeliveryBoysName}}
+
+</div>
+<a  class="button button1 pull-right "  role="button" href="tel:+91 {{items.DeliveryBoys.DBMobileNo}}">
+
+  {{items.DeliveryBoys.DBMobileNo}} <i class="fa fa-phone" aria-hidden="true"></i></a>
+
+ <!--<div class="card" style="width:100%">
   <div class="card-body">
     <h5 class="card-title">
 
 
-      <div class="chip">
+    <!--  <div class="chip">
 
-        <img src="./assets/driver.png" alt="Person" width="106" height="70">
+        <img src="./assets/driver.png" alt="Person" width="106" height="70" id="user">
  {{items.DeliveryBoys.DeliveryBoysName}}
 
       </div>
@@ -23,57 +46,18 @@
   {{items.DeliveryBoys.DBMobileNo}} <i class="fa fa-phone" aria-hidden="true"></i></a>
 
      </h5>
-   <br>
-    <!--<p class="blink-two"> cooking</p>
-
-              <!-- Loading 4 don't work on firefox because of the border-radius and the "dashed" style. -->
-
 
 
 </div>
 
-  <div class='progress'>
-  <div class='progress_inner'>
-    <div class='progress_inner__step'>
-      <label for='step-1'>Start order</label>
-    </div>
-    <div class='progress_inner__step'>
-      <label for='step-2'>Prepare </label>
-    </div>
-    <div class='progress_inner__step'>
-      <label for='step-3'>Packing</label>
-    </div>
-    <div class='progress_inner__step'>
-      <label for='step-4'>On the Way</label>
-    </div>
-    <div class='progress_inner__step'>
-      <label for='step-5'>Delivered</label>
-    </div>
-    <input checked='checked' id='step-1' name='step' type='radio'>
-    <input id='step-2' name='step' type='radio'>
-    <input id='step-3' name='step' type='radio'>
-    <input id='step-4' name='step' type='radio'>
-    <input id='step-5' name='step' type='radio'>
-    <div class='progress_inner__bar'></div>
-    <div class='progress_inner__bar--set'></div>
-    <div class='progress_inner__tabs'>
-
-    </div>
-    <div class='progress_inner__status'>
-      <div class='box_base'></div>
-      <div class='box_lid'></div>
-      <div class='box_ribbon'></div>
-      <div class='box_bow'>
-        <div class='box_bow__left'></div>
-        <div class='box_bow__right'></div>
-      </div>
-      <div class='box_item'></div>
-      <div class='box_tag'></div>
-      <div class='box_string'></div>
-    </div>
-  </div>
-</div>
 
 
 
-    <script  src="js/index.js"></script>
+<!-- Progress Tracker v2
+<ol class="etapier" width="75%">
+    <li class={{active}}>Coocking</li>
+    <li class="done">On the Way</li>
+
+    <li class="todo">Delivered</li>
+</ol>
+-->

@@ -11,7 +11,7 @@ export class CurrentorderComponent implements OnInit {
 
   items:any;
 id:any;
-
+active:any;
   //google maps zoom
   zoom: Number = 14;
   renderOpts = {
@@ -34,7 +34,7 @@ id:any;
 
   constructor(private http:Http,private route: ActivatedRoute) {
 //    await delay(1000);
-
+this.active="todo"
 
  this.route.params.subscribe(params => {
     this.id = params['id']; // (+) converts string 'id' to a number
