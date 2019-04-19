@@ -98,42 +98,7 @@
 
 
 
-    <div class="modal fade" id="location" role="dialog">
-      <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Set Your Location</h4>
 
-              <button type="button" class="close" data-dismiss="modal" #close>&times;</button>
-            </div>
-            <div class="modal-body" style="height:50%;">
-              <a    routerLink="/mobile/location"  >
-    <h3 style="text-align:left;font-size:1em;font-weight:bolder"> Current Location
-
-    <input class="pull-right" height="40px" type="image" src="https://img.icons8.com/cotton/36/000000/worldwide-location.png" alt="Submit">
-    <br> <sub> use gps to get correct location</sub>
-    </h3>
-    </a>
-     <hr>
-
-    <h3 style="text-align:left; font-size:1em;font-weight:bolder"> Saved Location</h3>
-    <div class="" style="text-align:left">
-    <button class="button-address" *ngFor="let item of savedaddresses" (click)=savedata(item)>
-    <font size="3"><label style="font-size:0.7em;">{{item.address}}</label>
-    </font>
-    </button>
-
-
-    </div>
-         </div>
-
-
-
-
-        </div>
-    </div>
-
-    </div>
 
 
 <script>
