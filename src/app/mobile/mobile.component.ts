@@ -29,6 +29,7 @@ export class MobileComponent implements OnInit {
 
 
   constructor(private http:Http,private router:Router,private route: ActivatedRoute) {
+    this.itemcounts=0
     this.storing= window.localStorage;
 this.userid=this.storing.getItem("userid")
 this.storing.setItem("itemdata","")
@@ -36,8 +37,8 @@ this.storing.setItem("itemdata","")
 this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card?operation=getaddress&&userid="+this.userid).subscribe(data => {
 var boy=data.json();
 this.savedaddresses=boy.data
-console.log(boy.data)
-console.log(this.savedaddresses)
+//console.log(boy.data)
+//console.log(this.savedaddresses)
 
 })
 //
@@ -59,13 +60,13 @@ ngAfterViewInit() {
 add(a){
 //
   this.address=a
-  console.log(a)
+  //console.log(a)
 
 }
 itemcount(count){
 
 this.itemcounts=count
-console.log(count)
+//console.log(count)
 
 }
   ngOnInit() {
@@ -78,7 +79,7 @@ console.log(count)
       "refresh_token": this.storing.getItem("refresh")
 
     }
-    console.log(json)
+    //console.log(json)
 
 
 
@@ -99,7 +100,7 @@ cordova.dialogGPS()    //cordova.dialogGPS();
 
 //
 var that=this
-      console.log("navigator.geolocation works well");
+    //  console.log("navigator.geolocation works well");
 
 
 
@@ -110,6 +111,14 @@ var that=this
   }
 
 
+
+  saved(item){
+    //console.log(item)
+
+    this.router.navigate(['/mobile/'],{ queryParams: { lat: item.latitude, lng: item.longitude } })
+    this.closemodal();
+
+  }
   closemodal(){
     //cordova.dialogGPS("Your GPS is Disabled, this app needs to be enable to works.",//message
                       /*  "Use GPS, with wifi or 3G.",//description

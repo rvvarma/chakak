@@ -6,7 +6,6 @@ import { ChequeslistComponent } from './chequeslist/chequeslist.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
-import { OwlModule } from 'ngx-owl-carousel';
 import { TestComponent } from './test/test.component';
 import { AccountComponent } from './account/account.component';
 import { CartComponent } from './cart/cart.component';
@@ -25,7 +24,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { SupportComponent } from './support/support.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { SkeletonComponent } from './skeleton/skeleton.component';
 import { NgxContentLoadingModule } from 'ngx-content-loading';
 
@@ -75,10 +73,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    NgxSkeletonLoaderModule,
 NgxContentLoadingModule,
     AppRoutingModule,
-OwlModule,
 GooglePlaceModule,
 ReactiveFormsModule,
 HttpModule,

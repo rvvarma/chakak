@@ -184,10 +184,21 @@ if(boy.Status=="Success"){
 
 this.storing.setItem("refresh",boy.data.AuthenticationResult.RefreshToken)
 this.storing.setItem("access",boy.data.AuthenticationResult.AccessToken)
-this.storing.setItem("email",boy.userdata.UserAttributes[6].Value)
+for(var t=0;t<boy.userdata.UserAttributes.length;t++){
+if(boy.userdata.UserAttributes[t].Name=="email")
+this.storing.setItem("email",boy.userdata.UserAttributes[t].Value)
+if(boy.userdata.UserAttributes[t].Name=="name")
+this.storing.setItem("name",boy.userdata.UserAttributes[t].Value)
+if(boy.userdata.UserAttributes[t].Name=="phone_number")
+this.storing.setItem("mobile",boy.userdata.UserAttributes[t].Value)
+if(boy.userdata.UserAttributes[t].Name=="sub")
+this.storing.setItem("userid",boy.userdata.UserAttributes[t].Value)
+
+}
+/*this.storing.setItem("email",boy.userdata.UserAttributes[6].Value)
 this.storing.setItem("name",boy.userdata.UserAttributes[3].Value)
 this.storing.setItem("mobile",boy.userdata.UserAttributes[5].Value)
-this.storing.setItem("userid",boy.userdata.UserAttributes[0].Value)
+this.storing.setItem("userid",boy.userdata.UserAttributes[0].Value)*/
 
 this.router.navigate(['/mobile'])
 }

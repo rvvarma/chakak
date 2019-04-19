@@ -173,7 +173,7 @@ if(this.route.snapshot.queryParams["mapping"]=="cart"){
 
 }
 else
-  this.router.navigate(['/'],{ queryParams: { lat: this.lat, lng: this.lng } })
+  this.router.navigate(['/mobile/'],{ queryParams: { lat: this.lat, lng: this.lng } })
 })
 
 }

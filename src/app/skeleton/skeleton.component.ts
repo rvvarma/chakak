@@ -26,38 +26,38 @@ this.userid=this.storing.getItem("userid")
 this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card?operation=getaddress&&userid="+this.userid).subscribe(data => {
 var boy=data.json();
 this.savedaddresses=boy.data
-console.log(boy.data)
-console.log(this.savedaddresses)
+//console.log(boy.data)
+//console.log(this.savedaddresses)
 
 })
 
   }
 
   ngOnInit() {
-    console.log(this.route.snapshot.queryParams["lat"] +"piking")
+  //  console.log(this.route.snapshot.queryParams["lat"] +"piking")
     var that=this
     var onSuccess = function(position) {
 
               let lat = that.route.snapshot.queryParams["lat"];
               let lng = that.route.snapshot.queryParams["lng"];
-              console.log(lat)
-              console.log(lng)
+            //  console.log(lat)
+            //  console.log(lng)
 if(lat==null&&lng==null){
 lat=position.coords.latitude
 lng=position.coords.longitude
 }
 var pop={latitude:lat,longitude:lng}
-console.log(pop)
+//console.log(pop)
 that.saved(pop)
 
 }
-console.log(this.userid)
+//console.log(this.userid)
 this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card?operation=getaddress&&userid="+this.userid).subscribe(data => {
 var boy=data.json();
 this.savedaddresses=boy.data
-console.log(boy.data)
+//console.log(boy.data)
 console.log(this.savedaddresses)
-this.storing.setItem("adding",JSON.stringify(this.savedaddresses))
+//this.storing.setItem("adding",JSON.stringify(this.savedaddresses))
 
 
 })
@@ -82,26 +82,32 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
 
       this.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+data.latitude+","+data.longitude+"&key=AIzaSyD1Sycc5CNd8Y42QfsRTF5b5sooYFhaZEU").subscribe(data => {
-        console.log(data.json())
+        //console.log(data.json())
       var b=(data.json().results[0].address_components)
       var pincode;
-      var locality;
+      var locality="";
           for(var f=0;f<b.length;f++){
-      if(b[f].types[0]=="postal_code")
+      if(b[f].types[0]=="postal_code"){
             pincode=b[f].long_name;
 
-
-          if(b[f].types[2]=="sublocality_level_3"){
+}
+         if(b[f].types[2]=="sublocality_level_3"&&locality==""){
                       locality=b[f].long_name;
-      console.log("aki "+locality)
+    //  console.log("aki "+locality)
       }
+
+      if(b[f].types[2]=="sublocality_level_2"&&locality==""){
+                   locality=b[f].long_name;
+  // console.log("aki "+locality)
+   }
+
       }
 
          this.datarefresh(pincode)
       this.app.add(locality)
       })
 
-      this.close1.nativeElement.click();
+    //  this.close1.nativeElement.click();
 
 
 
@@ -127,13 +133,13 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
       //this.hash=this.cookieService.get("order")
 
-      console.log(this.storing.getItem("order"))
+    //  console.log(this.storing.getItem("order"))
       if(this.storing.getItem("order")!=null)
       {
        this.hash=JSON.parse(this.storing.getItem("order"))
         var data2=JSON.parse(this.storing.getItem("order"))
 
-      console.log(data2)
+      //console.log(data2)
       var m=new Object();
       m=data2;
 
@@ -143,7 +149,7 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
         for(var t=0;t<data1[key].length;t++){
       if(m[data1[key][t].itemname]){
         var p=JSON.parse(m[data1[key][t].itemname])
-        console.log(p.count)
+        //console.log(p.count)
       data1[key][t].count=p.count
 
 
@@ -162,7 +168,7 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
     this.storing.setItem("itemdata",JSON.stringify(data1))
 
 this.router.navigate(['/mobile/test'])
-      console.log(data1)
+    //  console.log(data1)
       //this.test.saved("hi")
 
         });

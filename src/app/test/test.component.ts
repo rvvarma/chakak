@@ -49,25 +49,43 @@ document.addEventListener("resume", onResume, false);
 
 */
   ngOnInit() {
+    var onResume=function() {
+this.router.navigate(['/mobile'])
+     }
+     document.addEventListener("resume", onResume, false);
 this.items=JSON.parse(this.storing.getItem("itemdata"))
 this.savedaddresses=JSON.parse(this.storing.getItem("adding"))
-console.log(this.savedaddresses)
+//console.log(this.savedaddresses)
+var data1=this.items
+var m=new Object();
+m=JSON.parse(this.storing.getItem("order"))
+Object.getOwnPropertyNames(data1).forEach(key => {
+for(var t=0;t<data1[key].length;t++){
+if(m[data1[key][t].itemname]){
+var p=JSON.parse(m[data1[key][t].itemname])
+//console.log(p.count)
+data1[key][t].count=p.count
 
+
+}}})
+this.items=data1
 //console.log(this.app.getitems())
 
   }
 
 
 
+
+
 saved(data){
 this.items=data
 
-console.log(this.items)
+//console.log(this.items)
 
 }
 
 savedata(data){
-  console.log(data.latitude)
+//  console.log(data.latitude)
   this.router.navigate(['/mobile/'],{ queryParams: { lat: data.latitude, lng: data.longitude} })
   this.close1.nativeElement.click();
 
