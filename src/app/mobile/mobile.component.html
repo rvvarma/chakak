@@ -53,7 +53,9 @@
 <ul class="nav-mobile sty navbar-fixed-top">
   <li>   <i class="fa fa-compass pull-left" aria-hidden="true"></i>&nbsp;&nbsp;
 <label class="pull-left"  maxLength="10"style=" margin-left:1%;margin-top:1%; font-size:0.8em; color:white;" data-toggle="modal" data-target="#location">{{address}}</label>
-<label class="pull-right" style="color:#fff;margin-right:8%;">
+<label class="pull-right" style="color:#fff;"><a  routerLink="/mobile/support" routerLinkActive="active-link"  >
+<img src="./assets/support.png">
+</a>
 </label>
 </li>
   <li class="menu-container">
@@ -108,23 +110,22 @@
 <br>
 <br>
 <br>
-<nav class="mobile-bottom-nav">
+<nav class="mobile-bottom-nav"> &nbsp;&nbsp;&nbsp;
 <div class="mobile-bottom-nav__item mobile-bottom-nav__item-active ">
  <div class="mobile-bottom-nav__item-content">
    <a  routerLink="/mobile/test" routerLinkActive="active-link" >
-<img src="https://img.icons8.com/material/36/000000/home.png"><br>
-Home
+<img src="https://img.icons8.com/plasticine/36/000000/home-page.png"><br>Home
      </a>
  </div>
 </div>
-
+&nbsp;
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content">
    <a routerLink="/mobile/offers" routerLinkActive="active-link">
 <img src="./assets/offerslogo.png"><br>Offers
  </a>
  </div>
-</div>
+</div>&nbsp;
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content" routerLink="/mobile/cart" routerLinkActive="active-link">
    <a routerLink="/mobile/cart" routerLinkActive="active-link">
@@ -159,9 +160,7 @@ Home
 </div>
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content" routerLink="/mobile/support">
-   <a  routerLink="/mobile/support" routerLinkActive="active-link"  >
-<img src="./assets/support.png"><br>Support
- </a>
+
  </div>
 </div>
 </nav>

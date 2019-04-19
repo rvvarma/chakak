@@ -227,6 +227,11 @@ border-radius: 9px;}
   border-radius: 2px;
    overflow: hidden;
 }
+.item {
+
+  transition: -webkit-transform 1s ease;
+  transition: transform 1s ease;
+  transition: transform 1s ease, -webkit-transform 0.5s ease;}
 .item{
   height:200px;
 }

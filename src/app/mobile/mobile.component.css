@@ -3,6 +3,11 @@
   cursor: pointer;
   height: 100px;
 }
+a:focus, a:hover {
+    color: #e81e1e;
+    text-decoration: none;
+}
+
 .badge-square {
   box-sizing: border-box;
   display: inline-block;
