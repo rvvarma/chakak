@@ -71,7 +71,7 @@
 
 
                   <a  class=" pull-right">
-                  <i class="fa fa-plus-circle" aria-hidden="true" (click)="inc(i,item.key)"></i>
+                  <i class="fa fa-plus-circle" aria-hidden="true" (click)="inc(i,item.key)" data-toggle="modal" data-target="#centralModalDanger"></i>
 
 </a>
                  <label class="pull-right" style="margin-left:4%;margin-right:4%">{{indi.count}}</label>
@@ -95,7 +95,42 @@
 
 
 
+<div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+        <!--  <div class="modal-header">
 
+     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body container">
+        <h2  class="text-center">ADD ON's</h2>
+
+      <ul class="list-group">
+      <li class="list-group-item">  <label>Option 1 <br> <p class="price">Rs {{indi.itemprice}}</p></label> <span class="badge"><input type="checkbox" value=""></span></li>
+
+    </ul>
+
+    <div  class="text-center">
+      <button class="btn success">&nbsp;&nbsp;OK &nbsp;&nbsp;</button> &nbsp;
+      <button class="btn cancel" data-dismiss="modal" aria-label="Close">Cancel</button>
+
+  </div>
+
+</div>
+      <!--Footer
+      -->
+
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
 
 
 

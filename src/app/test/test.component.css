@@ -96,7 +96,76 @@ summary {
   font-size: 0.5em;
 
 }
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+.btn {
+  border: 2px solid black;
+  background-color: white;
 
+  font-size: 16px;
+  cursor: pointer;
+}
+#centralModalDanger{
+  margin-top: 35%;
+}
+/* Green */
+.success {
+  border-color: #23ae89;
+  color: #23ae89;
+}
+
+.success:hover {
+  background-color: #23ae89;
+  color: white;
+}
+.cancel {
+  border-color: #71cde9;
+  color: #71cde9;
+}
+
+.cancel:hover {
+  background-color: #71cde9;
+  color: white;
+}
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
 /* removed outline as for codepen only
   don't remove focus on elements
   it's bad accessibility
@@ -111,7 +180,7 @@ summary::-webkit-details-marker {
 }
 
 summary::after {
-  padding: 20px;
+  padding: 10px;
   position: absolute;
   top: 50%;
   right: 0;
