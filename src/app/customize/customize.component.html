@@ -1,0 +1,59 @@
+
+<div class="container">
+  <h2 ><svg  routerLink="/mobile/test" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+width="32" height="32"
+viewBox="0 0 192 192"
+style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g fill="#e81e1e"><g id="surface1"><path d="M76.56,49.8c-2.01,0.075 -3.9,0.945 -5.28,2.4l-37.92,38.4l-5.28,5.4l5.28,5.4l37.92,38.4c2.985,3.045 7.875,3.105 10.92,0.12c3.045,-2.985 3.105,-7.875 0.12,-10.92l-25.08,-25.32h96.36c2.775,0.045 5.34,-1.41 6.735,-3.81c1.41,-2.385 1.41,-5.355 0,-7.74c-1.395,-2.4 -3.96,-3.855 -6.735,-3.81h-96.36l25.08,-25.32c2.31,-2.235 3,-5.655 1.71,-8.61c-1.29,-2.94 -4.26,-4.77 -7.47,-4.59z"></path></g></g></g></svg><p style="font-size:1.2em;text-align:center;">Customize</p> </h2>
+
+
+
+
+<div class="shopping-cart">
+
+  <div class="column-labels">
+    <label class="product-image">Image</label>
+    <label class="product-details">Product</label>
+    <label class="product-price">Price</label>
+    <label class="product-quantity">Quantity</label>
+    <label class="product-removal">Remove</label>
+    <label class="product-line-price">Total</label>
+  </div>
+
+
+
+  <div class="totals">
+    <h2  class="text-center">  </h2>
+
+    <ul class="list-group">
+    <li class="list-group-item">  <label style="color:#000"><b>Option 1</b>  <br> <p class="price">Rs {{indi.itemprice}}</p></label> <span class="badge"><input type="checkbox" value=""></span></li>
+    <li class="list-group-item">  <label style="color:#000">Option 1 <br> <p class="price">Rs {{indi.itemprice}}</p></label> <span class="badge"><input type="checkbox" value=""></span></li>
+    <li class="list-group-item">  <label style="color:#000">Option 1 <br> <p class="price">Rs {{indi.itemprice}}</p></label> <span class="badge"><input type="checkbox" value=""></span></li>
+    <li class="list-group-item">  <label style="color:#000">Option 1 <br> <p class="price">Rs {{indi.itemprice}}</p></label> <span class="badge"><input type="checkbox" value=""></span></li>
+    <li class="list-group-item">  <label style="color:#000">Option 1 <br> <p class="price">Rs {{indi.itemprice}}</p></label> <span class="badge"><input type="checkbox" value=""></span></li>
+
+    </ul>
+
+
+  </div>
+
+<!--  <label>Pin Loaction: </label><in  put type="text" id="lname" name="lname" >
+<label> complete addressss</label> <button class="btn danger">Change</button>
+-->
+<div class="">
+  <div class="totals-item totals-item-total">
+      <button id="fixedbutton" *ngIf="currentaddress!='No Address Selected..'" class="checkout2" routerLink="/mobile/test" >Add <img src="https://img.icons8.com/color/22/000000/rupee.png"></button>
+    </div>
+<!--
+<button *ngIf="currentaddress!='No Address Selected..'" class="checkout col-md-3"  (click)="cod()">Cash On Delivery</button>
+  <button *ngIf="currentaddress!='No Address Selected..'" class="checkout col-md-3"  (click)="online()">Pay Online</button>
+-->
+  <button *ngIf="currentaddress=='No Address Selected..'" class="checkout col-md-3" data-toggle="modal" data-target="#location1" >Select Address</button>
+
+
+
+
+<div>
+</div>
+</div>
+</div>
+</div>
