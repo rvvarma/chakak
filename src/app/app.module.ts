@@ -49,8 +49,8 @@ const appRoutes: Routes = [
 
  {path:'location',component:LocationpickerComponent},
 ]},
-{ path: '', component: ChequeslistComponent }
-{path:'customize',component:CustomizeComponent},
+{ path: '', component: ChequeslistComponent },
+{path:'customize',component:CustomizeComponent}
 
 
 ];

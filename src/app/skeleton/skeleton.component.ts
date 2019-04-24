@@ -28,6 +28,7 @@ var boy=data.json();
 this.savedaddresses=boy.data
 //console.log(boy.data)
 //console.log(this.savedaddresses)
+this.app.setaddress(boy.data)
 
 })
 
@@ -51,6 +52,8 @@ var pop={latitude:lat,longitude:lng}
 that.saved(pop)
 
 }
+
+
 //console.log(this.userid)
 this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card?operation=getaddress&&userid="+this.userid).subscribe(data => {
 var boy=data.json();
@@ -117,6 +120,7 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
     datarefresh(data){
 
+console.log("calling")
 
           this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/items?operation=get&pincode=500070").subscribe(data => {
         var boy=data.json();

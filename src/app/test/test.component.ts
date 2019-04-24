@@ -27,7 +27,6 @@ userid:any;
 //  this.cookieService.removeAll();
 this.storing= window.localStorage;
 this.userid=this.storing.getItem("userid")
-
 //let app = new AppComponent();
 this.hash={};
 
@@ -49,16 +48,19 @@ document.addEventListener("resume", onResume, false);
 
 */
   ngOnInit() {
-    var onResume=function() {
+  /*  var onResume=function() {
 this.router.navigate(['/mobile'])
-     }
-     document.addEventListener("resume", onResume, false);
+}*/
+  //   document.addEventListener("resume", onResume, false);
+  //   console.log(this.storing.getItem("itemdata") +" "+this.userid)
 this.items=JSON.parse(this.storing.getItem("itemdata"))
 this.savedaddresses=JSON.parse(this.storing.getItem("adding"))
 //console.log(this.savedaddresses)
 var data1=this.items
 var m=new Object();
 m=JSON.parse(this.storing.getItem("order"))
+if(this.storing.getItem("order")!=null)
+{
 Object.getOwnPropertyNames(data1).forEach(key => {
 for(var t=0;t<data1[key].length;t++){
 if(m[data1[key][t].itemname]){
@@ -68,6 +70,7 @@ data1[key][t].count=p.count
 
 
 }}})
+}
 this.items=data1
 //console.log(this.app.getitems())
 
@@ -104,6 +107,7 @@ savedata(data){
   this.hash[this.items[item][index].itemname]=JSON.stringify(this.items[item][index])
 this.app.itemcount(Object.keys(this.hash).length)
   this.storing.setItem("order",JSON.stringify(this.hash));
+  this.router.navigate(['/customize'])
 
 }
 dec(index: number,item:any) {

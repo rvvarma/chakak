@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customize.component.css']
 })
 export class CustomizeComponent implements OnInit {
-
-  constructor() { }
+indi:any;
+storing:any;
+  constructor() {
+this.indi={}
+  }
 
   ngOnInit() {
+    this.storing= window.localStorage;
+  //  console.log(this.storing.getItem("itemdata"))
   }
 
 }
