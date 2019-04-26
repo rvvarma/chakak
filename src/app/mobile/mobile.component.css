@@ -5,7 +5,7 @@
 }
 a:focus, a:hover {
     color: #e81e1e;
-    text-decoration: none; 
+    text-decoration: none;
 }
 .badge-square {
   box-sizing: border-box;
@@ -278,7 +278,7 @@ font-size:30px;
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
   display: flex;
-  height: 60px;
+  height: 55px;
   box-shadow: 0 -2px 5px -2px #333;
   background-color: #fff;
 }

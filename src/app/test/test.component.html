@@ -67,9 +67,11 @@
               <img src="./assets/veg.png" height="15px" *ngIf="indi.itemtype=='veg'">
               <img src="./assets/non-veg.png" height="15px" *ngIf="indi.itemtype=='nonveg'">&nbsp;{{indi.itemname}}
 
-             <br> <p class="price">Rs {{indi.itemprice}}</p> </label>
+             <br> <p class="price">Rs {{indi.itemprice}}</p>
+           <p style="color:#099E44"> Customize </p></label>
 
-
+             <button class="btns success">Add <img src="./assets/add.png"></button>
+<br>
                   <a  class=" pull-right">
                   <i class="fa fa-plus-circle" aria-hidden="true" (click)="inc(i,item.key)"></i>
 
