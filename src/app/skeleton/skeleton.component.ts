@@ -23,13 +23,7 @@ hash:any;
     this.storing= window.localStorage;
 this.userid=this.storing.getItem("userid")
 
-this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card?operation=getaddress&&userid="+this.userid).subscribe(data => {
-var boy=data.json();
-this.savedaddresses=boy.data
-//console.log(boy.data)
-//console.log(this.savedaddresses)
 
-})
 
   }
 
@@ -164,7 +158,8 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
 
       }
-      //console.log(this.hash)
+      console.log(data1)
+
     this.storing.setItem("itemdata",JSON.stringify(data1))
 
 this.router.navigate(['/mobile/test'])

@@ -53,12 +53,15 @@ document.addEventListener("resume", onResume, false);
 this.router.navigate(['/mobile'])
      }
      document.addEventListener("resume", onResume, false);
+     console.log(JSON.parse(this.storing.getItem("itemdata")))
 this.items=JSON.parse(this.storing.getItem("itemdata"))
 this.savedaddresses=JSON.parse(this.storing.getItem("adding"))
 //console.log(this.savedaddresses)
 var data1=this.items
 var m=new Object();
 m=JSON.parse(this.storing.getItem("order"))
+console.log(m)
+if(m){
 Object.getOwnPropertyNames(data1).forEach(key => {
 for(var t=0;t<data1[key].length;t++){
 if(m[data1[key][t].itemname]){
@@ -68,6 +71,7 @@ data1[key][t].count=p.count
 
 
 }}})
+}
 this.items=data1
 //console.log(this.app.getitems())
 
