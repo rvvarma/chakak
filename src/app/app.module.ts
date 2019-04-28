@@ -26,6 +26,7 @@ import { SupportComponent } from './support/support.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SkeletonComponent } from './skeleton/skeleton.component';
 import { NgxContentLoadingModule } from 'ngx-content-loading';
+import { CustomizeComponent } from './customize/customize.component';
 
 const appRoutes: Routes = [
 
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
 
  {path:'location',component:LocationpickerComponent},
 ]},
-{ path: '', component: ChequeslistComponent }
+{ path: '', component: ChequeslistComponent },
+{path:'customize/:id',component:CustomizeComponent}
 
 
 ];
@@ -70,6 +72,7 @@ const appRoutes: Routes = [
     MobileComponent,
     SupportComponent,
     SkeletonComponent,
+    CustomizeComponent,
   ],
   imports: [
     BrowserModule,

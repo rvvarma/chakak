@@ -82,7 +82,9 @@ Address: <span  maxlength="50"  style="display:block;text-overflow: ellipsis;wid
                       <h5>
                          <a  class=" button button1   " style="pull-left"  *ngIf="item.status=='close'" role="button">RE-Order</a>
                          <a  class=" button button1  " style="pull-left"  *ngIf="item.status!='close'" role="button" (click)="track(item.orderid)">Track Order</a>
-
+                         <a  routerLink="/mobile/support" routerLinkActive="active-link"  >
+                         <img src="./assets/support.png">
+                          </a>
   </h5>
 
    </div>

@@ -27,14 +27,18 @@ userid:any;
 //  this.cookieService.removeAll();
 this.storing= window.localStorage;
 this.userid=this.storing.getItem("userid")
-
 //let app = new AppComponent();
 this.hash={};
 
 //this.app.itemcount(0)
 
 this.items=[]
+if(this.route.snapshot.queryParams.add){
+this.app.add(this.route.snapshot.queryParams.add)
 
+}
+this.app.itemcount(Object.keys(JSON.parse(this.storing.getItem("order"))).length)
+console.log(JSON.parse(this.storing.getItem("order")))
 
 //this.datarefresh("unnaned",this)
 
@@ -49,19 +53,19 @@ document.addEventListener("resume", onResume, false);
 
 */
   ngOnInit() {
-    var onResume=function() {
+  /*  var onResume=function() {
 this.router.navigate(['/mobile'])
-     }
-     document.addEventListener("resume", onResume, false);
-     console.log(JSON.parse(this.storing.getItem("itemdata")))
+}*/
+  //   document.addEventListener("resume", onResume, false);
+  //   console.log(this.storing.getItem("itemdata") +" "+this.userid)
 this.items=JSON.parse(this.storing.getItem("itemdata"))
 this.savedaddresses=JSON.parse(this.storing.getItem("adding"))
-//console.log(this.savedaddresses)
+console.log(this.storing.getItem("order"))
 var data1=this.items
 var m=new Object();
 m=JSON.parse(this.storing.getItem("order"))
-console.log(m)
-if(m){
+if(this.storing.getItem("order")!=null)
+{
 Object.getOwnPropertyNames(data1).forEach(key => {
 for(var t=0;t<data1[key].length;t++){
 if(m[data1[key][t].itemname]){
@@ -72,6 +76,8 @@ data1[key][t].count=p.count
 
 }}})
 }
+
+this.hash=JSON.parse(this.storing.getItem("order"))
 this.items=data1
 //console.log(this.app.getitems())
 
@@ -108,6 +114,7 @@ savedata(data){
   this.hash[this.items[item][index].itemname]=JSON.stringify(this.items[item][index])
 this.app.itemcount(Object.keys(this.hash).length)
   this.storing.setItem("order",JSON.stringify(this.hash));
+  //this.router.navigate(['/customize'])
 
 }
 dec(index: number,item:any) {
@@ -131,6 +138,13 @@ this.app.itemcount(Object.keys(this.hash).length)
 //console.log(this.hash)
 
 
+}
+custom(data){
+  console.log(this.app.address)
+
+  this.storing.setItem("custom",JSON.stringify(data));
+  this.router.navigate(['/customize',this.app.address])
+//
 }
 
 }
