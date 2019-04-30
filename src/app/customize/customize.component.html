@@ -26,15 +26,15 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
 
     <ul class="list-group">
     <li class="list-group-item" *ngFor="let indi of items; let i = index">
-       <label style="color:#000"><b>{{indi.itemname}}</b>  <br> <p class="price">Rs {{indi.itemprice}}</p></label>
+       <label ><b style="color:#000">{{indi.itemname}}</b>  <br> <p class="price" style="margin-left:5%;font-size:0.8em;">Rs {{indi.itemprice}}</p></label>
 
        <a  class=" pull-right">
-    <i class="fa fa-plus-circle" aria-hidden="true" (click)="inc(i)"></i>
+    <i class="fa fa-plus-circle fa-lg" aria-hidden="true" (click)="inc(i)"></i>
 
 </a>
    <label class="pull-right" style="margin-left:4%;margin-right:4%">{{indi.count}}</label>
    <a  class=" pull-right"  style="margin-left:2%">
-     <i class="fa fa-minus-circle" aria-hidden="true" (click)="dec(i)"></i>
+     <i class="fa fa-minus-circle fa-lg" aria-hidden="true" (click)="dec(i)"></i>
 
 </a>
 

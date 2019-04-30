@@ -70,7 +70,7 @@
              <p class="price" *ngIf="indi.itemvariant==0">Rs {{indi.itemprice}}</p>
            <p style="color:#099E44" *ngIf="indi.itemvariant==1"> Customize </p></label>
 
-             <button class="btns success" *ngIf="indi.itemvariant==1" (click)="custom(indi.lineitems)">Add <img src="./assets/add.png"></button>
+             <button class="btns success  pull-right" *ngIf="indi.itemvariant==1" style="font-size:0.5" (click)="custom(indi.lineitems)">Add <img src="./assets/add.png"></button>
                   <a  class=" pull-right" *ngIf="indi.itemvariant==0">
                   <i class="fa fa-plus-circle" aria-hidden="true" (click)="inc(i,item.key)"></i>
 
@@ -129,6 +129,85 @@
   </div>
 </div>-->
 
+
+
+  <!-- Modal for search-->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      <!--  <div class="modal-header">
+          <h1 class="modal-title"></h1>
+
+        </div> -->
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <div class="total">
+          <div class="search-button">
+          <div class="input-group mb-3 " style="margin-top:10%;">
+            <input type="text" class="form-control" placeholder="Search for Dishes" aria-label="Recipient's username"
+             aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i>
+</span>
+
+            </div>
+          </div>
+          </div>
+
+            <div class="product">
+              <div class="product-image ">
+                <!--<img src="https://s.cdpn.io/3/dingo-dog-bones.jpg"> -->
+                <button class="wNrY5O"> – </button>&nbsp;<p class="_2csFM9"> 10</p> &nbsp;<button class="wNrY5O"> + </button>
+
+              </div>
+              <div class="product-details">
+                <div class="product-title">Dingo Dog Bones</div>
+                <p class="product-description"></p>
+              </div>
+              <!--<div class="product-price"></div> -->
+              <div class="product-quantity ">
+                <div class="product-line-price pull-left">25.98</div>
+
+
+              </div>
+            <!--  <div class="product-removal">
+                <button class="remove-product">
+                  Remove
+                </button>
+              </div> -->
+            </div>
+
+            <div class="product">
+              <div class="product-image ">
+                <!--<img src="https://s.cdpn.io/3/dingo-dog-bones.jpg"> -->
+                <button class="wNrY5O"> – </button>&nbsp;<p class="_2csFM9"> 10</p> &nbsp;<button class="wNrY5O"> + </button>
+
+              </div>
+              <div class="product-details">
+                <div class="product-title">Dingo Dog Bones</div>
+                <p class="product-description"></p>
+              </div>
+              <!--<div class="product-price"></div> -->
+              <div class="product-quantity ">
+                <div class="product-line-price pull-left">25.98</div>
+
+
+              </div>
+            <!--  <div class="product-removal">
+                <button class="remove-product">
+                  Remove
+                </button>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <!--<div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
 
 
 

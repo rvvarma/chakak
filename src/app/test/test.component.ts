@@ -59,6 +59,7 @@ this.router.navigate(['/mobile'])
   //   document.addEventListener("resume", onResume, false);
   //   console.log(this.storing.getItem("itemdata") +" "+this.userid)
 this.items=JSON.parse(this.storing.getItem("itemdata"))
+console.log(this.items)
 this.savedaddresses=JSON.parse(this.storing.getItem("adding"))
 console.log(this.storing.getItem("order"))
 var data1=this.items
