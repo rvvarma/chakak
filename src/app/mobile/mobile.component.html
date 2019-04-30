@@ -103,17 +103,52 @@
 </ul>
 <br><br>
 <router-outlet></router-outlet>
+<br>
+<br>
+<br>
+<br>
+<div class="bottom" style="    position: fixed;background-color:#FFF;">
+    <div id="carouselContent" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active  ">
 
-<br>
-<br>
-<br>
-<br>
+
+
+                     <label style="text-align:left;margin-top:1%;margin-left:10%;">
+                       <b style="color:#000;font-size:0.8em;"> Add On a Pepsi(300ml)  for  Rs {{indi.itemprice}}</b>
+                     </label>
+
+                     <a  class=" pull-right" style=";margin-top:1%">
+                       <span class="badge"><input type="checkbox" value=""></span>
+           <!--    <i class="fa fa-plus-circle fa-lg" aria-hidden="true" (click)="inc(i)"></i>
+
+
+              </a>
+                 <label class="pull-right" style="margin-left:4%;margin-right:4%">{{indi.count}}</label>
+                 <a  class=" pull-right"  style="margin-left:2%">
+                   <i class="fa fa-minus-circle fa-lg" aria-hidden="true" (click)="dec(i)"></i>
+-->
+              </a>
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
 <nav class="mobile-bottom-nav">
   &nbsp;&nbsp;&nbsp;&nbsp;
 <div class="mobile-bottom-nav__item mobile-bottom-nav__item-active ">
  <div class="mobile-bottom-nav__item-content">
    <a  routerLink="/mobile/test" routerLinkActive="active-link" >
-  <img src="https://img.icons8.com/metro/25//000000/cottage.png"><br> <b style="font-size:0.8em">Home</b>
+     <i class="fas fa-home fa-1x"></i>
+<!--
+     <br> <b style="font-size:0.8em">Home</b>-->
      </a>
  </div>
 </div>
@@ -121,7 +156,9 @@
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content">
    <a routerLink="/mobile/offers" routerLinkActive="active-link">
-<img src="https://img.icons8.com/metro/25/000000/discount.png"><br><b style="font-size:0.8em">offers</b>
+     <i class="fas fa-percent fa-1x"></i>
+<!--
+<br><b style="font-size:0.8em">offers</b>-->
  </a>
  </div>
 </div>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -132,15 +169,18 @@
 
 
 
-  <img src="https://img.icons8.com/cotton/25/000000/move-by-trolley.png">
+     <i class="fas fa-cart-arrow-down fa-1x"></i>
+
+
 
 
 
 <span *ngIf="itemcounts!=0"  class="badge-square">{{itemcounts}}</span>
 
-
+<!--
 <br>
  <b style="font-size:0.8em"> Cart</b>
+-->
 </a>
 
  </div>
@@ -150,8 +190,10 @@
 <div class="mobile-bottom-nav__item">
  <div class="mobile-bottom-nav__item-content">
    <a  routerLink="/mobile/account" routerLinkActive="active-link">
-<img src="https://img.icons8.com/cotton/25/000000/name.png"><br>
-   <b style="font-size:0.8em">   Account</b>
+     <i class="fas fa-user fa-1x"></i>
+<!--
+<br>
+   <b style="font-size:0.8em">   Account</b>-->
 </a>
 
 

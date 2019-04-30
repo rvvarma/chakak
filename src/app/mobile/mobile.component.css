@@ -7,6 +7,20 @@ a:focus, a:hover {
     color: #e81e1e;
     text-decoration: none;
 }
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #fff;
+    border-radius: 10px;
+}
 .badge-square {
   box-sizing: border-box;
   display: inline-block;
@@ -25,7 +39,20 @@ a:focus, a:hover {
   vertical-align: middle;
   text-align: center;
 }
+.bottom{
+  position: fixed;
+bottom: 15px;
+left: 0;
+right: 0;
+z-index: 1000;
+will-change: transform;
+-webkit-transform: translateZ(0);
+transform: translateZ(0);
+height: 60px;
 
+box-shadow: 0 -2px 5px -2px #333;
+
+}
 .red-cart {
   color: #DF0000;
   background: white;
@@ -278,7 +305,7 @@ font-size:30px;
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
   display: flex;
-  height: 55px;
+  height: 40px;
   box-shadow: 0 -2px 5px -2px #333;
   background-color: #fff;
 }
