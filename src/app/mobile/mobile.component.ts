@@ -32,15 +32,15 @@ export class MobileComponent implements OnInit {
     this.itemcounts=0
     this.storing= window.localStorage;
 this.userid=this.storing.getItem("userid")
-this.storing.setItem("itemdata","")
 
+/*
 this.http.get("https://3q4jnoy6zf.execute-api.ap-south-1.amazonaws.com/prod/address-card?operation=getaddress&&userid="+this.userid).subscribe(data => {
 var boy=data.json();
 this.savedaddresses=boy.data
 //console.log(boy.data)
 //console.log(this.savedaddresses)
 
-})
+})*/
 //
 /*
 firebase.getToken(function(token) {
@@ -54,6 +54,10 @@ firebase.getToken(function(token) {
 
     this.address="Locating......"
 }
+setaddress(savedadd){
+  this.savedaddresses=savedadd
+}
+
 ngAfterViewInit() {
 
   }

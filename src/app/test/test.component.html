@@ -64,18 +64,21 @@
 
    <li class="list-group-item" *ngFor="let indi of item.value ; let i = index">
             <label class="itemname">
-              <img src="./assets/veg.png" height="15px" *ngIf="indi.itemvariant=='veg'">
-              <img src="./assets/non-veg.png" height="15px" *ngIf="indi.itemvariant=='nonveg'">&nbsp;{{indi.itemname}}
+              <img src="./assets/veg.png" height="15px" *ngIf="indi.itemtype=='veg'">
+              <img src="./assets/non-veg.png" height="15px" *ngIf="indi.itemtype=='nonveg'">&nbsp;{{indi.itemname}}
 
-             <br> <p class="price">Rs {{indi.itemprice}}</p> </label>
+             <p class="price" *ngIf="indi.itemvariant==0">Rs {{indi.itemprice}}</p>
+           <p style="color:#099E44" *ngIf="indi.itemvariant==1"> Customize </p>
 
+         </label>
 
-                  <a  class=" pull-right">
-                  <i class="fa fa-plus-circle" aria-hidden="true" (click)="inc(i,item.key)"routerLink="/customize"></i>
+             <button class="btns success" *ngIf="indi.itemvariant==1" (click)="custom(indi.lineitems)">Add <img src="./assets/add.png"></button>
+                  <a  class=" pull-right" *ngIf="indi.itemvariant==0">
+                  <i class="fa fa-plus-circle" aria-hidden="true" (click)="inc(i,item.key)"></i>
 
 </a>
-                 <label class="pull-right" style="margin-left:4%;margin-right:4%">{{indi.count}}</label>
-                 <a  class=" pull-right"  style="margin-left:2%">
+                 <label *ngIf="indi.itemvariant==0" class="pull-right" style="margin-left:4%;margin-right:4%">{{indi.count}}</label>
+                 <a *ngIf="indi.itemvariant==0" class=" pull-right"  style="margin-left:2%">
                    <i class="fa fa-minus-circle" aria-hidden="true" (click)="dec(i,item.key)"></i>
 
 </a>
@@ -90,15 +93,14 @@
 
 </div>
 
+<!--
 
 
-
-
+<!--
 
 <div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-notify modal-danger" role="document">
-    <!--Content-->
     <div class="modal-content">
       <!--Header-->
         <!--  <div class="modal-header">
@@ -108,7 +110,6 @@
         </button>
       </div>
 
-      <!--Body-->
       <div class="modal-body container">
         <h2  class="text-center">ADD ON's</h2>
 
@@ -124,13 +125,11 @@
   </div>
 
 </div>
-      <!--Footer
-      -->
+
 
     </div>
-    <!--/.Content-->
   </div>
-</div>
+</div>-->
 
 
 

@@ -76,43 +76,43 @@ login(data){
   console.log(data)
   var that=this
 
-// FirebasePlugin.getToken(function(token) {    // save this server-side and use it to push notifications to this device
-  //   console.log("firetaking "+token);
-    //that.firetaking=token
+ FirebasePlugin.getToken(function(token) {    // save this server-side and use it to push notifications to this device
+     console.log("firetaking "+token);
+    that.firetaking=token
 
-  // }, function(error) {
-    //  console.log(error);
-  //});
+   }, function(error) {
+      console.log(error);
+  });
 
 
-  //var permissions = cordova.plugins.permissions;
+  var permissions = cordova.plugins.permissions;
 
-    // var list = [
-      // permissions.CAMERA,
-       //permissions.ACCESS_FINE_LOCATION
-     //];
+     var list = [
+       permissions.CAMERA,
+       permissions.ACCESS_FINE_LOCATION
+     ];
 
-    // permissions.hasPermission(list, success, error);
+     permissions.hasPermission(list, success, error);
 
-     //function error() {
-      // console.warn('Camera or Accounts permission is not turned on');
-    // }
+    function error() {
+       console.warn('Camera or Accounts permission is not turned on');
+     }
 
-  //   function success( status ) {
-    //   if( !status.hasPermission ) {
+     function success( status ) {
+       if( !status.hasPermission ) {
 
-      //   permissions.requestPermissions(
-        //   list,
-          // function(status) {
-            // if( !status.hasPermission ) error();
-          // },
-          // error);
-       //} //
+         permissions.requestPermissions(
+           list,
+           function(status) {
+             if( !status.hasPermission ) error();
+           },
+           error);
+       } //
 
 
 //this.router.navigate(['/mobile'])
 
-//}
+}
 var json={
   "operation": "signin",
   "email": data.value.email
@@ -134,6 +134,7 @@ this.error=""
 }
 })
 }
+
 
 signup(data){
 
