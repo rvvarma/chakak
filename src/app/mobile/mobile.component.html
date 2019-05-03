@@ -114,15 +114,15 @@
 
 
 
-                     <label style="text-align:left;margin-top:1%;margin-left:5%;">
-                       <b style="color:#53a273;font-size:0.8em;"> Add On a Pepsi(300ml)  for  Rs {{indi.itemprice}}</b>
+                     <label style="text-align:left;margin-top:1%;margin-left:7%;">
+                       <b style="font-size:0.8em;"> Add On a Pepsi(300ml)  for  Rs {{indi.itemprice}}</b>
                      </label>
 
-                     <a  class=" pull-right" style=";margin-top:1%;margin-right:2%;">
-  <i class="fa fa-plus-circle fa-lg" aria-hidden="true" (click)="inc(i)"></i>
+                     <a  class=" pull-right" style=";margin-top:1%">
+              <i class="fa fa-plus-circle fa-lg" aria-hidden="true" (click)="inc(i)"></i>
+ <!--
+           <span class="badge"><input type="checkbox" value=""></span>
 
-         <!--
-           <span class="badge"><input type="checkbox" value=""></span> --
               </a>
                  <label class="pull-right" style="margin-left:4%;margin-right:4%">{{indi.count}}</label>
                  <a  class=" pull-right"  style="margin-left:2%">
@@ -144,27 +144,26 @@
 <nav class="mobile-bottom-nav">
   &nbsp;&nbsp;&nbsp;&nbsp;
 <div class="mobile-bottom-nav__item mobile-bottom-nav__item-active ">
- <div class="mobile-bottom-nav__item-content" style=" margin-top: 20%;">
+ <div class="mobile-bottom-nav__item-content">
    <a  routerLink="/mobile/test" routerLinkActive="active-link" >
      <i class="fas fa-home fa-lg"></i>
-     <p style="font-size:0.8em">   Home</p>
 
+     <br> <b style="font-size:0.6em">Home</b>
      </a>
  </div>
 </div>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <div class="mobile-bottom-nav__item">
- <div class="mobile-bottom-nav__item-content" style=" margin-top: 20%;">
+ <div class="mobile-bottom-nav__item-content">
    <a routerLink="/mobile/offers" routerLinkActive="active-link">
      <i class="fas fa-percent fa-lg"></i>
 
-     <p style="font-size:0.8em">  Offers</p>
-
+<br><b style="font-size:0.6em">offers</b>
  </a>
  </div>
 </div>&nbsp;&nbsp;&nbsp;&nbsp;
 <div class="mobile-bottom-nav__item">
- <div class="mobile-bottom-nav__item-content" routerLink="/mobile/cart" routerLinkActive="active-link" style=" margin-top: 8%;">
+ <div class="mobile-bottom-nav__item-content" routerLink="/mobile/cart" routerLinkActive="active-link">
    <a routerLink="/mobile/cart" routerLinkActive="active-link">
 
 
@@ -178,7 +177,8 @@
 
 <span *ngIf="itemcounts!=0"  class="badge-square">{{itemcounts}}</span>
 
-<p style="font-size:0.8em">   Cart</p>
+<br>
+ <b style="font-size:0.6em"> Cart</b>
 
 </a>
 
@@ -187,12 +187,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;
 
 <div class="mobile-bottom-nav__item">
- <div class="mobile-bottom-nav__item-content" style=" margin-top: 20%;">
+ <div class="mobile-bottom-nav__item-content">
    <a  routerLink="/mobile/account" routerLinkActive="active-link">
      <i class="fas fa-user fa-lg"></i>
 
-
-   <p style="font-size:0.8em">   Account</p>
+<br>
+   <b style="font-size:0.6em">   Account</b>
 </a>
 
 

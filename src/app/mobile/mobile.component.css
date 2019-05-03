@@ -42,7 +42,7 @@ a:focus, a:hover {
 }
 .bottom{
   position: fixed;
-bottom: 15px;
+bottom: 3% ;
 left: 0;
 right: 0;
 z-index: 1000;
@@ -308,7 +308,7 @@ color:#53a273;
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
   display: flex;
-  height: 45px;
+  height: 55px;
   box-shadow: 0 -2px 5px -2px #333;
   background-color: #fff;
 }
