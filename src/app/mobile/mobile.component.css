@@ -7,6 +7,7 @@ a:focus, a:hover {
     color: #e81e1e;
     text-decoration: none;
 }
+
 .badge {
     display: inline-block;
     min-width: 10px;
@@ -293,7 +294,9 @@ font-size:30px;
 
 
 
-
+.fa-plus-circle, .fa-minus-circle{
+color:#53a273;
+}
 
 .mobile-bottom-nav {
   position: fixed;
@@ -305,7 +308,7 @@ font-size:30px;
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
   display: flex;
-  height: 40px;
+  height: 45px;
   box-shadow: 0 -2px 5px -2px #333;
   background-color: #fff;
 }
